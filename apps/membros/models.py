@@ -31,7 +31,7 @@ class Jovens(models.Model):
     igreja = models.ForeignKey(Igreja, null=False, blank=False, on_delete=models.CASCADE)
     celula_atual = models.ForeignKey(Celula, related_name='JovensDaCelula', null=False, blank=False,
                                      on_delete=models.CASCADE)
-    RegistreSeusDados = models.ForeignKey(RegistroPessoal, null=False, blank=False, on_delete=models.PROTECT)
+    RegistreSeusDados = models.ForeignKey(RegistroPessoal, null=True, blank=True, on_delete=models.PROTECT)
 
     class Meta:
         verbose_name = 'Jovem'

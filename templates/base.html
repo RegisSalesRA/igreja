@@ -1,0 +1,192 @@
+{% load bootstrap4 %}
+{% load static %}
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {% bootstrap_css %}
+    <title>Igreja Project</title>
+
+    <style>
+    :root {
+    --bg-dark: #1A2F3A;
+
+    --header-height:100px;
+    --aside-width:225px;
+    --footer-height:60px;
+
+    --shadow:
+        0 2px 23px 0 rgba(0,0,0,0.1),
+        0 2px 49px 0 rgba(0,0,0,0.06);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Layout Grid */
+
+.app {
+    margin: 0;
+    display: grid;
+    grid-template-columns: var(--aside-width) 1fr;
+    grid-template-rows:
+            var(--header-height)
+            1fr
+            var(--footer-height);
+    grid-template-areas:
+        "header header"
+        "menu content"
+        "footer footer";
+    height: 100vh;
+    background-color: #F5F5F5;
+}
+
+header.header{
+    grid-area: header;
+}
+aside.menu-area{
+    grid-area: menu;
+}
+main.content{
+    grid-area: content;
+}
+footer.footer{
+    grid-area: footer;
+}
+
+/*Layoutgridend*/
+
+/*Refactory Header*/
+
+
+header.header {
+    background: darkgray;
+}
+header.header a{
+        color: darkslateblue;
+        font-family: Montserrat,'sans-serif';
+        font-weight: bolder;
+        font-size: 30px;
+    }
+
+header.header h1{
+        font-family: cursive;
+    }
+
+#cabecalhoHeader{
+    display: flex;
+    justify-content: space-between;
+}
+
+/*headerEnd*/
+
+/*Refactory footer*/
+footer.footer{
+    background: darkgray;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 0px 10px;
+    font-size: larger;
+    box-shadow: rgba(0, 0, 0, 0.5);
+}
+
+footer.footer p{
+    margin: 0;
+    font-family: 'Montserrat','sans-serif';
+}
+/*FooterEnd*/
+
+
+/*Refactory AsideMenu*/
+aside.menu{
+    background: grey;
+    font-family: 'Montserrat','sans-serif';
+    font-weight: bolder;
+}
+aside.menu ul li a{
+    color: darkslateblue;
+}
+aside.menu ul li:hover{
+    color: #07a7e3;
+}
+
+aside.menu-area a{
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-weight: 300;
+    padding: 15px;
+}
+
+aside.menu-area a:hover{
+    background: linear-gradient(135deg, #07a7e3 0%, #32dac3 100% );
+}
+/*AsideMenuEnd*/
+    </style>
+    <script src="https://kit.fontawesome.com/ae60b20127.js" crossorigin="anonymous"></script>
+    </head>
+
+<body>
+
+<div class="app">
+
+        <header class="header">
+            <div id="cabecalhoHeader">
+                <a href="#">Home</a>
+                <h1>Projeto Igreja</h1>
+                <a href="#">.</a>
+            </div>
+
+        </header>
+
+        <aside class="menu">
+            <ul>
+            </br>
+            <li><a href="{% url 'igrejaHtml' %}">Igreja</a></li></br>
+            <li><a href="{% url 'liderHtml' %}">Lideres</a></li></br>
+            <li><a href="{% url 'celulaHtml' %}">Celula</a></li></br>
+
+            <li><a href="{% url 'jovemHtml' %}">Jovens</a></li></br>
+            <li><a href="{% url 'novatoHtml' %}">Novatos</a></li></br>
+
+
+            <li><a href="{% url 'atividadeHtml' %}">Atividades</a></li></br>
+            <li><a href="{% url 'pessoalHtml' %}">Registros</a></li></br>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <div class="container">
+                {% block context %}
+                {% endblock %}
+            </div>
+        </main>
+
+        <footer class="footer">
+             <span>Fighting hard...Fighting strong...!
+            <i class="fa fa-flag text-success"></i>
+            <i class="fa fa-flag text-warning"></i>
+            <i class="fa fa-flag text-primary"></i>
+        </span>
+        <p>Do or do not there is not try <i class="fa fa-hand-rock-o text-danger"></i></p>
+        <p>If you need help send a msg to me!
+        <a href="https://github.com/RegisSalesRA">
+            <i class="fa fa-github" aria-hidden="true"></i>
+        </a>
+</p>
+        </footer>
+
+</div>
+
+{% bootstrap_javascript jquery='full' %}
+</body>
+
+</html>

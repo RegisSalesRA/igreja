@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block context %}
+    <table class="table table-striped">
+
+        <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Igreja</th>
+            <th scope="col">Celula Atual</th>
+            <th scope="col">Acao</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for novato in Novatos %}
+
+            <tr>
+                <td>{{ novato.nome }}</td>
+                <td>{{ novato.igreja_participante }}</td>
+                <td>{{ novato.celular_participante }}</td>
+                <td>
+                    <a class="btn btn-warning" href="{% url 'novatoAtualizar' novato.pk %}" >Editar</a>
+                    <a class="btn btn-danger" href="{% url 'novatoDeletar' novato.pk %}" >Deletar</a>
+                </td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+
+    </table>
+    <a class="btn btn-success" href="{% url 'novatoAdicionar' %}">Adicionar</a>
+{% endblock %}

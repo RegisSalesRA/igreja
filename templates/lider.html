@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block context %}
+    <table class="table table-striped">
+
+        <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">id_igreja</th>
+            <th scope="col">IgrejaPertence</th>
+            <th scope="col">Acao</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for lider in lideres %}
+
+            <tr>
+                <td>{{ lider.nome }}</td>
+                <td>{{ lider.id_igreja }}</td>
+                <td>{{ lider.igreja_pertence }}</td>
+                <td>
+                    <a class="btn btn-warning" href="{% url 'liderAtualizar' lider.pk %}" >Editar</a>
+                    <a class="btn btn-danger" href="{% url 'liderDeletar' lider.pk %}" >Deletar</a>
+                </td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+
+    </table>
+    <a class="btn btn-success" href="{% url 'liderAdicionar' %}">Adicionar</a>
+{% endblock %}

@@ -23,7 +23,7 @@ class Igreja(models.Model):
 
 class Lideres(models.Model):
     image = StdImageField('Imagem', upload_to=get_file_path,
-                          variations={'thumb': {'width': 480, 'height': 480, 'crop': True}})
+                          variations={'thumb': {'width': 480, 'height': 480, 'crop': True}}, blank=True,null=True)
     nome = models.CharField(max_length=150, null=False, blank=False)
     id_igreja = models.CharField(max_length=150, null=False, blank=False)
     igreja_pertence = models.ForeignKey(Igreja, related_name='lideres', null=False, blank=False,

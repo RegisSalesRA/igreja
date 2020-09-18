@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block context %}
+    <table class="table table-striped">
+
+        <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Funcao</th>
+            <th scope="col">Celula Atual</th>
+            <th scope="col">Registro de Dados</th>
+            <th scope="col">Acao</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for jovem in Jovens %}
+
+            <tr>
+                <td>{{ jovem.nome }}</td>
+                <td>{{ jovem.funcao_na_igreja }}</td>
+                <td>{{ jovem.celula_atual }}</td>
+                <td>{{ jovem.RegistreSeusDados }}</td>
+                <td>
+                    <a class="btn btn-warning" href="{% url 'jovemAtualizar' jovem.pk %}" >Editar</a>
+                    <a class="btn btn-danger" href="{% url 'jovemDeletar' jovem.pk %}" >Deletar</a>
+                </td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+
+    </table>
+    <a class="btn btn-success" href="{% url 'jovemAdicionar' %}">Adicionar</a>
+{% endblock %}

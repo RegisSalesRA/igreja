@@ -16,7 +16,7 @@ class RegistroPessoal(models.Model):
         ('L', 'Lider')
     ]
     image = StdImageField('Imagem', upload_to=get_file_path,
-                          variations={'thumb': {'width': 480, 'height': 480, 'crop': True}})
+                          variations={'thumb': {'width': 480, 'height': 480, 'crop': True}} ,blank=True,null=True)
     nome_completo = models.CharField(max_length=100, null=False, blank=False)
     status = models.CharField(max_length=6, default='J', choices=statusoptions)
     identificacao_igreja = models.CharField(max_length=20, null=True, blank=True, unique=True)
@@ -35,7 +35,7 @@ class RegistroPessoal(models.Model):
 
 class RegistroAtividade(models.Model):
     nome_atividade = models.CharField(max_length=150,null=False,blank=False,unique=True)
-    file = models.FileField(upload_to='Registros', null=False, blank=False)
+    file = models.FileField(upload_to='Registros', null=True, blank=True)
     descreva_atividade = models.TextField()
     Data = models.DateTimeField()
     created_at = models.DateTimeField(auto_now_add=True)

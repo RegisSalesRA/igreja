@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block context %}
+    <center>
+    <form method="post" style="margin-top: 70px">
+    {% csrf_token %}
+    <p>Tem certeza que deseja deletar a celula "{{ object }}"?</p>
+        {% buttons %}
+            <button type="submit" class="btn btn-danger">Confirmar</button>
+            <button type="submit" class="btn btn-warning">
+                <a href="{% url 'celulaHtml' %}">Cancelar</a>
+            </button>
+        {% endbuttons %}
+    </form>
+    </center>
+{% endblock %}

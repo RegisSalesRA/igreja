@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block context %}
+
+    <table class="table table-striped">
+
+        <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Endereco</th>
+            <th scope="col">Pastor</th>
+            <th scope="col">Descricao</th>
+            <th scope="col">Acao</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for igreja_iten in igreja %}
+
+            <tr>
+                <td>{{ igreja_iten.nome_igreja }}</td>
+                <td>{{ igreja_iten.endereco }}</td>
+                <td>{{ igreja_iten.pastor_nome }}</td>
+                <td>{{ igreja_iten.descreva_igreja }}</td>
+                <td>
+                    <a class="btn btn-warning" href="{% url 'igrejaAtualizar' igreja_iten.pk %}" >Editar</a>
+                    <a class="btn btn-danger" href="{% url 'igrejaDeletar' igreja_iten.pk %}" >Deletar</a>
+                </td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-success" href="{% url 'igrejaAdicionar' %}">Adicionar</a>
+{% endblock %}
