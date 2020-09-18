@@ -1,7 +1,23 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from rest_framework import viewsets
 
+from api.membros.serializers import JovensSerializer, NovatosSerializer
 from apps.membros.models import Jovens, Novatos
+
+
+#API
+
+class JovensView(viewsets.ModelViewSet):
+    queryset = Jovens.objects.all()
+    serializer_class = JovensSerializer
+
+
+class NovatosView(viewsets.ModelViewSet):
+    queryset = Novatos.objects.all()
+    serializer_class = NovatosSerializer
+
+#API END
 
 # ViewHtml
 

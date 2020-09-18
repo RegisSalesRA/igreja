@@ -1,7 +1,36 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from rest_framework import viewsets
+
+from api.igreja.serializers import IgrejaSerializer, CelulaSerializer, LideresSerializer
 from apps.igreja.models import Igreja, Celula, Lideres
+
+
+# API
+
+class ViewIgreja(viewsets.ModelViewSet):
+    queryset = Igreja.objects.all()
+    serializer_class = IgrejaSerializer
+
+
+class ViewCelula(viewsets.ModelViewSet):
+    queryset = Celula.objects.all()
+    serializer_class = CelulaSerializer
+
+
+class ViewLideres(viewsets.ModelViewSet):
+    queryset = Lideres.objects.all()
+    serializer_class = LideresSerializer
+
+
+# API END
+
+
+
+
+
+
 
 
 # VIEW HTML

@@ -1,9 +1,24 @@
 from django.urls import path
+from rest_framework.routers import SimpleRouter
 
 from apps.membros.views import JovensViewHtml, JovensCreateHtml, JovensUpdateHtml, JovensDeleteHtml, NovatoViewHtml, \
-    NovatoCreateHtml, NovatoUpdateHtml, NovatoDeleteHtml
+    NovatoCreateHtml, NovatoUpdateHtml, NovatoDeleteHtml, JovensView, NovatosView
+
+membrosUrl = SimpleRouter()
+
+membrosUrl.register('jovem', JovensView)
+membrosUrl.register('novato', NovatosView)
+
 
 urlpatterns = [
+
+#Api
+    path('jovens/', JovensView, name='jovens'),
+    path('novatos/', NovatosView, name='novatos'),
+#ApiEnd
+
+
+
 #HtmlUrl
 
     path('jovemHtml/', JovensViewHtml.as_view(), name='jovemHtml'),

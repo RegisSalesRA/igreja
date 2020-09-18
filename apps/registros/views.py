@@ -3,8 +3,25 @@
 # RegistroAtividadedeHtml
 from django.urls import reverse_lazy
 from django.views.generic import DeleteView, UpdateView, ListView, CreateView
+from rest_framework import viewsets
 
+from api.registros.serializers import RegistroAtividadeSerializer, RegistroPessoalSerializer
 from apps.registros.models import RegistroPessoal, RegistroAtividade
+
+
+class ViewRegistroAtividade(viewsets.ModelViewSet):
+    queryset = RegistroAtividade.objects.all()
+    serializer_class = RegistroAtividadeSerializer
+
+
+class ViewRegistroPessoal(viewsets.ModelViewSet):
+    queryset = RegistroPessoal.objects.all()
+    serializer_class = RegistroPessoalSerializer
+    # Permissao de Autentificacao
+    # authentication_classes = (TokenAuthentication,)
+    # permission_classes = (IsAuthenticated,)
+
+
 
 
 class RegistroAtividadeHtml(ListView):

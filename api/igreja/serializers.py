@@ -11,7 +11,7 @@ class IgrejaSerializer(serializers.ModelSerializer):
         fields = ('id', 'endereco', 'nome_igreja', 'pastor_nome', 'lideres', 'Igreja_nome_mae')
 
 
-class CelularSerializer(serializers.ModelSerializer):
+class CelulaSerializer(serializers.ModelSerializer):
     JovensDaCelula = serializers.StringRelatedField(many=True, read_only=True)
 
     class Meta:

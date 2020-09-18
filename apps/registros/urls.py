@@ -1,10 +1,26 @@
 from django.urls import path
+from rest_framework.routers import SimpleRouter
 
 from apps.registros.views import RegistroAtividadeHtml, RegistroAtividadeCreateHtml, RegistroAtividadeUpdateHtml, \
     RegistroAtividadeDeleteHtml, RegistroPessoalHtml, RegistroPessoalCreateHtml, RegistroPessoalUpdateHtml, \
-    RegistroPessoalDeleteHtml
+    RegistroPessoalDeleteHtml, ViewRegistroPessoal, ViewRegistroAtividade
+
+registroUrl = SimpleRouter()
+registroUrl.register('registroPessoal', ViewRegistroPessoal)
+registroUrl.register('registroAtividade', ViewRegistroAtividade)
+
+
+
 
 urlpatterns = [
+
+    # Api
+
+    path('registroPessoal/', ViewRegistroPessoal, name='registroPessoal'),
+    path('registroAtividade/', ViewRegistroAtividade, name='registroAtividade'),
+
+    # ApiEnd
+
     #Html
 
     path('atividadeHtml/', RegistroAtividadeHtml.as_view(), name='atividadeHtml'),
