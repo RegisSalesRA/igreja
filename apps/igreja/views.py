@@ -132,3 +132,9 @@ class DeleteCelulaView(DeleteView):
 
 
 # VIEW HTML END
+
+
+# HOME
+
+def Home(request):
+    return render(request, 'home.html')

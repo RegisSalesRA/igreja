@@ -3,8 +3,7 @@ from rest_framework.routers import SimpleRouter
 
 from apps.igreja.views import IgrejaView, CreateIgrejaView, UpdateIgrejaView, DeleteIgrejaView, CelulaView, \
     CreateCelulaView, UpdateCelulaView, DeleteCelulaView, LiderView, CreateLiderView, UpdateLiderView, DeleteLiderView, \
-    ViewIgreja, ViewCelula, ViewLideres
-
+    ViewIgreja, ViewCelula, ViewLideres, Home
 
 igrejaUrl = SimpleRouter()
 igrejaUrl.register('igreja', ViewIgreja)
@@ -26,7 +25,7 @@ urlpatterns = [
 
     # HTML
 
-    path('igreja/', IgrejaView.as_view(), name='igrejaHtml'),
+    path('igrejaHtml/', IgrejaView.as_view(), name='igrejaHtml'),
     path('igrejaAdicionar/', CreateIgrejaView.as_view(), name='igrejaAdicionar'),
     path('<int:pk>/igrejaAtualizar/', UpdateIgrejaView.as_view(), name='igrejaAtualizar'),
     path('<int:pk>/igrejaDeletar/', DeleteIgrejaView.as_view(), name='igrejaDeletar'),
@@ -42,4 +41,8 @@ urlpatterns = [
     path('<int:pk>/celulaDeletar/', DeleteCelulaView.as_view(), name='celulaDeletar'),
 
     # HTML END
+
+    # Home
+    path('', Home, name='Home'),
+
 ]
