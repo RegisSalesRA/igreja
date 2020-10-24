@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block context %}
+
+    {% for igreja in igrejalista %}
+
+    <div class="card-deck">
+            <div class="card" >
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ igreja.nome_igreja }}</h5>
+                    <p class="card-text">{{ igreja.descreva_igreja }}</p>
+                    <p class="card-text"><small class="text-muted">{{ igreja.pastor_nome }}</small></p>
+                    <a href="{% url 'listagemcelulaHtml' %}" class="btn btn-primary btn-sm">Celulas</a>
+                </div>
+            </div>
+
+    </div>
+{% endfor %}
+
+{% endblock context %}

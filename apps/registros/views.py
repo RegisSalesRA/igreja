@@ -26,28 +26,28 @@ class ViewRegistroPessoal(viewsets.ModelViewSet):
 
 class RegistroAtividadeHtml(ListView):
     model = RegistroAtividade
-    template_name = 'RegistroAtividade.html'
+    template_name = 'registros/RegistroAtividade.html'
     queryset = RegistroAtividade.objects.all()
     context_object_name = 'RegistrosA'
 
 
 class RegistroAtividadeCreateHtml(CreateView):
     model = RegistroAtividade
-    template_name = 'RegistroAtividade_form.html'
+    template_name = 'registros/RegistroAtividade_form.html'
     fields = ['nome_atividade', 'descreva_atividade', 'Data', 'igreja_mae']
     success_url = reverse_lazy('atividadeHtml')
 
 
 class RegistroAtividadeUpdateHtml(UpdateView):
     model = RegistroAtividade
-    template_name = 'RegistroAtividade_form.html'
+    template_name = 'registros/RegistroAtividade_form.html'
     fields = ['nome_atividade', 'descreva_atividade', 'Data', 'igreja_mae']
     success_url = reverse_lazy('atividadeHtml')
 
 
 class RegistroAtividadeDeleteHtml(DeleteView):
     model = RegistroAtividade
-    template_name = 'RegistroAtividade_form_deletar.html'
+    template_name = 'registros/RegistroAtividade_form_deletar.html'
     success_url = reverse_lazy('atividadeHtml')
 
 
@@ -57,28 +57,28 @@ class RegistroAtividadeDeleteHtml(DeleteView):
 
 class RegistroPessoalHtml(ListView):
     model = RegistroPessoal
-    template_name = 'RegistroPessoal.html'
+    template_name = 'registros/RegistroPessoal.html'
     queryset = RegistroPessoal.objects.all()
     context_object_name = 'RegistrosP'
 
 
 class RegistroPessoalCreateHtml(CreateView):
     model = RegistroPessoal
-    template_name = 'RegistroPessoal_form.html'
+    template_name = 'registros/RegistroPessoal_form.html'
     fields = ['nome_completo', 'status', 'identificacao_igreja', 'cpf', 'telefone', 'email', 'aniversario']
     success_url = reverse_lazy('pessoalHtml')
 
 
 class RegistroPessoalUpdateHtml(UpdateView):
     model = RegistroPessoal
-    template_name = 'RegistroPessoal_form.html'
+    template_name = 'registros/RegistroPessoal_form.html'
     fields = ['nome_completo', 'status', 'identificacao_igreja', 'cpf', 'telefone', 'email', 'aniversario']
     success_url = reverse_lazy('pessoalHtml')
 
 
 class RegistroPessoalDeleteHtml(DeleteView):
     model = RegistroPessoal
-    template_name = 'RegistroPessoal_form_deletar.html'
+    template_name = 'registros/RegistroPessoal_form_deletar.html'
     success_url = reverse_lazy('pessoalHtml')
 
 # RegistroPessoalEnd

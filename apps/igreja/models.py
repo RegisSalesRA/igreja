@@ -16,6 +16,8 @@ class Igreja(models.Model):
     nome_igreja = models.CharField(max_length=200, null=False, blank=False)
     pastor_nome = models.CharField(max_length=150, null=False, blank=False)
     descreva_igreja = models.TextField(help_text='fale um pouco sobre a igreja')
+    image = StdImageField('Imagem', upload_to=get_file_path,
+                          variations={'thumb': {'width': 480, 'height': 480, 'crop': True}}, blank=True, null=True)
 
     def __str__(self):
         return self.nome_igreja
