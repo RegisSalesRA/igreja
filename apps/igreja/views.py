@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from rest_framework import viewsets
@@ -27,12 +27,6 @@ class ViewLideres(viewsets.ModelViewSet):
 # API END
 
 
-
-
-
-
-
-
 # VIEW HTML
 
 # Igreja
@@ -44,12 +38,26 @@ class IgrejaView(ListView):
     queryset = Igreja.objects.all()
     context_object_name = 'igreja'
 
+
 # Listas Cards
-class ListasIgrejaView(ListView):
-    model = Igreja
-    template_name = 'igreja/igreja_listagem.html'
-    queryset = Igreja.objects.all()
-    context_object_name = 'igrejalista'
+def ListarIgreja(request):
+    igrejas = Igreja.objects.all().order_by('nome_igreja')
+    context = {
+        'igrejas': igrejas,
+    }
+    return render(request, 'igreja/igreja_listagem.html', context)
+
+# Listas Cards individual
+def IgrejaIndividual(request, igreja_id):
+    igrejas = get_object_or_404(Igreja, pk=igreja_id)
+    return render(request, 'igreja/igreja_listagem.html', {'igrejas': igrejas})
+
+# Celula Lista
+def CelulaLista(request,igreja_id):
+    igrejas = get_object_or_404(Igreja, pk=igreja_id)
+    celulas = Celula.objects.filter(igreja_mae=igreja_id)
+    return render(request, 'igreja/celula_listagem.html', {'celulas': celulas})
+
 
 
 class CreateIgrejaView(CreateView):
@@ -104,6 +112,7 @@ class DeleteLiderView(DeleteView):
     template_name = 'igreja/lider_form_deletar.html'
     success_url = reverse_lazy('liderHtml')
 
+
 # LiderEnd
 
 
@@ -115,7 +124,7 @@ class CelulaView(ListView):
     queryset = Celula.objects.all()
     context_object_name = 'celula'
 
-
+# List Celulas
 class ListaCelulaView(ListView):
     model = Celula
     template_name = 'igreja/celula_listagem.html'
@@ -142,6 +151,7 @@ class DeleteCelulaView(DeleteView):
     template_name = 'igreja/celula_form_deletar.html'
     success_url = reverse_lazy('celulaHtml')
 
+
 # EndCelula
 
 
@@ -152,4 +162,3 @@ class DeleteCelulaView(DeleteView):
 
 def Home(request):
     return render(request, 'home.html')
-

@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 {% block context %}
-
-    {% for igreja in igrejalista %}
-
+    {% if igrejas %}
+    {% for igreja in igrejas %}
     <div class="card-deck">
             <div class="card" >
                 <img class="card-img-top" src="..." alt="Card image cap">
@@ -10,11 +9,12 @@
                     <h5 class="card-title">{{ igreja.nome_igreja }}</h5>
                     <p class="card-text">{{ igreja.descreva_igreja }}</p>
                     <p class="card-text"><small class="text-muted">{{ igreja.pastor_nome }}</small></p>
-                    <a href="{% url 'listagemcelulaHtml' %}" class="btn btn-primary btn-sm">Celulas</a>
+                    <a href="#" class="btn btn-primary btn-sm">Detalhes</a>
                 </div>
             </div>
 
     </div>
 {% endfor %}
+    {% endif %}
 
 {% endblock context %}
