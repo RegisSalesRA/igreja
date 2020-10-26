@@ -50,7 +50,7 @@ def ListarIgreja(request):
 # Listas Cards individual
 def IgrejaIndividual(request, igreja_id):
     igrejas = get_object_or_404(Igreja, pk=igreja_id)
-    return render(request, 'igreja/igreja_listagem.html', {'igrejas': igrejas})
+    return render(request, 'igreja/igreja_listagem_unica.html', {'igrejas': igrejas})
 
 # Celula Lista
 def CelulaLista(request,igreja_id):

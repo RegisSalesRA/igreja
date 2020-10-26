@@ -10,6 +10,8 @@ igrejaUrl.register('igreja', ViewIgreja)
 igrejaUrl.register('celula', ViewCelula)
 igrejaUrl.register('lideres', ViewLideres)
 
+
+
 urlpatterns = [
 
     # API
@@ -23,11 +25,12 @@ urlpatterns = [
 
     # APIEND
 
+
     # HTML
 
     #No BasedView
     path('listagemigrejaHtml/', ListarIgreja, name='listagemigrejaHtml'),
-    path('listagemigrejaHtml/<int:igreja_id>', IgrejaIndividual, name='individualigreja'),
+    path('listagemigrejaHtml/<int:pk>/individual/', IgrejaIndividual, name='individualigreja'),
     path('listagemcelula/', CelulaLista, name='listagemcelulaHtml'),
     #No BasedView
 
