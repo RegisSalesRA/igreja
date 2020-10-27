@@ -41,7 +41,7 @@ class IgrejaView(ListView):
 
 # Listas Cards
 def ListarIgreja(request):
-    igrejas = Igreja.objects.all().order_by('nome_igreja')
+    igrejas = Igreja.objects.all().order_by('nome')
     context = {
         'igrejas': igrejas,
     }
@@ -63,14 +63,14 @@ def CelulaLista(request,igreja_id):
 class CreateIgrejaView(CreateView):
     model = Igreja
     template_name = 'igreja/igreja_form.html'
-    fields = ['endereco', 'nome_igreja', 'pastor_nome', 'descreva_igreja']
+    fields = ['nome', 'endereco', 'pastor', 'descricao']
     success_url = reverse_lazy('igrejaHtml')
 
 
 class UpdateIgrejaView(UpdateView):
     model = Igreja
     template_name = 'igreja/igreja_form.html'
-    fields = ['endereco', 'nome_igreja', 'pastor_nome', 'descreva_igreja']
+    fields = ['nome', 'endereco', 'pastor', 'descricao']
     success_url = reverse_lazy('igrejaHtml')
 
 
@@ -96,14 +96,14 @@ class LiderView(ListView):
 class CreateLiderView(CreateView):
     model = Lideres
     template_name = 'igreja/lider_form.html'
-    fields = ['nome', 'id_igreja', 'igreja_pertence']
+    fields = ['nome', 'codigo_igreja', 'igreja']
     success_url = reverse_lazy('liderHtml')
 
 
 class UpdateLiderView(UpdateView):
     model = Lideres
     template_name = 'igreja/lider_form.html'
-    fields = ['nome', 'id_igreja', 'igreja_pertence']
+    fields = ['nome', 'codigo_igreja', 'igreja']
     success_url = reverse_lazy('liderHtml')
 
 

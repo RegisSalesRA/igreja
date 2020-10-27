@@ -18,10 +18,10 @@
         {% for iten in celula %}
 
             <tr>
-                <td>{{ iten.nome_celula }}</td>
+                <td>{{ iten.nome }}</td>
                 <td>{{ iten.endereco }}</td>
-                <td>{{ iten.igreja_mae }}</td>
-                <td>{{ iten.lider_celula }}</td>
+                <td>{{ iten.igreja }}</td>
+                <td>{{ iten.lider }}</td>
                 <td>
                     <a class="btn btn-warning" href="{% url 'celulaAtualizar' iten.pk %}" >Editar</a>
                     <a class="btn btn-danger" href="{% url 'celulaDeletar' iten.pk %}" >Deletar</a>

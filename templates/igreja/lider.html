@@ -18,8 +18,8 @@
 
             <tr>
                 <td>{{ lider.nome }}</td>
-                <td>{{ lider.id_igreja }}</td>
-                <td>{{ lider.igreja_pertence }}</td>
+                <td>{{ lider.codigo_igreja }}</td>
+                <td>{{ lider.igreja }}</td>
                 <td>
                     <a class="btn btn-warning" href="{% url 'liderAtualizar' lider.pk %}" >Editar</a>
                     <a class="btn btn-danger" href="{% url 'liderDeletar' lider.pk %}" >Deletar</a>
