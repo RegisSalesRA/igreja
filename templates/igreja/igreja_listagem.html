@@ -9,7 +9,7 @@
                     <h5 class="card-title">{{ igreja.nome }}</h5>
                     <p class="card-text">{{ igreja.descricao }}</p>
                     <p class="card-text"><small class="text-muted">{{ igreja.pastor }}</small></p>
-                    <a href="{% url 'individualigreja' igreja.pk %}" class="btn btn-primary btn-sm">Detalhes</a>
+                    <a href="{% url 'detalhe' igreja.id %}" class="btn btn-primary btn-sm">Detalhes</a>
                 </div>
             </div>
 

@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
@@ -29,35 +30,13 @@ class ViewLideres(viewsets.ModelViewSet):
 
 # VIEW HTML
 
-# Igreja
-
+# Igreja Crud
 
 class IgrejaView(ListView):
     model = Igreja
     template_name = 'igreja/igreja.html'
     queryset = Igreja.objects.all()
     context_object_name = 'igreja'
-
-
-# Listas Cards
-def ListarIgreja(request):
-    igrejas = Igreja.objects.all().order_by('nome')
-    context = {
-        'igrejas': igrejas,
-    }
-    return render(request, 'igreja/igreja_listagem.html', context)
-
-# Listas Cards individual
-def IgrejaIndividual(request, igreja_id):
-    igrejas = get_object_or_404(Igreja, pk=igreja_id)
-    return render(request, 'igreja/igreja_listagem_unica.html', {'igrejas': igrejas})
-
-# Celula Lista
-def CelulaLista(request,igreja_id):
-    igrejas = get_object_or_404(Igreja, pk=igreja_id)
-    celulas = Celula.objects.filter(igreja_mae=igreja_id)
-    return render(request, 'igreja/celula_listagem.html', {'celulas': celulas})
-
 
 
 class CreateIgrejaView(CreateView):
@@ -80,10 +59,10 @@ class DeleteIgrejaView(DeleteView):
     success_url = reverse_lazy('igrejaHtml')
 
 
-# IgrejaEnd
+# IgrejaEnd Crud
 
 
-# Lider
+# Lider Crud
 
 
 class LiderView(ListView):
@@ -113,10 +92,10 @@ class DeleteLiderView(DeleteView):
     success_url = reverse_lazy('liderHtml')
 
 
-# LiderEnd
+# LiderEnd Crud
 
 
-# Celula
+# Celula Crud
 
 class CelulaView(ListView):
     model = Celula
@@ -152,13 +131,33 @@ class DeleteCelulaView(DeleteView):
     success_url = reverse_lazy('celulaHtml')
 
 
-# EndCelula
-
+# EndCelula Crud
 
 # VIEW HTML END
 
 
 # HOME
-
 def Home(request):
     return render(request, 'home.html')
+# Home End
+
+
+
+# Listas Cards
+def ListarIgreja(request):
+    igrejas = Igreja.objects.all().order_by('nome')
+    context = {
+        'igrejas': igrejas,
+    }
+    return render(request, 'igreja/igreja_listagem.html', context)
+
+# Listas Cards individual
+def IgrejaIndividual(request, igreja_id):
+    igreja = get_object_or_404(Igreja, pk=igreja_id)
+    return render(request, 'igreja/igreja_listagem_unica.html', {'igreja': igreja})
+
+# Celula Lista
+def CelulaLista(request,igreja_id):
+    igrejas = get_object_or_404(Igreja, pk=igreja_id)
+    celulas = Celula.objects.all()
+    return render(request, 'igreja/celula_listagem.html', {'celulas': celulas})

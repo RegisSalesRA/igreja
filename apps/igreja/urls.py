@@ -3,14 +3,12 @@ from rest_framework.routers import SimpleRouter
 
 from apps.igreja.views import IgrejaView, CreateIgrejaView, UpdateIgrejaView, DeleteIgrejaView, CelulaView, \
     CreateCelulaView, UpdateCelulaView, DeleteCelulaView, LiderView, CreateLiderView, UpdateLiderView, DeleteLiderView, \
-    ViewIgreja, ViewCelula, ViewLideres, Home, ListaCelulaView, ListarIgreja, IgrejaIndividual, CelulaLista
+    ViewIgreja, ViewCelula, ViewLideres, Home, ListaCelulaView, ListarIgreja, CelulaLista, IgrejaIndividual
 
 igrejaUrl = SimpleRouter()
 igrejaUrl.register('igreja', ViewIgreja)
 igrejaUrl.register('celula', ViewCelula)
 igrejaUrl.register('lideres', ViewLideres)
-
-
 
 urlpatterns = [
 
@@ -25,14 +23,13 @@ urlpatterns = [
 
     # APIEND
 
-
     # HTML
 
-    #No BasedView
+    # No BasedView
     path('listagemigrejaHtml/', ListarIgreja, name='listagemigrejaHtml'),
-    path('listagemigrejaHtml/<int:pk>/individual/', IgrejaIndividual, name='individualigreja'),
+    path('listagemigrejaHtml/<int:igreja_id>/', IgrejaIndividual, name='detalhe'),
     path('listagemcelula/', CelulaLista, name='listagemcelulaHtml'),
-    #No BasedView
+    # No BasedView
 
     path('igrejaHtml/', IgrejaView.as_view(), name='igrejaHtml'),
     path('igrejaAdicionar/', CreateIgrejaView.as_view(), name='igrejaAdicionar'),
@@ -43,7 +40,6 @@ urlpatterns = [
     path('liderAdicionar/', CreateLiderView.as_view(), name='liderAdicionar'),
     path('<int:pk>/liderAtualizar/', UpdateLiderView.as_view(), name='liderAtualizar'),
     path('<int:pk>/liderDeletar/', DeleteLiderView.as_view(), name='liderDeletar'),
-
 
     path('ListaCelulaView/', ListaCelulaView.as_view(), name='ListcelulaHtml'),
     path('celulaHtml/', CelulaView.as_view(), name='celulaHtml'),

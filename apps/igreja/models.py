@@ -42,9 +42,9 @@ class Lideres(models.Model):
 class Celula(models.Model):
     nome = models.CharField(max_length=200, null=False, blank=False)
     endereco = models.CharField(max_length=200, null=False, blank=False)
-    igreja = models.ForeignKey(Igreja, related_name='Igreja_nome_mae', null=False, blank=False,
+    igreja = models.ForeignKey(Igreja, null=False, blank=False,
                                on_delete=models.CASCADE)
-    lider = models.ForeignKey(Lideres, related_name='JovensDaCelula', null=False, blank=False,
+    lider = models.ForeignKey(Lideres, null=True, blank=True,
                               on_delete=models.CASCADE)
 
     class Meta:

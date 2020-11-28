@@ -21,20 +21,18 @@ from apps.membros.urls import membrosUrl
 from apps.registros.urls import registroUrl
 from rest_framework.authtoken import views
 
-
-
 urlpatterns = [
-#API
+    # API
     path('sede/', include(igrejaUrl.urls)),
     path('membro/', include(membrosUrl.urls)),
     path('registros/', include(registroUrl.urls)),
-    #API END
+    # API END
 
     path('admin/', admin.site.urls),
     path('', include('apps.igreja.urls')),
     path('index2/', include('apps.membros.urls')),
     path('index3/', include('apps.registros.urls')),
 
- #  path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
- #   path('api-token-auth/', views.obtain_auth_token, name='api-token-auth')
+    #  path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    #   path('api-token-auth/', views.obtain_auth_token, name='api-token-auth')
 ]
