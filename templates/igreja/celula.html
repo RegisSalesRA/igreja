@@ -1,36 +1,18 @@
 {% extends 'base.html' %}
-{% load bootstrap4 %}
-
 {% block context %}
-    <table class="table table-striped">
 
-        <thead>
-        <tr>
-            <th scope="col">Nome</th>
-            <th scope="col">Endereco</th>
-            <th scope="col">Igreja</th>
-            <th scope="col">Lider</th>
-            <th scope="col">Acao</th>
-        </tr>
-        </thead>
+            {% if celula %}
+            <div class="card-deck">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ igreja.nome }}</h5>
+                        <p class="card-text">{{ igreja.descricao }}</p>
+                        <p class="card-text"><small class="text-muted">{{ igreja.pastor }}</small></p>
+                        <a href="{% url 'celulas' igreja.id %}" class="btn btn-primary btn-sm">Celulas</a>
+                        <a href="{% url 'lideres' igreja.id %}" class="btn btn-primary btn-sm">Lideres</a>
+                    </div>
+                </div>
 
-        <tbody>
-        {% for iten in celula %}
-
-            <tr>
-                <td>{{ iten.nome }}</td>
-                <td>{{ iten.endereco }}</td>
-                <td>{{ iten.igreja }}</td>
-                <td>{{ iten.lider }}</td>
-                <td>
-                    <a class="btn btn-warning" href="{% url 'celulaAtualizar' iten.pk %}" >Editar</a>
-                    <a class="btn btn-danger" href="{% url 'celulaDeletar' iten.pk %}" >Deletar</a>
-                </td>
-            </tr>
-
-        {% endfor %}
-        </tbody>
-
-    </table>
-    <a class="btn btn-success" href="{% url 'celulaAdicionar' %}">Adicionar</a>
-{% endblock %}
+            </div>
+    {% endif %}
+{% endblock context %}

@@ -34,28 +34,28 @@ class ViewLideres(viewsets.ModelViewSet):
 
 class IgrejaView(ListView):
     model = Igreja
-    template_name = 'igreja/igreja.html'
+    template_name = 'igreja/CrudBasedViews/igreja.html'
     queryset = Igreja.objects.all()
     context_object_name = 'igreja'
 
 
 class CreateIgrejaView(CreateView):
     model = Igreja
-    template_name = 'igreja/igreja_form.html'
+    template_name = 'igreja/CrudBasedViews/igreja_form.html'
     fields = ['nome', 'endereco', 'pastor', 'descricao']
     success_url = reverse_lazy('igrejaHtml')
 
 
 class UpdateIgrejaView(UpdateView):
     model = Igreja
-    template_name = 'igreja/igreja_form.html'
+    template_name = 'igreja/CrudBasedViews/igreja_form.html'
     fields = ['nome', 'endereco', 'pastor', 'descricao']
     success_url = reverse_lazy('igrejaHtml')
 
 
 class DeleteIgrejaView(DeleteView):
     model = Igreja
-    template_name = 'igreja/igreja_form_deletar.html'
+    template_name = 'igreja/CrudBasedViews/igreja_form_deletar.html'
     success_url = reverse_lazy('igrejaHtml')
 
 
@@ -67,28 +67,28 @@ class DeleteIgrejaView(DeleteView):
 
 class LiderView(ListView):
     model = Lideres
-    template_name = 'igreja/lider.html'
+    template_name = 'igreja/CrudBasedViews/lider.html'
     queryset = Lideres.objects.all()
     context_object_name = 'lideres'
 
 
 class CreateLiderView(CreateView):
     model = Lideres
-    template_name = 'igreja/lider_form.html'
+    template_name = 'igreja/CrudBasedViews/lider_form.html'
     fields = ['nome', 'codigo_igreja', 'igreja']
     success_url = reverse_lazy('liderHtml')
 
 
 class UpdateLiderView(UpdateView):
     model = Lideres
-    template_name = 'igreja/lider_form.html'
+    template_name = 'igreja/CrudBasedViews/lider_form.html'
     fields = ['nome', 'codigo_igreja', 'igreja']
     success_url = reverse_lazy('liderHtml')
 
 
 class DeleteLiderView(DeleteView):
     model = Lideres
-    template_name = 'igreja/lider_form_deletar.html'
+    template_name = 'igreja/CrudBasedViews/lider_form_deletar.html'
     success_url = reverse_lazy('liderHtml')
 
 
@@ -99,35 +99,36 @@ class DeleteLiderView(DeleteView):
 
 class CelulaView(ListView):
     model = Celula
-    template_name = 'igreja/celula.html'
+    template_name = 'igreja/CrudBasedViews/celula.html'
     queryset = Celula.objects.all()
     context_object_name = 'celula'
+
 
 # List Celulas
 class ListaCelulaView(ListView):
     model = Celula
-    template_name = 'igreja/celula_listagem.html'
+    template_name = 'igreja/celulas.html'
     queryset = Celula.objects.all()
     context_object_name = 'celulalista'
 
 
 class CreateCelulaView(CreateView):
     model = Celula
-    template_name = 'igreja/celula_form.html'
+    template_name = 'igreja/CrudBasedViews/celula_form.html'
     fields = ['nome_celula', 'endereco', 'igreja_mae', 'lider_celula']
     success_url = reverse_lazy('celulaHtml')
 
 
 class UpdateCelulaView(UpdateView):
     model = Celula
-    template_name = 'igreja/celula_form.html'
+    template_name = 'igreja/CrudBasedViews/celula_form.html'
     fields = ['nome_celula', 'endereco', 'igreja_mae', 'lider_celula']
     success_url = reverse_lazy('celulaHtml')
 
 
 class DeleteCelulaView(DeleteView):
     model = Celula
-    template_name = 'igreja/celula_form_deletar.html'
+    template_name = 'igreja/CrudBasedViews/celula_form_deletar.html'
     success_url = reverse_lazy('celulaHtml')
 
 
@@ -139,25 +140,48 @@ class DeleteCelulaView(DeleteView):
 # HOME
 def Home(request):
     return render(request, 'home.html')
+
+
 # Home End
 
-
-
+##########################################################
 # Listas Cards
-def ListarIgreja(request):
+def Igrejas(request):
     igrejas = Igreja.objects.all().order_by('nome')
-    context = {
-        'igrejas': igrejas,
-    }
-    return render(request, 'igreja/igreja_listagem.html', context)
+    # context = {
+    #     'igrejas': igrejas,
+    # }
+    return render(request, 'igreja/igrejas.html', {'igrejas': igrejas})
+
 
 # Listas Cards individual
-def IgrejaIndividual(request, igreja_id):
+def igreja(request, igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id)
-    return render(request, 'igreja/igreja_listagem_unica.html', {'igreja': igreja})
+
+    return render(request, 'igreja/igreja.html', {'igreja': igreja})
+
 
 # Celula Lista
-def CelulaLista(request,igreja_id):
-    igrejas = get_object_or_404(Igreja, pk=igreja_id)
-    celulas = Celula.objects.all()
-    return render(request, 'igreja/celula_listagem.html', {'celulas': celulas})
+def Celulas(request, igreja_id):
+
+    igreja = get_object_or_404(Igreja, pk=igreja_id)
+    context = {
+        'igreja': igreja,
+        # 'celula': celula,
+    }
+
+    return render(request, 'igreja/celulas.html', context)
+
+
+# Celula Lista
+def celula(request, igreja_id):
+
+    celula = get_object_or_404(Igreja, pk=igreja_id)
+    return render(request, 'igreja/celula.html', {'celula':celula})
+
+
+# Lider Lista
+def LiderLista(request, igreja_id):
+    igreja = get_object_or_404(Igreja, pk=igreja_id)
+
+    return render(request, 'igreja/lideres.html', {'igreja': igreja})

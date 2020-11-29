@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block context %}
+
+    {% for lider in igreja.lideres_set.all %}
+
+        <div class="card-deck">
+            <div class="card">
+{#                <img class="card-img-top" src="..." alt="Card image cap">#}
+                <div class="card-body">
+                    <h5 class="card-title">{{ lider.nome }}</h5>
+                    <p class="card-text">{{ lider.codigo_igreja }}</p>
+                    <p class="card-text"><small class="text-muted"></small></p>
+{#                    <a href="#" class="btn btn-primary btn-sm"></a>#}
+                </div>
+            </div>
+
+        </div>
+    {% endfor %}
+
+{% endblock context %}

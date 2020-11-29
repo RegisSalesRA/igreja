@@ -28,7 +28,7 @@ class Lideres(models.Model):
                           variations={'thumb': {'width': 480, 'height': 480, 'crop': True}}, blank=True, null=True)
     nome = models.CharField(max_length=150, null=False, blank=False)
     codigo_igreja = models.CharField(max_length=150, null=False, blank=False)
-    igreja = models.ForeignKey(Igreja, related_name='lideres', null=False, blank=False,
+    igreja = models.ForeignKey(Igreja, null=False, blank=False,
                                on_delete=models.CASCADE)
 
     class Meta:

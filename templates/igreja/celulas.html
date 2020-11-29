@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block context %}
+
+    {% for celula in igreja.celula_set.all %}
+    {{ celula.id }}
+    {{ igreja.id }}
+    {{ igreja.nome }}
+        <div class="card-deck">
+            <div class="card">
+{#                <img class="card-img-top" src="..." alt="Card image cap">#}
+                <div class="card-body">
+                    <h5 class="card-title">{{ celula.nome }}</h5>
+                    <p class="card-text">{{ celula.endereco }}</p>
+                    <p class="card-text"><small class="text-muted"></small></p>
+                    <a href="" class="btn btn-primary btn-sm">Detalhes</a>
+                </div>
+            </div>
+
+        </div>
+    {% endfor %}
+{% endblock context %}

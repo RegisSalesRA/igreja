@@ -4,12 +4,12 @@
     {% for igreja in igrejas %}
     <div class="card-deck">
             <div class="card" >
-                <img class="card-img-top" src="..." alt="Card image cap">
+{#                <img class="card-img-top" src="..." alt="Card image cap">#}
                 <div class="card-body">
                     <h5 class="card-title">{{ igreja.nome }}</h5>
                     <p class="card-text">{{ igreja.descricao }}</p>
                     <p class="card-text"><small class="text-muted">{{ igreja.pastor }}</small></p>
-                    <a href="{% url 'detalhe' igreja.id %}" class="btn btn-primary btn-sm">Detalhes</a>
+                    <a href="{% url 'igreja' igreja.id %}" class="btn btn-primary btn-sm">Detalhes</a>
                 </div>
             </div>
 
