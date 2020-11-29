@@ -163,7 +163,6 @@ def igreja(request, igreja_id):
 
 # Celula Lista
 def Celulas(request, igreja_id):
-
     igreja = get_object_or_404(Igreja, pk=igreja_id)
     context = {
         'igreja': igreja,
@@ -174,11 +173,11 @@ def Celulas(request, igreja_id):
 
 
 # Celula Lista
-def celula(request, igreja_id):
-
-    celula = get_object_or_404(Igreja, pk=igreja_id)
-    return render(request, 'igreja/celula.html', {'celula':celula})
-
+def celula(request, igreja_id,celula_id):
+    igreja = get_object_or_404(Igreja, pk=igreja_id)
+    assembleia = Igreja.objects.get(pk=igreja_id)
+    celula = assembleia.celula_set.get(pk=celula_id)
+    return render(request, 'igreja/celula.html', {'celula': celula})
 
 # Lider Lista
 def LiderLista(request, igreja_id):

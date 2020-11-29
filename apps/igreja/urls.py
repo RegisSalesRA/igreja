@@ -30,7 +30,7 @@ urlpatterns = [
     path('igrejas/', Igrejas, name='igrejas'),
     path('igrejas/<int:igreja_id>/', igreja, name='igreja'),
     path('igrejas/<int:igreja_id>/celulas/', Celulas, name='celulas'),
-    path('igrejas/<int:igreja_id>/celulas/<int:celula_id>/', celula, name='celula'),
+    path('igrejas/<int:igreja_id>/celulas/<int:celula_id>', celula, name='celula'),
     path('igrejas/<int:igreja_id>/lider/', LiderLista, name='lideres'),
     # No BasedView
 
