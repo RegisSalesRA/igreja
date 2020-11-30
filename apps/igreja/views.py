@@ -173,7 +173,7 @@ def Celulas(request, igreja_id):
 
 
 # Celula Lista
-def celula(request, igreja_id,celula_id):
+def celula(request,celula_id,igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id)
     assembleia = Igreja.objects.get(pk=igreja_id)
     celula = assembleia.celula_set.get(pk=celula_id)

@@ -12,7 +12,7 @@
                     <h5 class="card-title">{{ celula.nome }}</h5>
                     <p class="card-text">{{ celula.endereco }}</p>
                     <p class="card-text"><small class="text-muted"></small></p>
-                    <a href="#" class="btn btn-primary btn-sm">Detalhes</a>
+                    <a href="{% url 'celula' igreja.id celula.id %}" class="btn btn-primary btn-sm">Detalhes</a>
                 </div>
             </div>
         </div>
