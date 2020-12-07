@@ -7,7 +7,9 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ celula.nome }}</h5>
                         <p class="card-text">{{ celula.lider }}</p>
-                        <p class="card-text"><small class="text-muted">{{ igreja.pastor }}</small></p>
+                        <p class="card-text"><small class="text-muted">{{ celula.igreja }}</small></p>
+                        <a href="{% url 'formcelula' celula.id %}" class="btn btn-success btn-sm">Editar</a>
+
                     </div>
                 </div>
 

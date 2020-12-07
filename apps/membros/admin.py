@@ -8,9 +8,9 @@ from .models import Jovens, Novatos
 
 @admin.register(Jovens)
 class JovensAdmin(admin.ModelAdmin):
-    list_display = ['nome', 'funcao_na_igreja', 'igreja', 'celula_atual', 'RegistreSeusDados']
+    list_display = ['nome', 'ministerio', 'igreja', 'celula']
 
 
 @admin.register(Novatos)
 class NovatosAdmin(admin.ModelAdmin):
-    list_display = ['nome', 'igreja_participante', 'celular_participante']
+    list_display = ['nome']

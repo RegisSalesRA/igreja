@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load bootstrap4 %}
-
 {% block context %}
     <table class="table table-striped">
 
@@ -15,16 +14,15 @@
         </thead>
 
         <tbody>
-        {% for jovem in Jovens %}
-
+        {% for jovem in jovens %}
             <tr>
                 <td>{{ jovem.nome }}</td>
-                <td>{{ jovem.funcao_na_igreja }}</td>
-                <td>{{ jovem.celula_atual }}</td>
-                <td>{{ jovem.RegistreSeusDados }}</td>
+                <td>{{ jovem.celula }}</td>
+                <td>{{ jovem.igreja }}</td>
+                <td>{{ jovem.ministerio }}</td>
                 <td>
-                    <a class="btn btn-warning" href="{% url 'jovemAtualizar' jovem.pk %}" >Editar</a>
-                    <a class="btn btn-danger" href="{% url 'jovemDeletar' jovem.pk %}" >Deletar</a>
+                    <a class="btn btn-warning" href="{% url 'JovemAtualizar' jovem.id %}" >Editar</a>
+                    <a class="btn btn-danger" href="{% url 'jovemDeletar' jovem.id %}" >Deletar</a>
                 </td>
             </tr>
 
@@ -32,5 +30,5 @@
         </tbody>
 
     </table>
-    <a class="btn btn-success" href="{% url 'jovemAdicionar' %}">Adicionar</a>
+    <a class="btn btn-success" href="{% url 'jovemcreate' %}">Adicionar</a>
 {% endblock %}

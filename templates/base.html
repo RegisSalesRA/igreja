@@ -12,7 +12,8 @@
     <title>Igreja Project</title>
     <link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Coda:400,800" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}" media="screen">
+    <link href="http://fonts.googleapis.com/css?family=Coda:400,800" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cssbase.css' %}" media="screen">
 <style>
 
 #menu-wrapper {
@@ -29,7 +30,7 @@
 
 
 <!-- #Main/AsideBar -->
-<div id="wrapper">
+<div id="wrapper" style="margin-right: 150px">
 
     <!-- #content -->
     <div id="page">
@@ -42,7 +43,6 @@
             </div>
         </div>
 <!-- end #content -->
-
 
         <!-- #SideBar -->
         <div id="sidebar">
@@ -63,8 +63,8 @@
                 <li>
                     <h2>Membros</h2>
                     <ul>
-                        <li><a href="{% url 'jovemHtml' %}">Jovens</a></li>
-                        <li><a href="{% url 'novatoHtml' %}">Novatos</a></li>
+{#                        <li><a href="{% url 'jovemHtml' %}">Jovens</a></li>#}
+{#                        <li><a href="{% url 'novatoHtml' %}">Novatos</a></li>#}
                     </ul>
                 </li>
                 <li>

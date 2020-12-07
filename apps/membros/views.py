@@ -1,12 +1,13 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from rest_framework import viewsets
-
 from api.membros.serializers import JovensSerializer, NovatosSerializer
+from apps.membros.forms import JovemForm, NovatoForm
 from apps.membros.models import Jovens, Novatos
+from django.shortcuts import render, get_object_or_404, redirect
 
 
-#API
+# API
 
 class JovensView(viewsets.ModelViewSet):
     queryset = Jovens.objects.all()
@@ -17,61 +18,71 @@ class NovatosView(viewsets.ModelViewSet):
     queryset = Novatos.objects.all()
     serializer_class = NovatosSerializer
 
-#API END
+
+# API END
 
 # ViewHtml
 
-class JovensViewHtml(ListView):
-    model = Jovens
-    template_name = 'membros/jovem.html'
-    queryset = Jovens.objects.all()
-    context_object_name = 'Jovens'
+def jovens(request):
+    jovens = Jovens.objects.all().order_by('nome')
+    return render(request, 'membros/jovens.html', {'jovens': jovens})
 
 
-class JovensCreateHtml(CreateView):
-    model = Jovens
-    template_name = 'membros/jovem_form.html'
-    fields = ['nome', 'funcao_na_igreja', 'igreja', 'celula_atual', 'RegistreSeusDados']
-    success_url = reverse_lazy('jovemHtml')
+def jovensForm(request):
+    form = JovemForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('Jovens')
+    return render(request, 'membros/jovem_form.html', {'form': form})
 
 
-class JovensUpdateHtml(UpdateView):
-    model = Jovens
-    template_name = 'membros/jovem_form.html'
-    fields = ['nome', 'funcao_na_igreja', 'igreja', 'celula_atual', 'RegistreSeusDados']
-    success_url = reverse_lazy('jovemHtml')
+def jovenUpdate(request, jovem_id):
+    jovem = Jovens.objects.get(pk=jovem_id)
 
-class JovensDeleteHtml(DeleteView):
-    model = Jovens
-    template_name = 'membros/jovem_form_deletar.html'
-    success_url = reverse_lazy('jovemHtml')
+    form = JovemForm(request.POST or None, instance=jovem)
+    if form.is_valid():
+        form.save()
+        return redirect('Jovens')
+    return render(request, 'membros/jovem_form.html', {'form': form, 'jovem': jovem})
 
-# ViewHtmlEndJovem
 
-# ViewHtmlNovato
+def jovemDelete(request, jovem_id):
+    jovem = Jovens.objects.get(pk=jovem_id)
 
-class NovatoViewHtml(ListView):
-    model = Novatos
-    template_name = 'membros/novato.html'
-    queryset = Novatos.objects.all()
-    context_object_name = 'Novatos'
+    if request.method == 'POST':
+        jovem.delete()
+        return redirect('Jovens')
+    return render(request, 'membros/jovem_form_deletar.html', {'jovem': jovem})
 
-class NovatoCreateHtml(CreateView):
-    model = Novatos
-    template_name = 'membros/novato_form.html'
-    fields = ['nome','igreja_participante','celular_participante']
-    success_url = reverse_lazy('novatoHtml')
 
-class NovatoUpdateHtml(UpdateView):
-    model = Novatos
-    template_name = 'membros/novato_form.html'
-    fields = ['nome', 'igreja_participante', 'celular_participante']
-    success_url = reverse_lazy('novatoHtml')
 
-class NovatoDeleteHtml(DeleteView):
-    model = Novatos
-    template_name = 'membros/novato_form_deletar.html'
-    success_url = reverse_lazy('novatoHtml')
-# ViewHtmlEndNovato
+def novatos(request):
+    novatos = Novatos.objects.all().order_by('nome')
+    return render(request, 'membros/novato.html', {'novatos': novatos})
 
-# ViewHtmlEnd
+
+def novatosForm(request):
+    form = NovatoForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('Novatos')
+    return render(request, 'membros/novato_form.html', {'form': form})
+
+
+def novatoUpdate(request, novato_id):
+    novato = Novatos.objects.get(pk=novato_id)
+
+    form = NovatoForm(request.POST or None, instance=novato)
+    if form.is_valid():
+        form.save()
+        return redirect('Novatos')
+    return render(request, 'membros/novato_form.html', {'form': form, 'novato': novato})
+
+
+def novatoDelete(request, novato_id):
+    novato = Novatos.objects.get(pk=novato_id)
+
+    if request.method == 'POST':
+        novato.delete()
+        return redirect('Novatos')
+    return render(request, 'membros/novato_form_deletar.html', {'novato': novato})
