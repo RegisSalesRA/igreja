@@ -43,3 +43,13 @@ class Novatos(models.Model):
 #     if created:
 #         Token.objects.create(user=instance)
 #
+
+# INTEL = 'INTEL'
+#    AMD = 'AMD'
+#    INTEL_AMD = 'INTEL E AMD'
+
+#    marcas_opcoes = [
+#        (INTEL, 'INTEL'),
+#        (AMD, 'AMD'),
+#        (INTEL_AMD, 'INTEL E AMD')
+#    ]
