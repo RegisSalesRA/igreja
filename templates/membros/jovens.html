@@ -21,7 +21,7 @@
                 <td>{{ jovem.igreja }}</td>
                 <td>{{ jovem.ministerio }}</td>
                 <td>
-                    <a class="btn btn-warning" href="{% url 'JovemAtualizar' jovem.id %}" >Editar</a>
+                    <a class="btn btn-warning" href="{% url 'jovemAtualizar' jovem.id %}" >Editar</a>
                     <a class="btn btn-danger" href="{% url 'jovemDeletar' jovem.id %}" >Deletar</a>
                 </td>
             </tr>

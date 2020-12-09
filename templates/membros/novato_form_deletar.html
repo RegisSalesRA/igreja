@@ -5,11 +5,11 @@
     <center>
     <form method="post" style="margin-top: 70px">
     {% csrf_token %}
-    <p>Tem certeza que deseja deletar o novato? "{{ object }}"?</p>
+    <p>Tem certeza que deseja deletar o novato? "{{ novato.nome }}"?</p>
         {% buttons %}
             <button type="submit" class="btn btn-danger">Confirmar</button>
             <button type="submit" class="btn btn-warning">
-                <a href="{% url 'Novatos' %}">Cancelar</a>
+                <a href="{% url 'novatos' %}">Cancelar</a>
             </button>
         {% endbuttons %}
     </form>

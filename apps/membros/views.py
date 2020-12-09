@@ -9,19 +9,22 @@ from django.shortcuts import render, get_object_or_404, redirect
 
 # API
 
-class JovensView(viewsets.ModelViewSet):
-    queryset = Jovens.objects.all()
-    serializer_class = JovensSerializer
-
-
-class NovatosView(viewsets.ModelViewSet):
-    queryset = Novatos.objects.all()
-    serializer_class = NovatosSerializer
+# class JovensView(viewsets.ModelViewSet):
+#     queryset = Jovens.objects.all()
+#     serializer_class = JovensSerializer
+#
+#
+# class NovatosView(viewsets.ModelViewSet):
+#     queryset = Novatos.objects.all()
+#     serializer_class = NovatosSerializer
 
 
 # API END
 
 # ViewHtml
+def mocidade(request):
+    return render(request, 'membros/mocidade.html')
+
 
 def jovens(request):
     jovens = Jovens.objects.all().order_by('nome')
@@ -32,7 +35,7 @@ def jovensForm(request):
     form = JovemForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('Jovens')
+        return redirect('jovens')
     return render(request, 'membros/jovem_form.html', {'form': form})
 
 
@@ -42,7 +45,7 @@ def jovenUpdate(request, jovem_id):
     form = JovemForm(request.POST or None, instance=jovem)
     if form.is_valid():
         form.save()
-        return redirect('Jovens')
+        return redirect('jovens')
     return render(request, 'membros/jovem_form.html', {'form': form, 'jovem': jovem})
 
 
@@ -51,7 +54,7 @@ def jovemDelete(request, jovem_id):
 
     if request.method == 'POST':
         jovem.delete()
-        return redirect('Jovens')
+        return redirect('jovens')
     return render(request, 'membros/jovem_form_deletar.html', {'jovem': jovem})
 
 
@@ -65,7 +68,7 @@ def novatosForm(request):
     form = NovatoForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('Novatos')
+        return redirect('novatos')
     return render(request, 'membros/novato_form.html', {'form': form})
 
 
@@ -75,7 +78,7 @@ def novatoUpdate(request, novato_id):
     form = NovatoForm(request.POST or None, instance=novato)
     if form.is_valid():
         form.save()
-        return redirect('Novatos')
+        return redirect('novatos')
     return render(request, 'membros/novato_form.html', {'form': form, 'novato': novato})
 
 
@@ -84,5 +87,5 @@ def novatoDelete(request, novato_id):
 
     if request.method == 'POST':
         novato.delete()
-        return redirect('Novatos')
+        return redirect('novatos')
     return render(request, 'membros/novato_form_deletar.html', {'novato': novato})

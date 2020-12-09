@@ -8,12 +8,33 @@ from apps.registros.models import RegistroPessoal
 from apps.igreja.models import Igreja, Celula
 
 
+class Ministerio(models.Model):
+    MUSICA = 'Musica'
+    ORACAO = 'Oracao'
+    INTEGRACAO = 'Integracao'
+
+    ministerio_opcoes = [
+        (MUSICA, 'Musica'),
+        (ORACAO, 'Oracao'),
+        (INTEGRACAO, 'Integracao')
+    ]
+
+    ministerio = models.CharField(max_length=100, choices=ministerio_opcoes)
+
+    class Meta:
+        verbose_name = 'Ministerio'
+        verbose_name_plural = 'Ministerios'
+
+    def __str__(self):
+        return self.ministerio
+
+
 class Jovens(models.Model):
     nome = models.CharField(max_length=150, null=False, blank=False)
-    ministerio = models.TextField(help_text='Descreva algo sobre voce')
     igreja = models.ForeignKey(Igreja, null=False, blank=False, on_delete=models.CASCADE)
     celula = models.ForeignKey(Celula, null=True, blank=True,
                                on_delete=models.CASCADE)
+    ministerio = models.ForeignKey(Ministerio, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Jovem'
@@ -25,9 +46,7 @@ class Jovens(models.Model):
 
 class Novatos(models.Model):
     nome = models.CharField(max_length=150, null=False, blank=False)
-
-    # igreja_participante = models.ForeignKey(Igreja, null=False, blank=False, on_delete=models.CASCADE)
-    # celular_participante = models.ForeignKey(Celula, null=False, blank=False, on_delete=models.CASCADE)
+    descreva = models.TextField(help_text='Descreva algo sobre voce')
 
     class Meta:
         verbose_name = 'Novato'
@@ -42,14 +61,3 @@ class Novatos(models.Model):
 # def create_auth_token(sender, instance=None, created=False, **kwargs):
 #     if created:
 #         Token.objects.create(user=instance)
-#
-
-# INTEL = 'INTEL'
-#    AMD = 'AMD'
-#    INTEL_AMD = 'INTEL E AMD'
-
-#    marcas_opcoes = [
-#        (INTEL, 'INTEL'),
-#        (AMD, 'AMD'),
-#        (INTEL_AMD, 'INTEL E AMD')
-#    ]

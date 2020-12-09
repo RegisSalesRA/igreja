@@ -9,4 +9,4 @@ class JovemForm(forms.ModelForm):
 class NovatoForm(forms.ModelForm):
     class Meta:
         model = Novatos
-        fields = ['nome']
+        fields = ['nome','descreva']

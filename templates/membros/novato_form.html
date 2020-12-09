@@ -1,18 +1,19 @@
 {% extends 'base.html' %}
-{% load bootstrap4 %}
-
+{% load crispy_forms_tags %}
 {% block context %}
 {% if form %}
     <h1>Novato</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form }}
-        {% buttons %}
+     <div>
+        {% crispy form %}
+            <div>
             <button type="submit" class="btn btn-primary">Salvar</button>
             <button type="button" class="btn btn-warning">
-                <a href="{% url 'Novatos' %}">Cancelar</a>
+                <a href="{% url 'novatos' %}">Cancelar</a>
             </button>
-        {% endbuttons %}
+            </div>
+    </div>
     </form>
 {% endif %}
 {% endblock %}

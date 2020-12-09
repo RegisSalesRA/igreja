@@ -15,17 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
-from apps.igreja.urls import igrejaUrl
-from apps.membros.urls import membrosUrl
-from apps.registros.urls import registroUrl
 from rest_framework.authtoken import views
+
+# from apps.igreja.urls import igrejaUrl
+# from apps.membros.urls import membrosUrl
+# from apps.registros.urls import registroUrl
 
 urlpatterns = [
     # API
-    path('sede/', include(igrejaUrl.urls)),
-    path('membro/', include(membrosUrl.urls)),
-    path('registros/', include(registroUrl.urls)),
+    # path('sede/', include(igrejaUrl.urls)),
+    # path('membro/', include(membrosUrl.urls)),
+    # path('registros/', include(registroUrl.urls)),
     # API END
 
     path('admin/', admin.site.urls),

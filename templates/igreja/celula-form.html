@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 {% block context %}
-{% if celula %}
+
     <h1>Formulario Celula Update</h1>
 
     <form method="post">
         {% csrf_token %}
-        {{ form }}
-    <button type="submit">Save</button>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            {% crispy form %}
+        <div class="form-group mt-4 center">
+    <button type="submit" class="btn btn-success btn-sm">Save</button>
+    </div>
+        </div>
+
     </form>
-{% endif %}
+
 {% endblock context %}
