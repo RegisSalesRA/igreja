@@ -3,7 +3,7 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from rest_framework import viewsets
 from api.membros.serializers import JovensSerializer, NovatosSerializer
 from apps.membros.forms import JovemForm, NovatoForm
-from apps.membros.models import Jovens, Novatos
+from apps.membros.models import Jovens, Novatos, Ministerio
 from django.shortcuts import render, get_object_or_404, redirect
 
 
@@ -22,8 +22,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 # API END
 
 # ViewHtml
+
 def mocidade(request):
-    return render(request, 'membros/mocidade.html')
+    ministerios = Ministerio.objects.all()
+    return render(request, 'membros/mocidade.html', {'ministerios':ministerios})
 
 
 def jovens(request):
@@ -56,7 +58,6 @@ def jovemDelete(request, jovem_id):
         jovem.delete()
         return redirect('jovens')
     return render(request, 'membros/jovem_form_deletar.html', {'jovem': jovem})
-
 
 
 def novatos(request):

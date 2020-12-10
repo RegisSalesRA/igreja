@@ -189,7 +189,7 @@ a:hover {
 #page {
     overflow: hidden;
     width: 1000px;
-    margin: 0px auto;
+    margin: auto;
     padding: 30px 0px;
 }
 
