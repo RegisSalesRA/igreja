@@ -20,7 +20,7 @@
           </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
              {% for ministerio in ministerios %}
-            <li><a class="dropdown-item" href="{% url 'categoriafiltro' ministerio.pk %}">{{ ministerio.ministerio}}</a></li>
+            <li><a class="dropdown-item" href="#">{{ ministerio.ministerio}}</a></li>
             {% endfor %}
             </ul>
         </li>
@@ -38,6 +38,7 @@
   </div>
 </nav>
     <br><br>
+    {% if jovens %}
     <table class="table table-striped">
         <thead>
         <tr>
@@ -64,5 +65,7 @@
         {% endfor %}
         </tbody>
     </table>
-
+    {% else %}
+   <center><p>Sinto muito nao encontramos o nome desejado</p></center>
+    {% endif %}
 {% endblock %}

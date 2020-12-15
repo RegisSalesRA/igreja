@@ -10,11 +10,12 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     {% bootstrap_css %}
     <title>Igreja Project</title>
+    <script src="https://kit.fontawesome.com/ae60b20127.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Coda:400,800" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Coda:400,800" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/cssbase.css' %}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}" media="screen">
 <style>
 
 #menu-wrapper {
@@ -64,7 +65,7 @@
                     <h2>Mocidade</h2>
                     <ul>
                         <li><a href="{% url 'mocidade' %}">Jovens</a></li>
-{#                        <li><a href="{% url 'novatoHtml' %}">Novatos</a></li>#}
+                        <li><a href="{% url 'jovemcreate' %}">Registrar</a></li>
                     </ul>
                 </li>
                 <li>
@@ -86,7 +87,8 @@
 {% include 'footer.html' %}
 
 </body>
-
+{% block scripts %}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+{% endblock %}
 
 </html>

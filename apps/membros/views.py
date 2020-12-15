@@ -4,6 +4,7 @@ from rest_framework import viewsets
 from api.membros.serializers import JovensSerializer, NovatosSerializer
 from apps.membros.forms import JovemForm, NovatoForm
 from apps.membros.models import Jovens, Novatos, Ministerio
+from apps.igreja.models import Igreja
 from django.shortcuts import render, get_object_or_404, redirect
 
 
@@ -24,13 +25,28 @@ from django.shortcuts import render, get_object_or_404, redirect
 # ViewHtml
 
 def mocidade(request):
+    igrejas = Igreja.objects.all()
     ministerios = Ministerio.objects.all()
-    return render(request, 'membros/mocidade.html', {'ministerios':ministerios})
+    context = {
+        'ministerios': ministerios,
+        'igrejas': igrejas,
+    }
 
+    return render(request, 'membros/igrejamocidade.html', context)
+
+def mocidadelista(request,igreja_id):
+    igreja = Igreja.objects.get(pk=igreja_id)
+    return render(request, 'membros/mocidadelista.html', {'igrejas':igreja})
 
 def jovens(request):
     jovens = Jovens.objects.all().order_by('nome')
-    return render(request, 'membros/jovens.html', {'jovens': jovens})
+    ministerios = Ministerio.objects.all()
+
+    context = {
+        'ministerios': ministerios,
+        'jovens': jovens,
+    }
+    return render(request, 'membros/jovens.html', context)
 
 
 def jovensForm(request):
@@ -90,3 +106,9 @@ def novatoDelete(request, novato_id):
         novato.delete()
         return redirect('novatos')
     return render(request, 'membros/novato_form_deletar.html', {'novato': novato})
+
+
+# def quantide(request, igreja_id):
+#     quantidade = len(Igreja.objects.get(pk=igreja_id))
+#
+#     return render(request, 'membros/igrejamocidade.html', {'quantidade': quantidade})

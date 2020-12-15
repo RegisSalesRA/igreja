@@ -190,7 +190,6 @@ def LiderLista(request, igreja_id):
 # FormCelula
 def FormCelula(request,celula_id):
     celula = Celula.objects.get(pk=celula_id)
-
     form = CelulaUpdate(request.POST or None, instance=celula)
 
     if form.is_valid():

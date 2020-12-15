@@ -1,7 +1,8 @@
 from django.urls import path
 from rest_framework.routers import SimpleRouter
 from apps.membros.views import jovens, jovensForm, jovenUpdate, jovemDelete, novatos, novatoDelete, novatosForm, \
-    novatoUpdate,mocidade
+    novatoUpdate, mocidade, mocidadelista
+from apps.membros.filter import filtrocategoria, categoriafiltro
 
 # membrosUrl = SimpleRouter()
 # membrosUrl.register('jovem', JovensView)
@@ -15,7 +16,10 @@ urlpatterns = [
     # ApiEnd
 
     # HtmlUrl
-    path('igrejas/', mocidade, name='mocidade'),
+    path('mocidade/', mocidade, name='mocidade'),
+    path('mocidade/<int:igreja_id>', mocidadelista, name='mocidadelista'),
+    path('search/', filtrocategoria, name='filtrocategoria'),
+    path('categoria/<int:categoria_id>', categoriafiltro, name='categoriafiltro'),
 
     path('jovens/', jovens, name='jovens'),
     path('jovemcreate/', jovensForm, name='jovemcreate'),
