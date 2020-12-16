@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from rest_framework import viewsets
-
+from django.core.paginator import Paginator
 from api.igreja.serializers import IgrejaSerializer, CelulaSerializer, LideresSerializer
 from apps.igreja.forms import CelulaUpdate
 from apps.igreja.models import Igreja, Celula, Lideres
@@ -149,6 +149,9 @@ def Home(request):
 # Listas Cards
 def Igrejas(request):
     igrejas = Igreja.objects.all().order_by('nome')
+    paginator = Paginator(igrejas, 1)
+    page_number = request.GET.get('page')
+    igrejas = paginator.get_page(page_number)
     # context = {
     #     'igrejas': igrejas,
     # }
