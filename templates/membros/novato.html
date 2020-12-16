@@ -2,6 +2,17 @@
 {% load bootstrap4 %}
 
 {% block context %}
+    <div>
+          <form class="form-inline ml-3" action="{% url 'filtronovato' %}", method="GET">
+            <div class="input-group">
+                <input type="text" name="nome" class="form-control" placeholder="Search">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-warning"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <br>
     <table class="table table-striped">
 
         <thead>
@@ -14,6 +25,7 @@
         </thead>
 
         <tbody>
+        {% if novatos %}
         {% for novato in novatos %}
 
             <tr>
@@ -27,6 +39,7 @@
             </tr>
 
         {% endfor %}
+        {% endif %}
         </tbody>
 
     </table>

@@ -18,6 +18,28 @@ def filtrocategoria(request):
     return render(request, 'membros/jovensfilter.html', context)
 
 
-def categoriafiltro(request,categoria_id):
-    ministerios = Ministerio.objects.get(id=categoria_id)
-    return render(request, 'ministerio/ministerio.html', {'ministerio':ministerios})
+def filtroIgrejaMocidade(request):
+    jovens = Igreja.objects.filter(nome__contains=request.GET['nome'])
+    ministerios = Ministerio.objects.all()
+    context = {
+        'ministerios': ministerios,
+        'jovens': jovens,
+    }
+    return render(request, 'membros/jovensfilter.html', context)
+
+
+def categoriafiltro(request, categoria_id):
+    teste = Ministerio.objects.all()
+    jovensministerios = Ministerio.objects.get(id=categoria_id)
+    # filtro = Ministerio.objects.filter(nome__contains=request.GET['nome'], pk=categoria_id)
+    context = {
+        'teste': teste,
+        'jovensministerios': jovensministerios,
+        # 'filtro': filtro,
+    }
+    return render(request, 'ministerio/ministerio.html', context)
+
+
+def filtronovato(request):
+    novato = Novatos.objects.filter(nome__contains=request.GET['nome'])
+    return render(request, 'membros/novatofilter.html', {'novato': novato})

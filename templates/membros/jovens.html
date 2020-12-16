@@ -19,7 +19,7 @@
             Categoria
           </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-             {% for ministerio in ministerios %}
+            {% for ministerio in ministerios %}
             <li><a class="dropdown-item" href="{% url 'categoriafiltro' ministerio.pk %}">{{ ministerio.ministerio}}</a></li>
             {% endfor %}
             </ul>

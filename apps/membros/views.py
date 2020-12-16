@@ -35,8 +35,12 @@ def mocidade(request):
     return render(request, 'membros/igrejamocidade.html', context)
 
 def mocidadelista(request,igreja_id):
+    searchjoven = Jovens.objects.filter()
+    ministerioss = Ministerio.objects.all()
     igreja = Igreja.objects.get(pk=igreja_id)
-    return render(request, 'membros/mocidadelista.html', {'igrejas':igreja})
+    context = {'igrejas':igreja, 'ministerioss':ministerioss, 'searchjoven':searchjoven}
+    return render(request, 'membros/mocidadelista.html', context)
+
 
 def jovens(request):
     jovens = Jovens.objects.all().order_by('nome')

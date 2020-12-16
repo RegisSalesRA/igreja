@@ -28,7 +28,6 @@ class Ministerio(models.Model):
     def __str__(self):
         return self.ministerio
 
-
 class Jovens(models.Model):
     nome = models.CharField(max_length=150, null=False, blank=False)
     igreja = models.ForeignKey(Igreja, null=False, blank=False, on_delete=models.CASCADE)
