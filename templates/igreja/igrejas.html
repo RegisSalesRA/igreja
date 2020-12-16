@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block context %}
     {% if igrejas %}
     {% for igreja in igrejas %}
@@ -12,9 +13,12 @@
                     <a href="{% url 'igreja' igreja.id %}" class="btn btn-primary btn-sm">Detalhes</a>
                 </div>
             </div>
-
     </div>
 {% endfor %}
-    {% endif %}
-
+{% endif %}
+    <button onclick="teste()">BOTAO</button>
 {% endblock context %}
+{% block script %}
+        <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'js/funcoes.ajax.js' %}"></script>
+{% endblock %}
