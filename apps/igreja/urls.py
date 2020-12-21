@@ -1,6 +1,7 @@
 from django.urls import path
 from rest_framework.routers import SimpleRouter
 
+from apps.igreja.filter import IgrejaFiltro
 from apps.igreja.views import IgrejaView, CreateIgrejaView, UpdateIgrejaView, DeleteIgrejaView, CelulaView, \
     CreateCelulaView, UpdateCelulaView, DeleteCelulaView, LiderView, CreateLiderView, UpdateLiderView, DeleteLiderView, \
     ViewIgreja, ViewCelula, ViewLideres, Home, ListaCelulaView, LiderLista, igreja, Igrejas, celula, Celulas, FormCelula
@@ -31,6 +32,7 @@ urlpatterns = [
     path('igrejas/<int:igreja_id>/celulas/', Celulas, name='celulas'),
     path('igrejas/<int:igreja_id>/celula/<int:celula_id>', celula, name='celula'),
     path('igrejas/<int:igreja_id>/lider/', LiderLista, name='lideres'),
+    path('search/', IgrejaFiltro, name='IgrejaFiltro'),
 
     path('celula/form/<int:celula_id>/', FormCelula, name='formcelula'),
     # No BasedView

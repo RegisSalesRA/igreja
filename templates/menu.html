@@ -1,11 +1,24 @@
 <!-- end #menu -->
 <div id="menu-wrapper">
-    <div id="menu">
+    <div id="menu" style="display: flex;">
+        <div>
         <ul>
             <li class="current_page_item"><a href="{% url 'Home' %}">Homepage</a></li>
             <li><a href="{% url 'igrejas' %}">Igrejas</a></li>
             <li><a href="#">Contato</a></li>
         </ul>
+        </div>
+
+        <div style="margin-left: 20px; margin-top: 8px">
+            <form class="form-inline ml-3" action="{% url 'IgrejaFiltro' %}", method="GET">
+            <div class="input-group">
+                <input type="text" name="nome" class="form-control" placeholder="Search">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-light"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            </form>
+        </div>
     </div>
     <!-- end #menu -->
 

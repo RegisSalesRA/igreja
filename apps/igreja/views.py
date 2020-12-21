@@ -149,7 +149,7 @@ def Home(request):
 # Listas Cards
 def Igrejas(request):
     igrejas = Igreja.objects.all().order_by('nome')
-    paginator = Paginator(igrejas, 1)
+    paginator = Paginator(igrejas, 4)
     page_number = request.GET.get('page')
     igrejas = paginator.get_page(page_number)
     # context = {
@@ -168,9 +168,14 @@ def igreja(request, igreja_id):
 # Celula Lista
 def Celulas(request, igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id)
+    celulas = igreja.celula_set.all()
+    paginator = Paginator(celulas, 1)
+    page_number = request.GET.get('page')
+    celulas = paginator.get_page(page_number)
+
     context = {
         'igreja': igreja,
-        # 'celula': celula,
+        'celulas': celulas,
     }
 
     return render(request, 'igreja/celulas.html', context)

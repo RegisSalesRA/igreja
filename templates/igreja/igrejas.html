@@ -11,16 +11,20 @@
                     <p class="card-text">{{ igreja.descricao }}</p>
                     <p class="card-text"><small class="text-muted">{{ igreja.pastor }}</small></p>
                     <a href="{% url 'igreja' igreja.id %}" class="btn btn-primary btn-sm">Detalhes</a>
+                <!-- modal -->
+
+     <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Deletar
+     </button>
+
+
                 </div>
             </div>
     </div>
-    
-    <!-- modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Launch demo modal
-      </button>
-      
-      <!-- Modal -->
+     
+{% endfor %}
+
+        <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -29,7 +33,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              ...
+
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -38,8 +42,8 @@
           </div>
         </div>
       </div>
-     
-{% endfor %}
+
+
 
 <div class="pagination">
     <span class="step-links">
@@ -60,9 +64,43 @@
 </div>
 
 {% endif %}
-    <button onclick="teste()">BOTAO</button>
-{% endblock context %}
+
+    {% if igrejasfiltro %}
+        {% for igreja in igrejasfiltro %}
+            <div class="card-deck">
+            <div class="card" >
+{#                <img class="card-img-top" src="..." alt="Card image cap">#}
+                <div class="card-body">
+                    <h5 class="card-title">{{ igreja.nome }}</h5>
+                    <p class="card-text">{{ igreja.descricao }}</p>
+                    <p class="card-text"><small class="text-muted">{{ igreja.pastor }}</small></p>
+                    <a href="{% url 'igreja' igreja.id %}" class="btn btn-primary btn-sm">Detalhes</a>
+                </div>
+            </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="pagination">
+    <span class="step-links">
+        {% if igrejasfiltro.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ igrejasfiltro.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ igrejasfiltro.number }} of {{ igrejasfiltro.paginator.num_pages }}.
+        </span>
+
+        {% if igrejasfiltro.has_next %}
+            <a href="?page={{ igrejasfiltro.next_page_number }}">next</a>
+            <a href="?page={{ igrejasfiltro.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
 {% block script %}
         <script src="{% static 'js/jquery.js' %}"></script>
         <script src="{% static 'js/funcoes.ajax.js' %}"></script>
 {% endblock %}
+    <button onclick="teste()">BOTAO</button>
+{% endblock context %}
