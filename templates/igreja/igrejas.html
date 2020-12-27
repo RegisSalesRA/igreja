@@ -14,14 +14,16 @@
                 <!-- modal -->
 
      <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Deletar
+        Deletar Ajax
      </button>
-
-
+{#<button onclick="IgrejaAjaxDeletar()">BOTAO</button>#}
+{#<button onclick="teste()">BOTAO</button>#}
+{#<button onclick="{% url 'deleteigreja' igreja.id %}">Deleeete</button>#}
+        <a href="{% url 'deleteigreja' igreja.id %}">Deletar Sem ajax</a>
                 </div>
             </div>
     </div>
-     
+
 {% endfor %}
 
         <!-- Modal -->
@@ -33,11 +35,10 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-
+            <h3>Nome da igreja</h3>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <a href="#" class="btn btn-primary">Deletar</a>
             </div>
           </div>
         </div>
@@ -62,7 +63,8 @@
         {% endif %}
     </span>
 </div>
-
+{% else %}
+        <p>Nao possui igreja</p>
 {% endif %}
 
     {% if igrejasfiltro %}
@@ -79,6 +81,8 @@
             </div>
             </div>
         {% endfor %}
+        {% else %}
+        <p>Sem igrejas</p>
     {% endif %}
 
     <div class="pagination">
@@ -102,5 +106,5 @@
         <script src="{% static 'js/jquery.js' %}"></script>
         <script src="{% static 'js/funcoes.ajax.js' %}"></script>
 {% endblock %}
-    <button onclick="teste()">BOTAO</button>
+
 {% endblock context %}

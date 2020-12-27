@@ -4,7 +4,8 @@ from rest_framework.routers import SimpleRouter
 from apps.igreja.filter import IgrejaFiltro
 from apps.igreja.views import IgrejaView, CreateIgrejaView, UpdateIgrejaView, DeleteIgrejaView, CelulaView, \
     CreateCelulaView, UpdateCelulaView, DeleteCelulaView, LiderView, CreateLiderView, UpdateLiderView, DeleteLiderView, \
-    ViewIgreja, ViewCelula, ViewLideres, Home, ListaCelulaView, LiderLista, igreja, Igrejas, celula, Celulas, FormCelula
+    ViewIgreja, ViewCelula, ViewLideres, Home, ListaCelulaView, LiderLista, igreja, Igrejas, celula, Celulas, \
+    FormCelula, IgrejaAjaxDeletar, deleteigreja, signupView, signinView, signoutView
 
 igrejaUrl = SimpleRouter()
 igrejaUrl.register('igreja', ViewIgreja)
@@ -24,6 +25,10 @@ urlpatterns = [
 
     # APIEND
 
+    #Login
+    path('account/create/', signupView, name='signup'),
+    path('account/signin/', signinView, name='signin'),
+    path('account/signout/', signoutView, name='signout'),
     # HTML
 
     # No BasedView
@@ -33,7 +38,10 @@ urlpatterns = [
     path('igrejas/<int:igreja_id>/celula/<int:celula_id>', celula, name='celula'),
     path('igrejas/<int:igreja_id>/lider/', LiderLista, name='lideres'),
     path('search/', IgrejaFiltro, name='IgrejaFiltro'),
-
+    # Deletar
+    path('igreja/deletarajax/', IgrejaAjaxDeletar, name='ajaxdeletar'),
+    path('igreja/deletar/<int:igreja_id>', deleteigreja, name='deleteigreja'),
+    # Deletar
     path('celula/form/<int:celula_id>/', FormCelula, name='formcelula'),
     # No BasedView
 

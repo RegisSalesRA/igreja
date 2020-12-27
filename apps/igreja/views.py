@@ -1,4 +1,4 @@
-from django.http import Http404
+from django.http import Http404, HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
@@ -7,6 +7,11 @@ from django.core.paginator import Paginator
 from api.igreja.serializers import IgrejaSerializer, CelulaSerializer, LideresSerializer
 from apps.igreja.forms import CelulaUpdate
 from apps.igreja.models import Igreja, Celula, Lideres
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User, Group
+from .forms import SiginUpForm
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, authenticate, logout
 
 
 # API
@@ -145,6 +150,27 @@ def Home(request):
 
 # Home End
 
+# AJAX
+
+def IgrejaAjaxDeletar(request):
+    if request.method == 'POST' and request.is_ajax():
+        igreja_id = request.POST.get('igreja')
+
+        igreja = get_object_or_404(Igreja, pk=igreja_id)
+        igreja.delete()
+        return HttpResponse(status=200)
+
+    return HttpResponse(status=500)
+
+
+# AJAX
+
+def deleteigreja(request, igreja_id):
+    igreja = get_object_or_404(Igreja, pk=igreja_id)
+    igreja.delete()
+    return redirect('igrejas')
+
+
 ##########################################################
 # Listas Cards
 def Igrejas(request):
@@ -196,7 +222,7 @@ def LiderLista(request, igreja_id):
 
 
 # FormCelula
-def FormCelula(request,celula_id):
+def FormCelula(request, celula_id):
     celula = Celula.objects.get(pk=celula_id)
     form = CelulaUpdate(request.POST or None, instance=celula)
 
@@ -204,3 +230,41 @@ def FormCelula(request,celula_id):
         form.save()
         return redirect('igrejas')
     return render(request, 'igreja/celula-form.html', {'form': form, 'celula': celula})
+
+
+## Logins ##
+
+def signupView(request):
+    if request.method == 'POST':
+        form = SiginUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            signup_user = User.objects.get(username=username)
+            customer_group = Group.objects.get(name='Customer')
+            customer_group.user_set.add(signup_user)
+    else:
+        form = SiginUpForm()
+    return render(request, 'login/signup.html', {'form': form})
+
+
+def signinView(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            username = request.POST['username']
+            password = request.POST['password']
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('Home')
+            else:
+                return redirect('signup')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'login/signin.html', {'form': form})
+
+
+def signoutView(request):
+    logout(request)
+    return redirect('signin')
