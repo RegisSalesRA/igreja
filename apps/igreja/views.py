@@ -175,7 +175,7 @@ def deleteigreja(request, igreja_id):
 # Listas Cards
 def Igrejas(request):
     igrejas = Igreja.objects.all().order_by('nome')
-    paginator = Paginator(igrejas, 4)
+    paginator = Paginator(igrejas, 2)
     page_number = request.GET.get('page')
     igrejas = paginator.get_page(page_number)
     # context = {
