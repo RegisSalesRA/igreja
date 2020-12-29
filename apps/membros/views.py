@@ -7,21 +7,6 @@ from apps.membros.models import Jovens, Novatos, Ministerio
 from apps.igreja.models import Igreja
 from django.shortcuts import render, get_object_or_404, redirect
 
-
-# API
-
-# class JovensView(viewsets.ModelViewSet):
-#     queryset = Jovens.objects.all()
-#     serializer_class = JovensSerializer
-#
-#
-# class NovatosView(viewsets.ModelViewSet):
-#     queryset = Novatos.objects.all()
-#     serializer_class = NovatosSerializer
-
-
-# API END
-
 # ViewHtml
 
 def mocidade(request):

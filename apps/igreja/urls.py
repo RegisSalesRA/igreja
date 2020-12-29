@@ -55,7 +55,6 @@ urlpatterns = [
     path('<int:pk>/liderAtualizar/', UpdateLiderView.as_view(), name='liderAtualizar'),
     path('<int:pk>/liderDeletar/', DeleteLiderView.as_view(), name='liderDeletar'),
 
-    path('ListaCelulaView/', ListaCelulaView.as_view(), name='ListcelulaHtml'),
     path('celulaHtml/', CelulaView.as_view(), name='celulaHtml'),
     path('celulaAdicionar/', CreateCelulaView.as_view(), name='celulaAdicionar'),
     path('<int:pk>/celulaAtualizar/', UpdateCelulaView.as_view(), name='celulaAtualizar'),

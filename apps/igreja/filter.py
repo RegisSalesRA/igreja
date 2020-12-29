@@ -9,7 +9,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 
 
 def IgrejaFiltro(request):
-    igrejasfiltro = Igreja.objects.filter(nome__contains=request.GET['nome'])
+    igrejasfiltro = Igreja.objects.filter(nome__contains=request.GET['name'])
     paginator = Paginator(igrejasfiltro, 2)
     page_number = request.GET.get('page')
     igrejasfiltro = paginator.get_page(page_number)

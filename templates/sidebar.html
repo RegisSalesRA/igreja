@@ -1,20 +1,22 @@
 <div class="sidenav">
 
-    <div>
-  <h5>Igrejas</h5>
-        <a href="#">Igrejas</a>
-  <a href="#">Celulas</a>
-  <a href="#">Lideres</a>
-        </div>
-    <div>
-        <h5>Mocidade</h5>
-  <a href="#">Jovens</a>
-  <a href="#">Novatos</a>
-  <a href="#">Registros</a>
-        </div>
-    <div>
-        <h5>Eventos</h5>
-  <a href="#">Eventos</a>
-  <a href="#">Registros Eventos</a>
-        </div>
+  <ul>
+  <h3 style="text-decoration: underline;color: white">Listas</h3>
+  <li style="list-style-type: none;margin-right: 50px;padding: 0px"><a href="{% url 'igrejaHtml' %}">Igrejas</a></li>
+  <li style="list-style-type: none;margin-right: 50px;padding: 0px"><a href="{% url 'celulaHtml' %}">Celulas</a></li>
+  <li style="list-style-type: none;margin-right: 50px;padding: 0px"><a href="{% url 'liderHtml' %}">Lideres</a></li>
+  </ul>
+
+  <ul>
+  <h3 style="text-decoration: underline;color: white; margin-right: 50px">Mocidade</h3>
+  <li style="list-style-type: none;margin-right: 50px;padding: 0px"><a href="{% url 'mocidade' %}">Jovens</a></li>
+  <li style="list-style-type: none;margin-right: 50px;padding: 0px"><a href="{% url 'novatos' %}">Novatos</a></li>
+  </ul>
+
+  <ul>
+  <h3 style="text-decoration: underline;color: white">Atividades</h3>
+  <li style="list-style-type: none;margin-right: 50px;padding: 0px"><a href="#">Eventos</a></li>
+  <li style="list-style-type: none;margin-right: 50px;padding: 0px"><a href="#">Registros</a></li>
+  </ul>
+
 </div>

@@ -20,11 +20,22 @@
 
 <body>
 {% include 'navbar.html' %}
-{% include 'sidebar.html' %}
 
+<div style="display: flex;">
+
+<div>
+{% include 'sidebar.html' %}
+</div>
+
+<div style="justify-content: flex-end">
+<main>
 {% block context %}
 {% endblock %}
+</main>
 
+</div>
+
+</div>
 {% include 'footer.html' %}
 
 </body>
