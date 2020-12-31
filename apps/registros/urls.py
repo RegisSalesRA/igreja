@@ -8,22 +8,10 @@ from apps.registros.views import (RegistroAtividadeHtml,
                                   RegistroPessoalHtml,
                                   RegistroPessoalCreateHtml,
                                   RegistroPessoalUpdateHtml,
-                                  RegistroPessoalDeleteHtml,
-                                  ViewRegistroPessoal,
-                                  ViewRegistroAtividade, )
+                                  RegistroPessoalDeleteHtml,)
 
-registroUrl = SimpleRouter()
-registroUrl.register('registroPessoal', ViewRegistroPessoal)
-registroUrl.register('registroAtividade', ViewRegistroAtividade)
 
 urlpatterns = [
-
-    # Api
-
-    path('registroPessoal/', ViewRegistroPessoal, name='registroPessoal'),
-    path('registroAtividade/', ViewRegistroAtividade, name='registroAtividade'),
-
-    # ApiEnd
 
     # Html
 

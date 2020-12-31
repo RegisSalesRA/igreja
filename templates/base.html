@@ -16,6 +16,48 @@
         <link href="http://fonts.googleapis.com/css?family=Coda:400,800" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Coda:400,800" rel="stylesheet" type="text/css">
         <title>{% block title %} {% endblock %}</title>
+
+      <style>
+
+#sidebar {
+  max-height: 100%;
+  width: 200px;
+  background-color: darkred;
+  text-decoration: underline;color: white;
+}
+
+#sidebar ul h3{
+    display: flex;
+    align-items: center;
+    margin-right: 100px;
+}
+
+#sidebar ul li{
+    display: flex;
+    list-style-type: none;
+    margin-right: 500px;
+    padding: 0px;
+    }
+
+#sidebar ul li a{
+    margin-left: 40px;
+    display: flex;
+    color: grey;
+}
+
+#sidebar a:hover {
+  color: white;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+      </style>
       </head>
 
 <body>
@@ -23,11 +65,11 @@
 
 <div style="display: flex;">
 
-<div>
+<div id="sidebar">
 {% include 'sidebar.html' %}
 </div>
 
-<div style="justify-content: flex-end">
+<div id="main">
 <main>
 {% block context %}
 {% endblock %}

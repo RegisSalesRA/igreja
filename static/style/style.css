@@ -1,17 +1,5 @@
-body {
-    height: 100%;
-}
-
-.sidenav {
-  height: inherit;
-  width: 150px;
-  background-color: red;
-}
 
 
-.sidenav a:hover {
-  color: white;
-}
 
 /*.main {*/
 /*  margin-left: 200px; !* Same as the width of the sidenav *!*/
