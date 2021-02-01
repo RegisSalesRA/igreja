@@ -15,24 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework.authtoken import views
-
-# from apps.igreja.urls import igrejaUrl
-# from apps.membros.urls import membrosUrl
-# from apps.registros.urls import registroUrl
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    # API
-    # path('sede/', include(igrejaUrl.urls)),
-    # path('membro/', include(membrosUrl.urls)),
-    # path('registros/', include(registroUrl.urls)),
-    # API END
-
+    
     path('admin/', admin.site.urls),
     path('', include('apps.igreja.urls')),
     path('mocidade/', include('apps.membros.urls')),
     path('index3/', include('apps.registros.urls')),
-
-    #  path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    #   path('api-token-auth/', views.obtain_auth_token, name='api-token-auth')
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
