@@ -1,7 +1,6 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from rest_framework import viewsets
-from api.membros.serializers import JovensSerializer, NovatosSerializer
 from apps.membros.forms import JovemForm, NovatoForm
 from apps.membros.models import Jovens, Novatos, Ministerio
 from apps.igreja.models import Igreja

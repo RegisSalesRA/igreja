@@ -2,9 +2,7 @@ from django.http import Http404, HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
-from rest_framework import viewsets
 from django.core.paginator import Paginator
-from api.igreja.serializers import IgrejaSerializer, CelulaSerializer, LideresSerializer
 from apps.igreja.forms import CelulaUpdate
 from apps.igreja.models import Igreja, Celula, Lideres
 from django.contrib.auth.forms import UserCreationForm
@@ -14,29 +12,6 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 
 
-# API
-
-class ViewIgreja(viewsets.ModelViewSet):
-    queryset = Igreja.objects.all()
-    serializer_class = IgrejaSerializer
-
-
-class ViewCelula(viewsets.ModelViewSet):
-    queryset = Celula.objects.all()
-    serializer_class = CelulaSerializer
-
-
-class ViewLideres(viewsets.ModelViewSet):
-    queryset = Lideres.objects.all()
-    serializer_class = LideresSerializer
-
-
-# API END
-
-
-# VIEW HTML
-
-# Igreja Crud
 
 class IgrejaView(ListView):
     model = Igreja

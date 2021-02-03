@@ -1,13 +1,11 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from rest_framework import viewsets
-from api.membros.serializers import JovensSerializer, NovatosSerializer
 from apps.membros.forms import JovemForm, NovatoForm
 from apps.membros.models import Jovens, Novatos, Ministerio
 from apps.igreja.models import Igreja
 from django.shortcuts import render, get_object_or_404, redirect
 
-# ViewHtml
 
 def mocidade(request):
     igrejas = Igreja.objects.all()
@@ -95,9 +93,3 @@ def novatoDelete(request, novato_id):
         novato.delete()
         return redirect('novatos')
     return render(request, 'membros/novato_form_deletar.html', {'novato': novato})
-
-
-# def quantide(request, igreja_id):
-#     quantidade = len(Igreja.objects.get(pk=igreja_id))
-#
-#     return render(request, 'membros/igrejamocidade.html', {'quantidade': quantidade})
