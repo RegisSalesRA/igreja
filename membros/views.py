@@ -1,9 +1,9 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from rest_framework import viewsets
-from apps.membros.forms import JovemForm, NovatoForm
-from apps.membros.models import Jovens, Novatos, Ministerio
-from apps.igreja.models import Igreja
+from membros.forms import JovemForm, NovatoForm
+from membros.models import Jovens, Novatos, Ministerio
+from igreja.models import Igreja
 from django.shortcuts import render, get_object_or_404, redirect
 
 

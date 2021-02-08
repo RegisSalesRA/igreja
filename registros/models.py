@@ -2,7 +2,7 @@ import uuid
 from django.db import models
 from stdimage import StdImageField
 
-from apps.igreja.models import Igreja
+from igreja.models import Igreja
 
 
 def get_file_path(_instance, filename):

@@ -4,8 +4,8 @@ from rest_framework import settings
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
-from apps.registros.models import RegistroPessoal
-from apps.igreja.models import Igreja, Celula
+from registros.models import RegistroPessoal
+from igreja.models import Igreja, Celula
 
 
 class Ministerio(models.Model):

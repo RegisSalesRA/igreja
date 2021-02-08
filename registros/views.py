@@ -1,7 +1,7 @@
 # RegistroAtividadedeHtml
 from django.urls import reverse_lazy
 from django.views.generic import DeleteView, UpdateView, ListView, CreateView
-from apps.registros.models import RegistroPessoal, RegistroAtividade
+from registros.models import RegistroPessoal, RegistroAtividade
 
 class RegistroPessoalHtml(ListView):
     model = RegistroPessoal

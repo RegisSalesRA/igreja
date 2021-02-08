@@ -1,7 +1,7 @@
 from django.urls import path
 from rest_framework.routers import SimpleRouter
-from apps.igreja.filter import IgrejaFiltro
-from apps.igreja.views import (IgrejaView, CreateIgrejaView, UpdateIgrejaView, DeleteIgrejaView, CelulaView,
+from igreja.filter import IgrejaFiltro
+from igreja.views import (IgrejaView, CreateIgrejaView, UpdateIgrejaView, DeleteIgrejaView, CelulaView,
     CreateCelulaView, UpdateCelulaView, DeleteCelulaView, LiderView, CreateLiderView, UpdateLiderView, DeleteLiderView,
     Home, ListaCelulaView, LiderLista, igreja, Igrejas, celula, Celulas, 
     FormCelula, IgrejaAjaxDeletar, deleteigreja, signupView, signinView, signoutView)

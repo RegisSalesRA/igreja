@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from apps.registros.models import RegistroPessoal, RegistroAtividade
+from registros.models import RegistroPessoal, RegistroAtividade
 
 
 @admin.register(RegistroPessoal)

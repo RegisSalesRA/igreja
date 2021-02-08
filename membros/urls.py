@@ -1,8 +1,8 @@
 from django.urls import path
 from rest_framework.routers import SimpleRouter
-from apps.membros.views import jovens, jovensForm, jovenUpdate, jovemDelete, novatos, novatoDelete, novatosForm, \
+from membros.views import jovens, jovensForm, jovenUpdate, jovemDelete, novatos, novatoDelete, novatosForm, \
     novatoUpdate, mocidade, mocidadelista
-from apps.membros.filter import filtrocategoria, categoriafiltro, filtroIgrejaMocidade, filtronovato
+from membros.filter import filtrocategoria, categoriafiltro, filtroIgrejaMocidade, filtronovato
 
 # membrosUrl = SimpleRouter()
 # membrosUrl.register('jovem', JovensView)

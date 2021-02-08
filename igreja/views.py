@@ -3,8 +3,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.core.paginator import Paginator
-from apps.igreja.forms import CelulaUpdate
-from apps.igreja.models import Igreja, Celula, Lideres
+from igreja.forms import CelulaUpdate
+from igreja.models import Igreja, Celula, Lideres
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User, Group
 from .forms import SiginUpForm
