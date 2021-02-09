@@ -53,10 +53,3 @@ class Novatos(models.Model):
 
     def __str__(self):
         return self.nome
-
-# CODIGO PARA GERAR TOKEN TODA VEZ QUE CRIAR UM USUARIO
-#
-# @receiver(post_save, sender=Usuario)
-# def create_auth_token(sender, instance=None, created=False, **kwargs):
-#     if created:
-#         Token.objects.create(user=instance)
