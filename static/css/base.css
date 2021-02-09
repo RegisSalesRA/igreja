@@ -1,18 +1,82 @@
-body {
-    background-color: #0000FF;
-    color: yellowgreen;
+.nav {
+    display: flex;
+    max-width: 15%;
+    max-height: 100%;
+    background-color: dimgray;
+    text-align: left;
+    position: relative;
 }
 
-h1 {
-    color: blueviolet;
+.navbar-brand {
     font-weight: bold;
 }
-h2 {
-    color: green;
-    font-size: large;
+
+/*MAIN*/
+.main {
+  margin-left: 200px;
 }
-h3 {
-    color:yellow;
-    font-style: italic;
+
+h1, h2 {
+    text-align: center;
+    font-size: 35px;
+    padding: 20px 0;
+    margin-bottom: 0;
+    background:linear-gradient(30deg,white,dimgray)
+    ;
+}
+
+.titulo {
+    margin-top: 50px;
+}
+
+/*CARDS*/
+.card:hover {
+  transform: scale(1.007);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+    .card-group {
+        margin: 0;
+    }
+}
+
+/* The side navigation menu */
+.sidebar {
+    
+    margin: 0;
+    padding: 0;
+    width: 200px;
+  
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  /* Sidebar links */
+  .sidebar a {
+    display: block;
+    color: white;
+    font-weight: bold;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  /* Active/current link */
+  .sidebar a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  /* Links on mouse-over */
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  
+  /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+  div.content {
     margin-left: 200px;
-}
+    padding: 1px 16px;
+    height: 1000px;
+  }
