@@ -14,8 +14,9 @@
         </title>      
       </head>
 
+    
 <body>
-    {% include "navbar.html" %}
+    <!-- {% include "navbar.html" %} -->
 
     <!--SIDEBAR FIXED-->
     <div class="sidebar bg-dark">
@@ -26,8 +27,19 @@
     </div>
 
     <!--MAIN-->
-      <main class = "main" class="container-fluid" >
-    <!--PAGE TITLE-->
+      <main class = "main" class="container-fluid">
+     
+        <nav class="navbar  fixed-top navbar-light" class="navbarCor">
+          <div class="container-fluid">
+            <a class="navbar-brand">Brand Igreja</a>
+           
+            <form class="d-flex">
+              <input class="form-control me-2 d-none d-md-block" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-dark d-none d-md-block" type="submit">Search</button>
+            </form>
+          </div>
+          </nav>
+          <!--PAGE TITLE-->
 
         <h1 class="titulo">
           {% block title %}
@@ -35,20 +47,12 @@
         </h1>
   
   <!--CARDS-->
-        {% block context %}
-        
-        {% endblock %}
-      </main>
+  {% block context %}
+  {% endblock %}
+</main>
     
     <!--FOOTER-->
-
-      <footer class="text-center text-lg-start">
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-            © Desenvolvido por Felipe Freitas, 2021
-        </div>
-      </footer>
-
-  
+{% include 'footer.html' %}  
 
 </body>
 
