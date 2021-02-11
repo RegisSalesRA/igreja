@@ -1,121 +1,57 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
-      <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-       
-        <title>
-          {% block titlesite %}
-          {% endblock %}
-        </title>      
-      </head>
-      <style>
-        html, body, #content {
-    width: 100%;
-    min-width: 100%;
-    min-height: 100%;
-    height: 100%;
- }
-  
-body {
-   display: inline-block;
- }
-  
-#content {
-  display:flex;
-  background-color:white; 
- }
-  
-.sidebar {
-   display: block;
-   background-color: darkgreen;
-   width: 20%;
-   height:100%;
-   margin: auto auto auto 0;
- }
-  
-.main {
-   display: block;
-   background-color: white;
-   height:calc(100% - 100px);
-   width: 80%;
-   margin: auto 0 0 auto;
- }
-.navbar{
-    width: 100%;
-    height: 100px;
-    background-color: green;
-    position: absolute;   
- }
-      </style>
 
-  <body>
-  <div id=content>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
 
-  <div class="navbar">
-  <h1>Nome</h1>
-  </div>
- 
-  <div class="sidebar">
-    <br><br><br><br><br>
-    <h1>Nome</h1><h1>Nome</h1>
-  </div>
- 
-  <div class="main">
-  {% block context %}
-  {% endblock %}
-  </div>  
-  
-  <!-- {% include "navbar.html" %} -->
+  <title>
+    {% block title %}
+    {% endblock %}
+  </title>
+</head>
 
-    <!-- NAVBAR -->
-  
 
-    <!-- SIDEBAR FIXED
-    <div class="sidebar bg-dark">
-      <a href="">Item 1</a>
-      <a href="">Item 2</a>
-      <a href="">Item 3</a>
-      <a href="">Item 4</a>
-    </div> -->
+<body>
+ {% include 'navbar.html' %}
 
-    <!--MAIN-->
-      <!-- <main class = "main" class="container-fluid">
-     
-        <nav class="navbar fixed-top navbar-light" class="navbarCor">
-          <div class="container-fluid">
+  <div class="site-content">
+    <header class="site-header">
+      <div class="container">
+        <a href="#/" class="branding">
+          <img src="{% static 'img/logo.png' %}" alt="" class="logo">
+          <h1 class="site-title">True Church</h1>
+        </a>
 
-            <a class="nav-links" style="margin-right: 50px;">Inicio</a>
-            <a class="nav-links" style="margin-right: 700px;">Igrejas</a>
+        <div class="main-navigation">
+          <button class="menu-toggle"><i class="fa fa-bars"></i> Menu</button>
+          <ul class="menu">
+            <li class="menu-item current-menu-item"><a href="#/">Home <small>Lorem ipsum</small></a></li>
+            <li class="menu-item"><a href="#/">Igrejas <small>Cupidatat non proident</small></a></li>
+            <li class="menu-item"><a href="#/">Grupos <small>Laboris nisi aliquip</small></a></li>
+            <li class="menu-item"><a href="#/">Jovens <small>Sunt in culpa</small></a></li>
             
-            <form class="d-flex">
-              <input class="form-control me-2 d-none d-md-block" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-dark d-none d-md-block" type="submit">Search</button>
-            </form>
-          </div>
-          </nav> -->
-          <!--PAGE TITLE-->
-  
-  <!--CARDS-->
-<!-- </main> -->
-    
+          </ul>
+        </div>
 
-    <!--FOOTER-->
+        <div class="mobile-navigation"></div>
+      </div>
+    </header> <!-- .site-header -->
 
-  </div>
+{% block context %}
+{% endblock %}
+{% include 'footer.html' %}
 </body>
 
 {% block scripts %}
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-        <script src="https://kit.fontawesome.com/ae60b20127.js" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/ae60b20127.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
 {% endblock %}
 </html>
