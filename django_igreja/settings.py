@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'igreja',
     'membros',
-    'registros',
+    'eventos',
     # Api
     'rest_framework',
 ]
