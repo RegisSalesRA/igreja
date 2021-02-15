@@ -18,6 +18,9 @@ class Ministerio(models.Model):
 
     ministerio = models.CharField(max_length=100, choices=ministerio_opcoes)
 
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
+
     class Meta:
         verbose_name = 'Ministerio'
         verbose_name_plural = 'Ministerios'
@@ -32,6 +35,8 @@ class Jovens(models.Model):
                                on_delete=models.CASCADE)
     ministerio = models.ForeignKey(Ministerio, on_delete=models.CASCADE)
 
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
     class Meta:
         verbose_name = 'Jovem'
         verbose_name_plural = 'Jovens'
@@ -43,7 +48,9 @@ class Jovens(models.Model):
 class Novatos(models.Model):
     nome = models.CharField(max_length=150, null=False, blank=False)
     descreva = models.TextField(help_text='Descreva algo sobre voce')
-
+    
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
     class Meta:
         verbose_name = 'Novato'
         verbose_name_plural = 'Novatos'
