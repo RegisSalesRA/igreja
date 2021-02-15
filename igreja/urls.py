@@ -1,12 +1,11 @@
 from django.urls import path
-from rest_framework.routers import SimpleRouter
 from igreja.filter import IgrejaFiltro
-from igreja.views import (Home, lideres, igreja, igrejas, celula, celulas, 
+from igreja.views import (home, lideres, igreja, igrejas, celula, celulas, 
     FormCelula, deleteigreja, signupView, signinView, signoutView)
 
 urlpatterns = [
     # Home
-    path('', Home, name='Home'),
+    path('', home, name='home'),
 
     #Login
     path('account/create/', signupView, name='signup'),

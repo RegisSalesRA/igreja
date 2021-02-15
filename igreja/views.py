@@ -9,11 +9,11 @@ from django.contrib.auth.models import User, Group
 from .forms import SiginUpForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
-
-
+from eventos.views import eventos
+from eventos.models import Eventos
 # Home
 
-def Home(request):
+def home(request):
     return render(request, 'home.html')
 
 
@@ -21,10 +21,16 @@ def Home(request):
 
 def igrejas(request):
     igrejas = Igreja.objects.all().order_by('nome')
+    eventos = Eventos.objects.all().order_by('nome')
     # paginator = Paginator(igrejas, 2)
     # page_number = request.GET.get('page')
     # igrejas = paginator.get_page(page_number)
-    return render(request, 'igreja/igrejas.html', {'igrejas': igrejas})
+    context = {
+         'igrejas': igrejas,
+         'eventos':eventos,
+    }
+
+    return render(request, 'igreja/igrejas.html', context)
 
 def igreja(request, igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id)
