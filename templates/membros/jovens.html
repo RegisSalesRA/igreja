@@ -1,4 +1,52 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block context %}
+
+<div class="page-head" data-bg-image="images/page-head-1.jpg">
+    <div class="container">
+        <h2 class="page-title">Families</h2>
+    </div>
+</div>
+
+<main class="main-content">
+    <div class="fullwidth-block">
+        <div class="container">
+            <div class="row">
+                <div class="content col-md-8">
+                    <h2 class="section-title">Lista de igrejas</h2>
+                    
+                    <div class="row">
+
+                        {% for  in igrejas %}
+                        <div class="family">
+                            <img src="{% static 'img/news-thumb-2.jpg' %}" alt="" class="family-image">
+                            <h3 class="family-name">{{igreja.nome}}</h3>
+                            <small>John, Anna, Patrick, Susan</small>
+                        </div>
+                        {% endfor %}
+                        
+                    </div>
+             
+                </div>
+            <!-- Sidebar -->
+            {% include 'eventos.html' %}
+            <!-- Sidebar -->    
+           
+        </div>
+        </div>
+    </div>
+</main> <!-- .main-content -->
+
+</div>
+
+{% endblock %}
+{% block script %}
+        <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'js/funcoes.ajax.js' %}"></script>
+{% endblock %}
+
+
+<!-- {% extends 'base.html' %}
 {% block context %}
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,9 +72,9 @@
             {% endfor %}
             </ul>
         </li>
-
       </ul>
-        <form class="form-inline ml-3" action="{% url 'filtrocategoria' %}", method="GET">
+
+      <form class="form-inline ml-3" action="{% url 'filtrocategoria' %}", method="GET">
             <div class="input-group">
                 <input type="text" name="nome" class="form-control" placeholder="Search">
                 <div class="input-group-append">
@@ -65,4 +113,4 @@
         </tbody>
     </table>
 
-{% endblock %}
+{% endblock %} -->

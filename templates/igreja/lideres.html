@@ -1,20 +1,46 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block context %}
 
-    {% for lider in igreja.lideres_set.all %}
+<div class="page-head" data-bg-image="images/page-head-1.jpg">
+    <div class="container">
+        <h2 class="page-title">Families</h2>
+    </div>
+</div>
 
-        <div class="card-deck">
-            <div class="card">
-{#                <img class="card-img-top" src="..." alt="Card image cap">#}
-                <div class="card-body">
-                    <h5 class="card-title">{{ lider.nome }}</h5>
-                    <p class="card-text">{{ lider.codigo_igreja }}</p>
-                    <p class="card-text"><small class="text-muted"></small></p>
-{#                    <a href="#/" class="btn btn-primary btn-sm"></a>#}
+<main class="main-content">
+    <div class="fullwidth-block">
+        <div class="container">
+            <div class="row">
+                <div class="content col-md-8">
+                    <h2 class="section-title">Lista de lideres</h2>
+                    
+                    <div class="row">
+
+                        {% for lider in lideres %}
+                        <div class="family">
+                            <img src="{% static 'img/news-thumb-2.jpg' %}" alt="" class="family-image">
+                            <h3 class="family-name">{{lider.nome}}</h3>
+                            <small>John, Anna, Patrick, Susan</small>
+                        </div>
+                        {% endfor %}
+                        
+                    </div>
+             
                 </div>
-            </div>
-
+            <!-- Sidebar -->
+            {% include 'eventos.html' %}
+            <!-- Sidebar -->    
+           
         </div>
-    {% endfor %}
+        </div>
+    </div>
+</main> <!-- .main-content -->
 
-{% endblock context %}
+</div>
+
+{% endblock %}
+{% block script %}
+        <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'js/funcoes.ajax.js' %}"></script>
+{% endblock %}

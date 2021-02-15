@@ -1,111 +1,46 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block context %}
-    {% if igrejas %}
-    {% for igreja in igrejas %}
-    <div class="card-deck">
-            <div class="card" >
-{#                <img class="card-img-top" src="..." alt="Card image cap">#}
-                <div class="card-body">
-                    <h5 class="card-title">{{ igreja.nome }}</h5>
-                    <p class="card-text">{{ igreja.descricao }}</p>
-                    <p class="card-text"><small class="text-muted">{{ igreja.pastor }}</small></p>
-                    <a href="{% url 'igreja' igreja.id %}" class="btn btn-primary btn-sm">Detalhes</a>
-                <!-- modal -->
 
-     <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Deletar Ajax
-     </button>
-{#<button onclick="IgrejaAjaxDeletar()">BOTAO</button>#}
-{#<button onclick="teste()">BOTAO</button>#}
-{#<button onclick="{% url 'deleteigreja' igreja.id %}">Deleeete</button>#}
-        <a href="{% url 'deleteigreja' igreja.id %}">Deletar Sem ajax</a>
-                </div>
-            </div>
+<div class="page-head" data-bg-image="images/page-head-1.jpg">
+    <div class="container">
+        <h2 class="page-title">Families</h2>
     </div>
-
-{% endfor %}
-
-        <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-            <h3>Nome da igreja</h3>
-            </div>
-            <div class="modal-footer">
-              <a href="#/" class="btn btn-primary">Deletar</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-<div class="pagination">
-    <span class="step-links">
-        {% if igrejas.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ igrejas.previous_page_number }}">previous</a>
-        {% endif %}
-
-        <span class="current">
-            Page {{ igrejas.number }} of {{ igrejas.paginator.num_pages }}.
-        </span>
-
-        {% if igrejas.has_next %}
-            <a href="?page={{ igrejas.next_page_number }}">next</a>
-            <a href="?page={{ igrejas.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-    </span>
 </div>
-{% else %}
-        <p>Nao possui igreja</p>
-{% endif %}
 
-    {% if igrejasfiltro %}
-        {% for igreja in igrejasfiltro %}
-            <div class="card-deck">
-            <div class="card" >
-{#                <img class="card-img-top" src="..." alt="Card image cap">#}
-                <div class="card-body">
-                    <h5 class="card-title">{{ igreja.nome }}</h5>
-                    <p class="card-text">{{ igreja.descricao }}</p>
-                    <p class="card-text"><small class="text-muted">{{ igreja.pastor }}</small></p>
-                    <a href="{% url 'igreja' igreja.id %}" class="btn btn-primary btn-sm">Detalhes</a>
+<main class="main-content">
+    <div class="fullwidth-block">
+        <div class="container">
+            <div class="row">
+                <div class="content col-md-8">
+                    <h2 class="section-title">Lista de igrejas</h2>
+                    
+                    <div class="row">
+
+                        {% for igreja in igrejas %}
+                        <div class="family">
+                            <img src="{% static 'img/news-thumb-2.jpg' %}" alt="" class="family-image">
+                            <h3 class="family-name">{{igreja.nome}}</h3>
+                            <small>John, Anna, Patrick, Susan</small>
+                        </div>
+                        {% endfor %}
+                        
+                    </div>
+             
                 </div>
-            </div>
-            </div>
-        {% endfor %}
-        {% else %}
-        <p>Sem igrejas</p>
-    {% endif %}
+            <!-- Sidebar -->
+            {% include 'eventos.html' %}
+            <!-- Sidebar -->    
+           
+        </div>
+        </div>
+    </div>
+</main> <!-- .main-content -->
 
-    <div class="pagination">
-    <span class="step-links">
-        {% if igrejasfiltro.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ igrejasfiltro.previous_page_number }}">previous</a>
-        {% endif %}
-
-        <span class="current">
-            Page {{ igrejasfiltro.number }} of {{ igrejasfiltro.paginator.num_pages }}.
-        </span>
-
-        {% if igrejasfiltro.has_next %}
-            <a href="?page={{ igrejasfiltro.next_page_number }}">next</a>
-            <a href="?page={{ igrejasfiltro.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-    </span>
 </div>
 
+{% endblock %}
 {% block script %}
         <script src="{% static 'js/jquery.js' %}"></script>
         <script src="{% static 'js/funcoes.ajax.js' %}"></script>
 {% endblock %}
-
-{% endblock context %}

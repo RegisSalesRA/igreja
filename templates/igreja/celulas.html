@@ -1,36 +1,46 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block context %}
 
-
-    {% for celula in celulas %}
-        <div class="card-deck">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{{ celula.nome }}</h5>
-                    <p class="card-text">{{ celula.endereco }}</p>
-                    <p class="card-text"><small class="text-muted"></small></p>
-                    <a href="{% url 'celula' igreja.id celula.id %}" class="btn btn-primary btn-sm">Detalhes</a>
-                </div>
-            </div>
-        </div>
-
-    {% endfor %}
-
-    <div class="pagination">
-    <span class="step-links">
-        {% if celulas.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ celulas.previous_page_number }}">previous</a>
-        {% endif %}
-
-        <span class="current">
-            Page {{ celulas.number }} of {{ celulas.paginator.num_pages }}.
-        </span>
-
-        {% if celulas.has_next %}
-            <a href="?page={{ celulas.next_page_number }}">next</a>
-            <a href="?page={{ celulas.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-    </span>
+<div class="page-head" data-bg-image="images/page-head-1.jpg">
+    <div class="container">
+        <h2 class="page-title">Families</h2>
+    </div>
 </div>
-{% endblock context %}
+
+<main class="main-content">
+    <div class="fullwidth-block">
+        <div class="container">
+            <div class="row">
+                <div class="content col-md-8">
+                    <h2 class="section-title">Lista de Celulas</h2>
+                    
+                    <div class="row">
+
+                        {% for celula in celulas %}
+                        <div class="family">
+                            <img src="{% static 'img/news-thumb-2.jpg' %}" alt="" class="family-image">
+                            <h3 class="family-name">{{celula.nome}}</h3>
+                            <small>John, Anna, Patrick, Susan</small>
+                        </div>
+                        {% endfor %}
+                        
+                    </div>
+             
+                </div>
+            <!-- Sidebar -->
+            {% include 'eventos.html' %}
+            <!-- Sidebar -->    
+           
+        </div>
+        </div>
+    </div>
+</main> <!-- .main-content -->
+
+</div>
+
+{% endblock %}
+{% block script %}
+        <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'js/funcoes.ajax.js' %}"></script>
+{% endblock %}
