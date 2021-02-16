@@ -7,7 +7,8 @@
        
         <!-- UserAuthenticated -->
         <ul class="navbar-nav">
-        {% if request.user.is_authenticated and request.user.first_name %}
+            
+            {% if request.user.is_authenticated and request.user.first_name %}
                 <li class="nav-item dropdown">
             <a class="nav-link text-light text-uppercase font-weight-bold px-3" data-toggle="dropdown">
                 Welcome {{ request.user.first_name }} <i class="fas fa-user circle"></i>
@@ -30,6 +31,11 @@
                     </a>
                 </li>
             {% endif %}
+
+            {% if request.user.is_staff and request.user.is_superuser %}
+                <h1>Administração</h1>
+            {% endif %} 
+               
         </ul>
 
         <form class="form-inline ml-3" action="#", method="GET">

@@ -11,8 +11,9 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from eventos.views import eventos
 from eventos.models import Eventos
-# Home
 
+
+# Home
 def home(request):
     return render(request, 'home.html')
 
@@ -22,9 +23,7 @@ def home(request):
 def igrejas(request):
     igrejas = Igreja.objects.all().order_by('nome')
     eventos = Eventos.objects.all().order_by('nome')
-    # paginator = Paginator(igrejas, 2)
-    # page_number = request.GET.get('page')
-    # igrejas = paginator.get_page(page_number)
+
     context = {
          'igrejas': igrejas,
          'eventos':eventos,
@@ -45,9 +44,7 @@ def deleteigreja(request, igreja_id):
 # Celula Lista
 def celulas(request):
     celulas = Celula.objects.all().order_by('nome')
-    # paginator = Paginator(celulas, 1)
-    # page_number = request.GET.get('page')
-    # celulas = paginator.get_page(page_number)
+
     context = {
         'celulas': celulas,
     }
