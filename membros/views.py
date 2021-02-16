@@ -1,3 +1,4 @@
+from eventos.models import Eventos
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from rest_framework import viewsets
@@ -28,10 +29,11 @@ def mocidadelista(request,igreja_id):
 def jovens(request):
     jovens = Jovens.objects.all().order_by('nome')
     ministerios = Ministerio.objects.all()
-
+    eventos = Eventos.objects.all().order_by('data')[:4]
     context = {
         'ministerios': ministerios,
         'jovens': jovens,
+        'eventos':eventos,
     }
     return render(request, 'membros/jovens.html', context)
 

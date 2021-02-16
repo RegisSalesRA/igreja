@@ -4,7 +4,7 @@ from eventos.models import Eventos,Cultos,Novidades
 
 
 def eventos(request):
-    eventos = Eventos.objects.all()
+    eventos = Eventos.objects.all()[:4]
     context = {
         'eventos': eventos,
     }

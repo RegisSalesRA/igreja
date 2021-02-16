@@ -22,7 +22,7 @@ def home(request):
 
 def igrejas(request):
     igrejas = Igreja.objects.all().order_by('nome')
-    eventos = Eventos.objects.all().order_by('nome')
+    eventos = Eventos.objects.all().order_by('data')[:4]
 
     context = {
          'igrejas': igrejas,
@@ -44,9 +44,11 @@ def deleteigreja(request, igreja_id):
 # Celula Lista
 def celulas(request):
     celulas = Celula.objects.all().order_by('nome')
+    eventos = Eventos.objects.all().order_by('data')[:4]
 
     context = {
         'celulas': celulas,
+        'eventos':eventos,
     }
     return render(request, 'igreja/celulas.html', context)
 
@@ -71,8 +73,10 @@ def FormCelula(request, celula_id):
 # Lider Lista
 def lideres(request):
     lideres = Lideres.objects.all().order_by('nome')
+    eventos = Eventos.objects.all().order_by('data')[:4]
     context = {
-        'lideres': lideres
+        'lideres': lideres,
+        'eventos':eventos,
     }
     return render(request, 'igreja/lideres.html', context)
 

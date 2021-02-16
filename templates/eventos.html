@@ -1,6 +1,23 @@
 <div class="sidebar col-md-3 col-md-offset-1">
     <div class="widget">
+        
         <h3 class="widget-title">Proximos eventos</h3>
-        {{eventos}}
+
+        <ul class="arrow">
+{% if eventos %}
+{% for evento in eventos %}
+            <li><a href="#/"></a>{{evento.nome}}</li>
+{% endfor %}
+{% else %}
+<h2>Nenhum evento no momento</h2>
+{% endif %}
+        </ul>
+        <br>
+        <br>
+        <div class="widget">
+            <h3 class="widget-title">Confira outros eventos</h3>
+            <a href="{% url 'eventos' %}" class="button">Lista de Eventos</a>
+        </div>
+
     </div>
 </div>
