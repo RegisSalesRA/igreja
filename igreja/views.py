@@ -84,21 +84,21 @@ def lideres(request):
 
 ## Logins ##
 
-def signupView(request):
+def signup_view(request):
     if request.method == 'POST':
         form = SiginUpForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             signup_user = User.objects.get(username=username)
-            customer_group = Group.objects.get(name='Customer')
-            customer_group.user_set.add(signup_user)
+            # customer_group = Group.objects.get(name='Customer')
+            # customer_group.user_set.add(signup_user)
     else:
         form = SiginUpForm()
     return render(request, 'login/signup.html', {'form': form})
 
 
-def signinView(request):
+def signin_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
@@ -107,7 +107,7 @@ def signinView(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('Home')
+                return redirect('home')
             else:
                 return redirect('signup')
     else:
@@ -115,6 +115,6 @@ def signinView(request):
     return render(request, 'login/signin.html', {'form': form})
 
 
-def signoutView(request):
+def signout_view(request):
     logout(request)
     return redirect('signin')

@@ -1,16 +1,16 @@
 from django.urls import path
 from igreja.filter import IgrejaFiltro
 from igreja.views import (home, lideres, igreja, igrejas, celula, celulas, 
-    FormCelula, deleteigreja, signupView, signinView, signoutView)
+    FormCelula, deleteigreja, signup_view, signin_view, signout_view)
 
 urlpatterns = [
     # Home
     path('', home, name='home'),
 
     #Login
-    path('account/create/', signupView, name='signup'),
-    path('account/signin/', signinView, name='signin'),
-    path('account/signout/', signoutView, name='signout'),
+    path('account/criar/', signup_view, name='signup'),
+    path('account/logar/', signin_view, name='signin'),
+    path('account/deslogar/', signout_view, name='signout'),
     # HTML
 
     # View
