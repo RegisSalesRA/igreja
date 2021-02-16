@@ -126,14 +126,14 @@
             </ul>
 
             <div class="text-center">
-              <a href="#/" class="button">See all events</a>
+              <a href="{% url 'eventos' %}" class="button">Veja todos os eventos</a>
             </div>
           </div>
           <div class="col-md-6">
             <h2 class="section-title">Latest seremons</h2>
             <ul class="seremon-list">
               <li>
-                <img src="images/small-thumb-1.jpg" alt="">
+                <img src="{% static 'img/news-thumb-2.jpg' %}" alt="">
                 <div class="seremon-detail">
                   <h3 class="seremon-title"><a href="#/">I believe in god with all my heart</a></h3>
                   <div class="seremon-meta">
@@ -143,7 +143,7 @@
                 </div>
               </li>
               <li>
-                <img src="images/small-thumb-2.jpg" alt="">
+                <img src="{% static 'img/news-thumb-2.jpg' %}" alt="">
                 <div class="seremon-detail">
                   <h3 class="seremon-title"><a href="#/">Trusting in jesus and god</a></h3>
                   <div class="seremon-meta">
@@ -153,7 +153,7 @@
                 </div>
               </li>
               <li>
-                <img src="images/small-thumb-3.jpg" alt="">
+                <img src="{% static 'img/news-thumb-2.jpg' %}" alt="">
                 <div class="seremon-detail">
                   <h3 class="seremon-title"><a href="#/">Love your kids</a></h3>
                   <div class="seremon-meta">
@@ -165,7 +165,7 @@
             </ul>
 
             <div class="text-center">
-              <a href="#/" class="button">See all seremons</a>
+              <a href="{% url 'cultos' %}" class="button">Veja todos os cultos</a>
             </div>
           </div>
         </div> <!-- .row -->
