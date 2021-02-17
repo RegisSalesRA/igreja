@@ -10,12 +10,22 @@ from .forms import SiginUpForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from eventos.views import eventos
-from eventos.models import Eventos
+from eventos.models import Eventos,Cultos,Novidades
 
 
 # Home
 def home(request):
-    return render(request, 'home.html')
+    eventos = Eventos.objects.all().order_by('data')[:6]
+    cultos = Cultos.objects.all().order_by('data')[:3]
+    novidades = Novidades.objects.all().order_by('created_at')[:4]
+
+    context = {
+        'eventos':eventos,
+        'cultos':cultos,
+        'novidades':novidades
+    }
+
+    return render(request, 'home.html',context)
 
 
 # Igreja Lista

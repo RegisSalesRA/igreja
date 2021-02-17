@@ -18,41 +18,26 @@
 
     </div>
   </div>
-{{eventos}}
+
   <main class="main-content">
     <div class="fullwidth-block">
       <div class="container">
         <h2 class="section-title">Novidades Rescentes</h2>
 
         <div class="row">
+          {% if novidades %}
+          {% for novidade in novidades %}
           <div class="col-md-3 col-sm-6">
             <div class="news">
               <image class="news-image" src="{% static 'img/news-thumb-2.jpg' %}"></image>
-              <h3 class="news-title"><a href="#/">Novidade 1</a></h3>
-              <small class="date"><i class="fa fa-calendar"></i>Data</small>
+              <h3 class="news-title"><a href="#/">{{novidade.titulo}}</a></h3>
+              <small class="date"><i class="fa fa-calendar"></i>{{novidade.created_at}}</small>
             </div>
           </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="news">
-              <image class="news-image" src="{% static 'img/news-thumb-2.jpg' %}"></image>
-              <h3 class="news-title"><a href="#/">Novidade 2</a></h3>
-              <small class="date"><i class="fa fa-calendar"></i>Data</small>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="news">
-              <image class="news-image" src="{% static 'img/news-thumb-2.jpg' %}"></image>
-              <h3 class="news-title"><a href="#/">Novidade 3</a></h3>
-              <small class="date"><i class="fa fa-calendar"></i>Data</small>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="news">
-              <image class="news-image" src="{% static 'img/news-thumb-2.jpg' %}"></image>
-              <h3 class="news-title"><a href="#/">Novidade 4</a></h3>
-              <small class="date"><i class="fa fa-calendar"></i>Data</small>
-            </div>
-          </div>
+          {% endfor %}
+          {% else %}
+          <center><h1 style="margin-top: 20px;">Nenhuma novidade registrada no momento</h1></center>
+          {% endif %}
         </div> <!-- .row -->
       </div> <!-- .container -->
     </div> <!-- section -->
@@ -63,66 +48,23 @@
           <div class="col-md-6">
             <h2 class="section-title">Proximos eventos</h2>
             <ul class="event-list">
-              <li>
+            {% if eventos %} 
+            {% for evento in eventos %}
+            <li>
+
                 <a href="#/">
                   <h3 class="event-title">Evento 1</h3>
                   <span class="event-meta">
-                    <span><i class="fa fa-calendar"></i>data</span>
+                    <span><i class="fa fa-calendar"></i>data{{evento.nome}}</span>
                     <span><i class="fa fa-map-marker"></i> Africa</span>
-
                   </span>
                 </a>
-              </li>
-              <li>
-                <a href="#/">
-                  <h3 class="event-title">Evento 1</h3>
-                  <span class="event-meta">
-                    <span><i class="fa fa-calendar"></i>data</span>
-                    <span><i class="fa fa-map-marker"></i> igreja1</span>
-
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="#/">
-                  <h3 class="event-title">Evento 2</h3>
-                  <span class="event-meta">
-                    <span><i class="fa fa-calendar"></i>data</span>
-                    <span><i class="fa fa-map-marker"></i> igreja3 </span>
-
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="#/">
-                  <h3 class="event-title">Evento 3</h3>
-                  <span class="event-meta">
-                    <span><i class="fa fa-calendar"></i>data</span>
-                    <span><i class="fa fa-map-marker"></i>igreja 3</span>
-
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="#/">
-                  <h3 class="event-title">Evento 4</h3>
-                  <span class="event-meta">
-                    <span><i class="fa fa-calendar"></i>data</span>
-                    <span><i class="fa fa-map-marker"></i> igreja14</span>
-
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="#/">
-                  <h3 class="event-title">Evento 5</h3>
-                  <span class="event-meta">
-                    <span><i class="fa fa-calendar"></i>data</span>
-                    <span><i class="fa fa-map-marker"></i> igreja15</span>
-
-                  </span>
-                </a>
-              </li>
+            
+              </li>    
+            {% endfor %}
+            {% else %}
+              <p>Nenhum evento confirmado</p>
+             {% endif %}
             </ul>
 
             <div class="text-center">
@@ -132,36 +74,22 @@
           <div class="col-md-6">
             <h2 class="section-title">Latest seremons</h2>
             <ul class="seremon-list">
+              {% if cultos %}
+              {% for culto in cultos %}
               <li>
                 <img src="#/" alt="">
                 <div class="seremon-detail">
-                  <h3 class="seremon-title"><a href="#/">tema</a></h3>
+                  <h3 class="seremon-title"><a href="#/">tema{{culto.nome}}</a></h3>
                   <div class="seremon-meta">
                     <div class="pastor"><i class="fa fa-user"></i> Pastor</div>
                     <div class="date"><i class="fa fa-calendar"></i> data</div>
                   </div>
                 </div>
               </li>
-              <li>
-                <img src="#/" alt="">
-                <div class="seremon-detail">
-                  <h3 class="seremon-title"><a href="#/">tema</a></h3>
-                  <div class="seremon-meta">
-                    <div class="pastor"><i class="fa fa-user"></i> Pastor</div>
-                    <div class="date"><i class="fa fa-calendar"></i> data</div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <img src="#/" alt="">
-                <div class="seremon-detail">
-                  <h3 class="seremon-title"><a href="#/">tema</a></h3>
-                  <div class="seremon-meta">
-                    <div class="pastor"><i class="fa fa-user"></i> Pastor</div>
-                    <div class="date"><i class="fa fa-calendar"></i> data</div>
-                  </div>
-                </div>
-              </li>
+              {% endfor %}
+              {% else %}
+              <p>Nenhum culto no momento</p>
+              {% endif %}
             </ul>
 
             <div class="text-center">

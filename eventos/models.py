@@ -41,6 +41,7 @@ class Novidades(models.Model):
     foto = models.ImageField(null=True, blank=True)
     nome = models.CharField(max_length=150)
     texto = models.TextField()
+    
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
 
