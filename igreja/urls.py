@@ -13,8 +13,10 @@ urlpatterns = [
     path('account/deslogar/', signout_view, name='signout'),
     # HTML
 
-    # View
+    # List View
     path('igrejas/', igrejas, name='igrejas'),
+    path('igreja/', igreja, name='igreja'),
+
     path('celulas/', celulas, name='celulas'),
     path('lideres/', lideres, name='lideres'),
     path('search/', IgrejaFiltro, name='IgrejaFiltro'),

@@ -41,9 +41,11 @@ def igrejas(request):
 
     return render(request, 'igreja/igrejas.html', context)
 
-def igreja(request, igreja_id):
-    igreja = get_object_or_404(Igreja, pk=igreja_id)
-    return render(request, 'igreja/igreja.html', {'igreja': igreja})
+def igreja(request):
+    #igreja = get_object_or_404(Igreja, pk=igreja_id)
+    igrejas = Igreja.objects.all().order_by('nome')
+    
+    return render(request, 'igreja/igreja.html', {'igrejas': igrejas})
 
 def deleteigreja(request, igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id)
