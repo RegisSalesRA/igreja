@@ -4,109 +4,127 @@
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
 
+    <!-- Igreja -->
     <div class="col">
       <div class="card h-100">
-        <img src="{% static 'img/news-thumb-2.jpg' %}" class="card-img-top" alt="...">
+        <img src="{% static 'img/slide-1.jpg' %}" class="card-img-top" alt="">
+
         <div class="card-body">
-          <h5 class="card-title">Igreja</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <h5 class="card-title">{{igreja.nome}}</h5>
+          <p class="card-text">
+          <h1>{{igreja.descricao}}</h1>
+          </p>
+          
         </div>
         <div class="card-footer">
        
           <div class="text-center">
-            <a href="{% url 'eventos' %}" class="button">Veja todas as Igrejas</a>
+            <a href="{% url 'igrejas' %}" class="button">Entre em contato</a>
           </div>
           
      
         </div>
       </div>
     </div>
+    <!-- IgrejaEnd -->
 
+
+    
+    <!-- Grupos -->
     <div class="col">
       <div class="card h-100">
         <img src="{% static 'img/slide-1.jpg' %}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Grupos</h5>
-          
-          <ul>
-            <li>grupo 1</li>
-            <li>grupo 2</li>
-            <li>grupo 3</li>
-            <li>grupo 4</li>
-            <li>grupo 5</li>
-          </ul>
         
+          <div class="row row-cols-1 row-cols-md-2 g-4">
+         
+            <div class="col mb-3">
+              <div class="card h-100 bg-success mb-3 text-white">
+                <img src="" class="card-img-top" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+         
+            <div class="col mb-3">
+              <div class="card h-100 bg-warning mb-3 text-white">
+                <img src="" class="card-img-top" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+         
+
+            <div class="col mb-3">
+              <div class="card h-100 bg-danger mb-3 text-white">
+                <img src="" class="card-img-top" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+         
+
+            <div class="col mb-3">
+              <div class="card h-100 bg-info mb-3 text-white">
+                <img src="" class="card-img-top" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+         
+          </div>
+          
         </div>
         <div class="card-footer">
           <div class="text-center">
-            <a href="{% url 'eventos' %}" class="button">Veja todas as Igrejas</a>
+            <a href="{% url 'celulas' igreja.id %}" class="button">Veja todas as celulas dessa Igreja</a>
           </div>
         </div>
       </div>
     </div>
-
+    <!-- GruposEnd -->
+    
+    <!-- Lider -->
     <div class="col">
       <div class="card h-100">
-        <img src="{% static 'img/logo.png' %}" class="card-img-top" alt="...">
+        <img src="{% static 'img/slide-1.jpg' %}" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Lideres</h5>
         
-          ####
-          <div class="row row-cols-1 row-cols-md-3 g-4">
-         
-            <div class="col mb-3">
-              <div class="card h-100 bg-secondary mb-3 text-white">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-              </div>
-            </div>
-         
-            <div class="col mb-3">
-              <div class="card h-100 bg-secondary mb-3 text-white">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-              </div>
-            </div>
-         
+          <!-- Cards -->
+          <div class="row row-cols-1 row-cols-md-2 g-4">
 
-            <div class="col mb-3">
-              <div class="card h-100 bg-secondary mb-3 text-white">
-                <img src="..." class="card-img-top" alt="...">
+            <div class="col">
+              <div class="card">
+                <img src="{% static 'img/slide-1.jpg' %}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 </div>
               </div>
             </div>
-         
 
-            <div class="col mb-3">
-              <div class="card h-100 bg-secondary mb-3 text-white">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-              </div>
-            </div>
-         
-          </div>
-          ####
           
+          </div>
+          <!-- CardEnd -->
+
         </div>
         <div class="card-footer">
           <div class="text-center">
-            <a href="{% url 'eventos' %}" class="button">Veja todas as Igrejas</a>
+            <a href="#/" class="button">Veja toda a Liderenca</a>
           </div>
         </div>
       </div>
     </div>
+    <!-- LiderEnd -->
 
   </div>
 

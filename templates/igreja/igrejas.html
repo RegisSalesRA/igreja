@@ -15,7 +15,7 @@
                        
                         {% for igreja in igrejas %}
                         <div class="family">
-                            <a href="">
+                            <a href="{% url 'igreja' igreja.id %}">
                             <img src="{% static 'img/news-thumb-2.jpg' %}" alt="" class="family-image">
                             <h3 class="family-name">{{igreja.nome}}</h3>
                             <small>John, Anna, Patrick, Susan</small>

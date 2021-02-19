@@ -15,14 +15,14 @@ urlpatterns = [
 
     # List View
     path('igrejas/', igrejas, name='igrejas'),
-    path('igreja/', igreja, name='igreja'),
+    path('igreja/<int:igreja_id>/', igreja, name='igreja'),
+    path('igreja/<int:igreja_id>/celulas', celulas, name='celulas'),
 
-    path('celulas/', celulas, name='celulas'),
-    path('lideres/', lideres, name='lideres'),
+    #path('celulas/', celulas, name='celulas'),
+    #path('lideres/', lideres, name='lideres'),
     path('search/', IgrejaFiltro, name='IgrejaFiltro'),
     path('igrejas/<int:igreja_id>/celula/<int:celula_id>', celula, name='celula'),
-    path('igrejas/<int:igreja_id>/', igreja, name='igreja'),
-    
+
     # Deletar
     path('igreja/deletar/<int:igreja_id>', deleteigreja, name='deleteigreja'),
     # Deletar

@@ -41,11 +41,11 @@ def igrejas(request):
 
     return render(request, 'igreja/igrejas.html', context)
 
-def igreja(request):
-    #igreja = get_object_or_404(Igreja, pk=igreja_id)
-    igrejas = Igreja.objects.all().order_by('nome')
+def igreja(request, igreja_id):
+    igreja = get_object_or_404(Igreja, pk=igreja_id)
     
-    return render(request, 'igreja/igreja.html', {'igrejas': igrejas})
+    return render(request, 'igreja/igreja.html', {'igreja': igreja})
+
 
 def deleteigreja(request, igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id)
@@ -54,13 +54,12 @@ def deleteigreja(request, igreja_id):
 
 
 # Celula Lista
-def celulas(request):
-    celulas = Celula.objects.all().order_by('nome')
-    eventos = Eventos.objects.all().order_by('data')[:4]
-
+def celulas(request, igreja_id):
+    igreja_object = get_object_or_404(Igreja, pk=igreja_id) 
+    celulas = igreja_object.celula_set.all()
+    
     context = {
         'celulas': celulas,
-        'eventos':eventos,
     }
     return render(request, 'igreja/celulas.html', context)
 
