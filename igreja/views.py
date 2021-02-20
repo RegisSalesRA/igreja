@@ -55,8 +55,8 @@ def deleteigreja(request, igreja_id):
 
 # Celula Lista
 def celulas(request, igreja_id):
-    igreja_object = get_object_or_404(Igreja, pk=igreja_id) 
-    celulas = igreja_object.celula_set.all()
+    igreja = get_object_or_404(Igreja, pk=igreja_id) 
+    celulas = igreja.celula_set.all()
     
     context = {
         'celulas': celulas,
@@ -82,16 +82,17 @@ def FormCelula(request, celula_id):
 
 
 # Lider Lista
-def lideres(request):
-    lideres = Lideres.objects.all().order_by('nome')
+
+def lideres(request,igreja_id):
+    igreja = get_object_or_404(Igreja, pk=igreja_id) 
+    lideres = igreja.celula_set.all()
     eventos = Eventos.objects.all().order_by('data')[:4]
+
     context = {
         'lideres': lideres,
         'eventos':eventos,
     }
-    return render(request, 'igreja/lideres.html', context)
-
-
+    return render(request, 'igreja/lideres.html',context)
 
 
 ## Logins ##
