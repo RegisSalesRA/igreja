@@ -85,7 +85,7 @@ def FormCelula(request, celula_id):
 
 def lideres(request,igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
-    lideres = igreja.celula_set.all()
+    lideres = igreja.lideres_set.all()
     eventos = Eventos.objects.all().order_by('data')[:4]
 
     context = {
