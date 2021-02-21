@@ -57,17 +57,20 @@ def deleteigreja(request, igreja_id):
 def celulas(request, igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
     celulas = igreja.celula_set.all()
-    
+    eventos = Eventos.objects.all().order_by('data')[:4]
+
     context = {
+        'igreja': igreja,
         'celulas': celulas,
+        'eventos':eventos,
     }
     return render(request, 'igreja/celulas.html', context)
 
 
 
 def celula(request, celula_id, igreja_id):
-    assembleia = Igreja.objects.get(pk=igreja_id)
-    celula = assembleia.celula_set.get(pk=celula_id)
+    igreja = Igreja.objects.get(pk=igreja_id)
+    celula = igreja.celula_set.get(pk=celula_id)
     return render(request, 'igreja/celula.html', {'celula': celula})
 
 
@@ -89,11 +92,19 @@ def lideres(request,igreja_id):
     eventos = Eventos.objects.all().order_by('data')[:4]
 
     context = {
+        'igreja': igreja,
         'lideres': lideres,
         'eventos':eventos,
     }
     return render(request, 'igreja/lideres.html',context)
 
+def lider(request,igreja_id, lider_id):
+    igreja = Igreja.objects.get(pk=igreja_id)
+    lider = igreja.lideres_set.get(pk=lider_id)
+    context = {
+        'lider': lider,
+    }
+    return render(request, 'igreja/lider.html', context)
 
 ## Logins ##
 

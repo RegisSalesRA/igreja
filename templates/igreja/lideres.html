@@ -15,9 +15,11 @@
                         
                         {% for lider in lideres %}
                         <div class="family">
+                            <a href="{% url 'lider' igreja.id lider.id %}">
                             <img src="{% static 'img/news-thumb-2.jpg' %}" alt="" class="family-image">
                             <h3 class="family-name">{{lider.nome}}</h3>
                             <small>John, Anna, Patrick, Susan</small>
+                            </a>
                         </div>
                         {% endfor %}
                         

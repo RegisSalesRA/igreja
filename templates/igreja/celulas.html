@@ -13,9 +13,11 @@
 
                         {% for celula in celulas %}
                         <div class="family">
+                            <a href="{% url 'celula' igreja.id celula.id %}">
                             <img src="{% static 'img/news-thumb-2.jpg' %}" alt="" class="family-image">
                             <h3 class="family-name">{{celula.nome}}</h3>
                             <small>John, Anna, Patrick, Susan</small>
+                            </a>
                         </div>
                         {% endfor %}
                     
