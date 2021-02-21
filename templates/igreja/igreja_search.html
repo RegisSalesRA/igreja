@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block context %}
+
+<main class="main-content">
+    <div class="fullwidth-block">
+        <div class="container">
+            <div class="row">
+                <div class="content col-md-8">
+                    <h2 class="section-title">Lista de igrejas</h2>
+                    
+                    <div class="row">
+                       
+                        {% for igreja in igreja_search %}
+                        <div class="family">
+                            <a href="{% url 'igreja' igreja.id %}">
+                            <img src="{% static 'img/news-thumb-2.jpg' %}" alt="" class="family-image">
+                            <h3 class="family-name">{{igreja.nome}}</h3>
+                            <small>John, Anna, Patrick, Susan</small>
+                            </a>
+                        </div>
+                        {% endfor %}
+                        
+                    </div>
+             
+                </div>
+            <!-- Sidebar -->
+            {% include 'eventos.html' %}
+            <!-- Sidebar -->    
+           
+        </div>
+        </div>
+    </div>
+</main> <!-- .main-content -->
+
+</div>
+
+{% endblock %}
+{% block script %}
+        <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'js/funcoes.ajax.js' %}"></script>
+{% endblock %}

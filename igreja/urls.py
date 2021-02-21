@@ -1,5 +1,5 @@
 from django.urls import path
-from igreja.filter import IgrejaFiltro
+from igreja.filter import igreja_search
 from igreja.views import (home, igreja, igrejas, celula, celulas,lideres,lider, 
     FormCelula, deleteigreja, signup_view, signin_view, signout_view)
 
@@ -23,7 +23,7 @@ urlpatterns = [
 
 
     #path('celulas/', celulas, name='celulas'),
-    path('search/', IgrejaFiltro, name='IgrejaFiltro'),
+    path('search/', igreja_search, name='igreja_search'),
 
     # Deletar
     path('igreja/deletar/<int:igreja_id>', deleteigreja, name='deleteigreja'),
