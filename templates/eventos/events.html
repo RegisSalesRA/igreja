@@ -9,7 +9,8 @@
             <div class="row" style="justify-content: center;" >
                 <div class="content col-md-8">
                     <h2 class="section-title">Lista de eventos</h2>
-                    
+                    <br>
+                    <br>
                     <div class="row">
                        
                         {% for evento in eventos_lista %}
@@ -17,7 +18,6 @@
                             <a href="{% url 'evento' evento.pk %}">
                             <img src="{% static 'img/news-thumb-2.jpg' %}" alt="" class="family-image">
                             <h3 class="family-name">{{evento.nome}}</h3>
-                            <small>John, Anna, Patrick, Susan</small>
                             </a>
                         </div>
                         {% endfor %}

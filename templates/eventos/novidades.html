@@ -9,7 +9,8 @@
             <div class="row" style="justify-content: center;" >
                 <div class="content col-md-8">
                     <h2 class="section-title">Lista de novidades</h2>
-                    
+                    <br>
+                    <br>
                     <div class="row">
                        
                         {% for novidade in novidades %}
@@ -17,7 +18,7 @@
                             <a href="{% url 'novidade' novidade.pk %}">
                             <img src="{% static 'img/news-thumb-2.jpg' %}" alt="" class="family-image">
                             <h3 class="family-name">{{novidade.nome}}</h3>
-                            <small>John, Anna, Patrick, Susan</small>
+                            <small>{{novidade.contato}}</small>
                             </a>
                         </div>
                         {% endfor %}

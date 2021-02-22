@@ -24,7 +24,8 @@ class Eventos(models.Model):
 class Cultos(models.Model):
 
     foto = models.ImageField(null=True, blank=True)
-    nome = models.CharField(max_length=150)
+    tema = models.CharField(max_length=150)
+    descricao = models.TextField()
     pastor = models.CharField(max_length=150)
     data = models.DateTimeField(null=False, blank=False)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
@@ -35,12 +36,14 @@ class Cultos(models.Model):
         verbose_name_plural = 'Cultos'
 
     def __str__(self):
-        return self.nome    
+        return self.tema
+
 class Novidades(models.Model):
 
     foto = models.ImageField(null=True, blank=True)
     nome = models.CharField(max_length=150)
     texto = models.TextField()
+    contato = models.CharField(max_length=20)
     
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)

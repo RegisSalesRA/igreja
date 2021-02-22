@@ -9,7 +9,7 @@
 {% if eventos %}
 
 {% for evento in eventos %}
-            <li><a href="#/"></a>{{evento.nome}}</li>
+    <a href="{% url 'evento' evento.pk %}"><li>{{evento.nome}}</li></a>
 {% endfor %}
 
 {% else %}
@@ -22,7 +22,7 @@
 
     <center>
         <div class="widget">
-            <h3 class="widget-title">Veja outros eventos</h3>
+            <h3 class="widget-title">Confira mais eventos</h3>
             <a href="{% url 'eventos' %}" class="button">Lista de Eventos</a>
         </div>
     </center>
