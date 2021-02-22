@@ -31,7 +31,7 @@
             <div class="news">
               <a href="{% url 'novidade' novidade.pk %}">
               <image class="news-image" src="{% static 'img/news-thumb-2.jpg' %}"></image>
-              <h3 class="news-title"><a href="#/">{{novidade.titulo}}</a></h3>
+              <h3 class="news-title"><a href="#/">{{novidade.nome}}</a></h3>
               <small class="date"><i class="fa fa-calendar"></i>{{novidade.created_at}}</small>
               </a>
             </div>

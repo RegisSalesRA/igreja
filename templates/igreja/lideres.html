@@ -10,15 +10,16 @@
             <div class="row">
                 <div class="content col-md-8">
                     <h2 class="section-title">Lista de lideres</h2>
-                  
+                  <br>
+                  <br>
                     <div class="row">
                         
                         {% for lider in lideres %}
                         <div class="family">
                             <a href="{% url 'lider' igreja.id lider.id %}">
+                            <h3 class="family-name">{{lider.igreja}}</h3>
                             <img src="{% static 'img/news-thumb-2.jpg' %}" alt="" class="family-image">
                             <h3 class="family-name">{{lider.nome}}</h3>
-                            <small>John, Anna, Patrick, Susan</small>
                             </a>
                         </div>
                         {% endfor %}

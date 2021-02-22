@@ -2,27 +2,26 @@
 {% load static %}
 {% block context %}
 
+
 <main class="main-content">
     <div class="fullwidth-block">
         <div class="container">
             <div class="row">
                 <div class="content col-md-8">
                     <h2 class="section-title">Lista de igrejas</h2>
-                    
+                    <br>
+                    <br>
                     <div class="row">
-                       
                         {% for igreja in igrejas %}
                         <div class="family">
                             <a href="{% url 'igreja' igreja.id %}">
-                            <img src="{% static 'img/news-thumb-2.jpg' %}" alt="" class="family-image">
-                            <h3 class="family-name">{{igreja.nome}}</h3>
-                            <small>John, Anna, Patrick, Susan</small>
+                                <h2 class="family-name">{{igreja.nome}}</h2>
+                                <img src="{% static 'img/news-thumb-2.jpg' %}" alt="" class="family-image">
+                                <h3 class="family-name">{{igreja.pastor}}</h3>
                             </a>
                         </div>
                         {% endfor %}
-                        
                     </div>
-             
                 </div>
             <!-- Sidebar -->
             {% include 'eventos.html' %}

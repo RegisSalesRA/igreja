@@ -13,9 +13,11 @@ def get_file_path(_instance, filename):
 
 class Igreja(models.Model):
     nome = models.CharField(max_length=200, null=False, blank=False)
-    endereco = models.CharField(max_length=200, null=False, blank=False)
+    descricao = models.TextField(help_text='Sobre a igreja')
     pastor = models.CharField(max_length=150, null=False, blank=False)
-    descricao = models.TextField(help_text='fale um pouco sobre a igreja')
+    descricao_pastor = models.TextField(help_text='Um pouco da historia do pastor')
+    endereco = models.CharField(max_length=200, null=False, blank=False)
+    
     image = StdImageField('Imagem', upload_to=get_file_path,
                           variations={'thumb': {'width': 480, 'height': 480, 'crop': True}}, blank=True, null=True)
 
@@ -31,6 +33,8 @@ class Igreja(models.Model):
 class Lideres(models.Model):
     image = StdImageField('Imagem', upload_to=get_file_path,
                           variations={'thumb': {'width': 480, 'height': 480, 'crop': True}}, blank=True, null=True)
+    descricao = models.TextField()
+    contato = models.CharField(max_length=18)
     nome = models.CharField(max_length=150, null=False, blank=False)
     codigo_igreja = models.CharField(max_length=150, null=False, blank=False)
     igreja = models.ForeignKey(Igreja, null=False, blank=False,
@@ -49,6 +53,8 @@ class Lideres(models.Model):
 class Celula(models.Model):
     nome = models.CharField(max_length=200, null=False, blank=False)
     endereco = models.CharField(max_length=200, null=False, blank=False)
+    descricao = models.TextField()
+    contato = models.CharField(max_length=12)
     igreja = models.ForeignKey(Igreja, null=False, blank=False,
                                on_delete=models.CASCADE)
     lider = models.ForeignKey(Lideres, null=True, blank=True,
