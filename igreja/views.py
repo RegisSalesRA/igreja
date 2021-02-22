@@ -15,7 +15,7 @@ from eventos.models import Eventos,Cultos,Novidades
 
 # Home
 def home(request):
-    eventos = Eventos.objects.all().order_by('data')[:6]
+    eventos = Eventos.objects.all().order_by('data')[:5]
     cultos = Cultos.objects.all().order_by('data')[:3]
     novidades = Novidades.objects.all().order_by('created_at')[:4]
 

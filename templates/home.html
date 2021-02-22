@@ -29,15 +29,20 @@
           {% for novidade in novidades %}
           <div class="col-md-3 col-sm-6">
             <div class="news">
+              <a href="{% url 'novidade' novidade.pk %}">
               <image class="news-image" src="{% static 'img/news-thumb-2.jpg' %}"></image>
               <h3 class="news-title"><a href="#/">{{novidade.titulo}}</a></h3>
               <small class="date"><i class="fa fa-calendar"></i>{{novidade.created_at}}</small>
+              </a>
             </div>
           </div>
           {% endfor %}
           {% else %}
           <center><h1 style="margin-top: 20px;">Nenhuma novidade registrada no momento</h1></center>
           {% endif %}
+          <div class="text-center">
+            <a href="{% url 'novidades' %}" class="button">Veja todas as novidades</a>
+          </div>
         </div> <!-- .row -->
       </div> <!-- .container -->
     </div> <!-- section -->
@@ -52,8 +57,8 @@
             {% for evento in eventos %}
             <li>
 
-                <a href="#/">
-                  <h3 class="event-title">Evento 1</h3>
+                <a href="{% url 'evento' evento.pk %}">
+                  <h3 class="event-title">{{evento.nome}}</h3>
                   <span class="event-meta">
                     <span><i class="fa fa-calendar"></i>data{{evento.nome}}</span>
                     <span><i class="fa fa-map-marker"></i> Africa</span>
@@ -79,7 +84,7 @@
               <li>
                 <img src="#/" alt="">
                 <div class="seremon-detail">
-                  <h3 class="seremon-title"><a href="#/">tema{{culto.nome}}</a></h3>
+                  <h3 class="seremon-title"><a href="{% url 'culto' culto.pk %}">tema{{culto.nome}}</a></h3>
                   <div class="seremon-meta">
                     <div class="pastor"><i class="fa fa-user"></i> Pastor</div>
                     <div class="date"><i class="fa fa-calendar"></i> data</div>
