@@ -1,13 +1,14 @@
 from django.db import models
-# Create your models here.
-#models.TimeField
+
 
 class Eventos(models.Model):
 
     foto = models.ImageField(null=True, blank=True)
     nome = models.CharField(max_length=150)
     data = models.DateField(null=False, blank=False)
+    hora = models.TimeField(null=True, blank=True)
     texto = models.TextField()
+
     local = models.CharField(max_length=150)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
@@ -27,6 +28,8 @@ class Cultos(models.Model):
     descricao = models.TextField()
     pastor = models.CharField(max_length=150)
     data = models.DateField(null=False, blank=False)
+    hora = models.TimeField(null=True, blank=True)
+
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
 
@@ -42,6 +45,7 @@ class Novidades(models.Model):
     foto = models.ImageField(null=True, blank=True)
     nome = models.CharField(max_length=150)
     texto = models.TextField()
+    
     contato = models.CharField(max_length=20)
     
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
