@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block context %}
-
-
 <main class="main-content">
     <div class="fullwidth-block">
         <div class="container">
@@ -11,22 +9,21 @@
                     <h2 class="section-title">Lista de eventos</h2>
                     <br>
                     <br>
-                    <div class="row">
-                       
+                    <div class="row">     
                         {% for evento in eventos_lista %}
+                        
                         <div class="family">
+                            {{evento.pastor}}
                             <a href="{% url 'evento' evento.pk %}">
-                            <img src="{% static 'img/news-thumb-2.jpg' %}" alt="" class="family-image">
+                            <img src="{{ evento.foto.url }}" alt="" class="family-image" style="height: 200px;">
                             <h3 class="family-name">{{evento.nome}}</h3>
+                            {{evento.hora}}
                             </a>
                         </div>
                         {% endfor %}
                         
                     </div>
-             
                 </div>
-				    
-           
         </div>
         </div>
     </div>

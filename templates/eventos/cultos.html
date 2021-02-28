@@ -16,7 +16,7 @@
                         {% for culto in cultos %}
                         <div class="family">
                             <a href="{% url 'culto' culto.pk %}">
-                            <img src="{% static 'img/news-thumb-2.jpg' %}" alt="" class="family-image">
+                            <img src="{{ culto.foto.url }}" alt="" class="family-image" style="height: 200px;">
                             <h3 class="family-name">{{culto.pastor}}</h3>
                             <small>{{culto.tema}}</small>
                             </a>
