@@ -5,13 +5,8 @@
 <div class="hero">
     <div class="slides">
      
-      <li data-bg-image="{% static 'img/igrejaposter.jpg' %}" class="flex-active-slide" style="background-image: url({% static 'img/slide-1.jpg' %}); width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; transition: opacity 0.6s ease 0s; z-index: 2;">
-        <div class="container">
-          <div class="slide-content">
-            <small class="slide-subtitle">IGREJA SEDE</small>
-            <h2 class="slide-title">Place for all</h2>
-          </div>
-        </div>
+      <li data-bg-image="{% static 'img/igrejaposter.jpg' %}" class="flex-active-slide" style="background-image: url({% static 'environments/igrejaposter.jpg' %}); width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; transition: opacity 0.6s ease 0s; z-index: 2;">
+        
       </li>
 
     </div>
@@ -59,7 +54,7 @@
                   <h3 class="event-title">{{evento.nome}}</h3>
                   <span class="event-meta">
                     <span><i class="fa fa-calendar"></i>{{evento.data}}</span>
-                    <span><i class="fa fa-map-marker"></i>{{evento.hora}}</span>
+                    <span><i class="fa fa-clock"></i>{{evento.hora}}</span>
                   </span>
                 </a>
             
@@ -80,7 +75,7 @@
               {% if cultos %}
               {% for culto in cultos %}
               <li>
-                <img src="#/" alt="">
+                <img src="{{ culto.foto.url }}" alt="" style="height:50px; width: 70px;">
                 <div class="seremon-detail">
                   <h3 class="seremon-title"><a href="{% url 'culto' culto.pk %}">{{culto.nome}}</a></h3>
                   <div class="seremon-meta">
@@ -91,7 +86,9 @@
               </li>
               {% endfor %}
               {% else %}
+              <div style="justify-content: center;">
               <p>Nenhum culto no momento</p>
+              </div>
               {% endif %}
             </ul>
 
