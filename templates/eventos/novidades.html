@@ -18,7 +18,6 @@
                             <a href="{% url 'novidade' novidade.pk %}">
                             <img src="{{ novidade.foto.url }}" alt="" class="family-image" style="height: 200px;">
                             <h3 class="family-name">{{novidade.nome}}</h3>
-                            <small>{{novidade.contato}}</small>
                             </a>
                         </div>
                         {% endfor %}

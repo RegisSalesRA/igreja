@@ -19,7 +19,7 @@
                             <a href="{% url 'lider' igreja.id lider.id %}">
                             <h3 class="family-name">{{lider.igreja}}</h3>
                             <img src="{{lider.foto.url}}" alt="" class="family-image" style="height: 200px;">
-                            <h3 class="family-name">{{lider.nome}}</h3>
+                            <h3 class="family-name">Responsavel: {{lider.nome}}</h3>
                             </a>
                         </div>
                         {% endfor %}
