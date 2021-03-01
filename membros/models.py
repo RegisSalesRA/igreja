@@ -9,11 +9,13 @@ class Ministerio(models.Model):
     MUSICA = 'Musica'
     ORACAO = 'Oracao'
     INTEGRACAO = 'Integracao'
+    ESTUDO_BIBLICO = 'Integracao'
 
     ministerio_opcoes = [
         (MUSICA, 'Musica'),
         (ORACAO, 'Oracao'),
-        (INTEGRACAO, 'Integracao')
+        (INTEGRACAO, 'Integracao'),
+        (ESTUDO_BIBLICO, 'Integracao')
     ]
 
     ministerio = models.CharField(max_length=100, choices=ministerio_opcoes)
@@ -40,20 +42,6 @@ class Jovens(models.Model):
     class Meta:
         verbose_name = 'Jovem'
         verbose_name_plural = 'Jovens'
-
-    def __str__(self):
-        return self.nome
-
-
-class Novatos(models.Model):
-    nome = models.CharField(max_length=150, null=False, blank=False)
-    descreva = models.TextField(help_text='Descreva algo sobre voce')
-    
-    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
-    class Meta:
-        verbose_name = 'Novato'
-        verbose_name_plural = 'Novatos'
 
     def __str__(self):
         return self.nome

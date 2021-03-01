@@ -1,8 +1,8 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from rest_framework import viewsets
-from membros.forms import JovemForm, NovatoForm
-from membros.models import Jovens, Novatos, Ministerio
+from membros.forms import JovemForm
+from membros.models import Jovens, Ministerio
 from igreja.models import Igreja
 from django.shortcuts import render, get_object_or_404, redirect
 
@@ -37,8 +37,3 @@ def categoriafiltro(request, categoria_id):
         # 'filtro': filtro,
     }
     return render(request, 'ministerio/ministerio.html', context)
-
-
-def filtronovato(request):
-    novato = Novatos.objects.filter(nome__contains=request.GET['nome'])
-    return render(request, 'membros/novatofilter.html', {'novato': novato})
