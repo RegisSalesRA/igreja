@@ -13,17 +13,21 @@
                   <br>
                   <br>
                     <div class="row">
-                        
+                        {% if lideres %}
                         {% for lider in lideres %}
                         <div class="family">
                             <a href="{% url 'lider' igreja.id lider.id %}">
                             <h3 class="family-name">{{lider.igreja}}</h3>
-                            <img src="{% static 'img/news-thumb-2.jpg' %}" alt="" class="family-image" style="height: 200px;">
+                            <img src="{{lider.foto.url}}" alt="" class="family-image" style="height: 200px;">
                             <h3 class="family-name">{{lider.nome}}</h3>
                             </a>
                         </div>
                         {% endfor %}
-                        
+                        {% else %}
+                        <div>
+                            <h1>Nenhum lider no momento relaciondado com essa igreja</h1>
+                        </div>
+                        {% endif %}
                     </div>
              
                 </div>

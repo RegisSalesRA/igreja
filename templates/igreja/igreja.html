@@ -7,12 +7,15 @@
     <!-- Igreja -->
     <div class="col">
       <div class="card h-100">
-        <img src="{% static 'img/slide-1.jpg' %}" class="card-img-top" alt="">
+        <img src="{% static 'environments/igrejabanner.jpg' %}" class="card-img-top" alt="" style="height:200px;">
         <div class="card-body">
-          <h5 class="card-title">{{igreja.nome}}</h5>
-          <p class="card-text">
-          <h1>{{igreja.descricao}}</h1>
-          </p>
+          
+          <h2 class="card-title"><i class="fas fa-church"></i>   {{igreja.nome}}</h2>
+          <small><i class="fas fa-user"></i> pastor: {{igreja.pastor}}</small>
+          <br><br>
+          <p class="card-text"><i class="fas fa-pencil-alt"></i> Descricao: {{igreja.descricao}}
+         </p>
+         <small><i class="fas fa-map-marker-alt"></i> endereco: {{igreja.endereco}}</small>
         </div>
         <div class="card-footer">
        
@@ -28,10 +31,10 @@
     <!-- Grupos -->
     <div class="col">
       <div class="card h-100">
-        <img src="{% static 'img/slide-1.jpg' %}" class="card-img-top" alt="...">
+        <img src="{% static 'environments/gruposbanner.jpg' %}" class="card-img-top" alt="..." style="height:200px;">
         <div class="card-body">
           <h5 class="card-title">Grupos</h5>
-        
+                 
           <div class="row row-cols-1 row-cols-md-2 g-4">
          
             <div class="col mb-3">
@@ -39,7 +42,7 @@
                 <img src="" class="card-img-top" alt="">
                 <div class="card-body">
                   <h5 class="card-title">Grupo de Artes</h5>
-                  <p class="card-text">Descricao dos grupos</p>
+                  <p class="card-text">Grupo feito para criar e incentivar atividades de artes</p>
                 </div>
               </div>
             </div>
@@ -49,18 +52,18 @@
                 <img src="" class="card-img-top" alt="">
                 <div class="card-body">
                   <h5 class="card-title">Grupo de Musicas</h5>
-                  <p class="card-text">Descricao dos grupos</p>
+                  <p class="card-text">Grupo feito para criar e incentivar atividades de musicas</p>
                 </div>
               </div>
             </div>
          
 
             <div class="col mb-3">
-              <div class="card h-100 bg-danger mb-3 text-white">
+              <div class="card h-100 mb-3 text-white" style="background-color: rgb(82, 170, 211);">
                 <img src="" class="card-img-top" alt="">
                 <div class="card-body">
                   <h5 class="card-title">Grupo de Oracao</h5>
-                  <p class="card-text">Descricao dos grupos</p>
+                  <p class="card-text">Grupo feito para criar e incentivar atividades de oracao em grupo</p>
                 </div>
               </div>
             </div>
@@ -71,7 +74,7 @@
                 <img src="" class="card-img-top" alt="">
                 <div class="card-body">
                   <h5 class="card-title">Grupo de estudo</h5>
-                  <p class="card-text">Descricao dos grupos</p>
+                  <p class="card-text">Grupo feito para criar e incentivar estudos biblicos</p>
                 </div>
               </div>
             </div>
@@ -91,28 +94,59 @@
     <!-- Lider -->
     <div class="col">
       <div class="card h-100">
-        <img src="{% static 'img/slide-1.jpg' %}" class="card-img-top" alt="...">
+        <img src="{% static 'environments/liderbanner.jpg' %}" class="card-img-top" alt="..." style="height:200px;">
         <div class="card-body">
+          <h5 class="card-title">Grupos</h5>
         
-          <!-- Cards -->
-          <div class="row row-cols-1 row-cols-md-2 g-4" style="justify-content: center;">
-
-            <div class="col">
-              <div class="card">
-                <img src="{% static 'img/slide-1.jpg' %}" class="card-img-top" alt="...">
+          <div class="row row-cols-1 row-cols-md-2 g-4">
+         
+            <div class="col mb-3">
+              <div class="card h-100 bg-success mb-3 text-white">
+                <img src="" class="card-img-top" alt="">
                 <div class="card-body">
-                  <h5 class="card-title">{{igreja.pastor}}</h5>
-                  <p class="card-text">{{igreja.descricao_pastor}}</p>
+                  <h5 class="card-title">Lideres de Artes</h5>
+                  <p class="card-text">Lideres capacitados para ajudar em artes</p>
                 </div>
               </div>
             </div>
+         
+            <div class="col mb-3">
+              <div class="card h-100 bg-warning mb-3 text-white">
+                <img src="" class="card-img-top" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Lideres de Musicas</h5>
+                  <p class="card-text">Lideres capacitados para ajudar no ministerio de musica</p>
+                </div>
+              </div>
+            </div>
+         
 
-          
+            <div class="col mb-3">
+              <div class="card h-100 mb-3 text-white" style="background-color: rgb(82, 170, 211)">
+                <img src="" class="card-img-top" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Lideres de Oracao</h5>
+                  <p class="card-text">Lideres capacitados para ajudar e ensinar a orar</p>
+                </div>
+              </div>
+            </div>
+         
+
+            <div class="col mb-3">
+              <div class="card h-100 bg-info mb-3 text-white">
+                <img src="" class="card-img-top" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Lideres de estudo biblico</h5>
+                  <p class="card-text">Lideres capacitados para ajudar no entendimento da palavra</p>
+                </div>
+              </div>
+            </div>
+         
           </div>
-          <!-- CardEnd -->
-
+          
         </div>
-        
+  
+            
         <div class="card-footer"> 
           <div class="text-center">
             <a href="{% url 'lideres' igreja.id %}" class="button">Veja toda a Liderenca</a>
@@ -121,8 +155,11 @@
 
       </div>
     </div>
-    <!-- LiderEnd -->
+          <!-- CardEnd -->
 
   </div>
-
+      </div>
+    </div>
+    <!-- LiderEnd -->
+  </div>
 {% endblock %}

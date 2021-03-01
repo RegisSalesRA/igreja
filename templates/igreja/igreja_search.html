@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block context %}
-
 <main class="main-content">
     <div class="fullwidth-block">
         <div class="container">
@@ -14,7 +13,7 @@
                         {% for igreja in igreja_search %}
                         <div class="family">
                             <a href="{% url 'igreja' igreja.id %}">
-                            <img src="{% static 'img/news-thumb-2.jpg' %}" alt="" class="family-image">
+                            <img src="{{ igreja.foto.url }}" alt="" class="family-image">
                             <h3 class="family-name">{{igreja.nome}}</h3>
                             <small>John, Anna, Patrick, Susan</small>
                             </a>
@@ -34,9 +33,8 @@
 </main> <!-- .main-content -->
 
 </div>
-
 {% endblock %}
 {% block script %}
-        <script src="{% static 'js/jquery.js' %}"></script>
-        <script src="{% static 'js/funcoes.ajax.js' %}"></script>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/funcoes.ajax.js' %}"></script>
 {% endblock %}

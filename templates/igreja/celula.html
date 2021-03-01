@@ -10,19 +10,19 @@
               <div class="content col-md-8">
                     <div class="card mb-3">
                         <img
-                          src="https://mdbootstrap.com/img/new/slides/041.jpg"
+                          src="{{celula.foto.url}}"
                           style="height: 500px;"
                           class="card-img-top"
                           alt="..."
                         />
                         <div class="card-body">
-                          <h2>{{celula.lider}}</h2>
-                          <h5 class="card-title">{{celula.nome}}</h5>
-                          <p class="card-text">
-                          {{celula.descricao}}
+                          <h2><i class="fas fa-user"></i> Lider: {{celula.lider}}</h2>
+                          <h5 class="card-title"><i class="fas fa-church"></i> Nome do grupo: {{celula.nome}}</h5>
+                          <br>
+                          <p class="card-text"><i class="fas fa-pencil-alt"></i> Descricao: {{celula.descricao}}
                           </p>
                           <p class="card-text">
-                            <small class="text-muted">{{celula.contato}}</small>
+                            <small class="text-muted"><i class="fas fa-phone-alt"></i> Contato: {{celula.contato}}</small>
                           </p>
                         </div>  
                     </div>
@@ -31,9 +31,7 @@
         </div>
     </div>
 </main> <!-- .main-content -->
-
 </div>
-
 {% endblock %}
 {% block script %}
         <script src="{% static 'js/jquery.js' %}"></script>

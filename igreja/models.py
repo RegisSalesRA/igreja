@@ -18,7 +18,7 @@ class Igreja(models.Model):
     descricao_pastor = models.TextField(help_text='Um pouco da historia do pastor')
     endereco = models.CharField(max_length=200, null=False, blank=False)
     
-    image = StdImageField('Imagem', upload_to=get_file_path,
+    foto = StdImageField('Imagem', upload_to=get_file_path,
                           variations={'thumb': {'width': 480, 'height': 480, 'crop': True}}, blank=True, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
@@ -31,14 +31,15 @@ class Igreja(models.Model):
 
 
 class Lideres(models.Model):
-    image = StdImageField('Imagem', upload_to=get_file_path,
-                          variations={'thumb': {'width': 480, 'height': 480, 'crop': True}}, blank=True, null=True)
     descricao = models.TextField()
     contato = models.CharField(max_length=18)
     nome = models.CharField(max_length=150, null=False, blank=False)
     codigo_igreja = models.CharField(max_length=150, null=False, blank=False)
     igreja = models.ForeignKey(Igreja, null=False, blank=False,
                                on_delete=models.CASCADE)
+
+    foto = StdImageField('Imagem', upload_to=get_file_path,
+                          variations={'thumb': {'width': 480, 'height': 480, 'crop': True}}, blank=True, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
@@ -59,6 +60,9 @@ class Celula(models.Model):
                                on_delete=models.CASCADE)
     lider = models.ForeignKey(Lideres, null=True, blank=True,
                               on_delete=models.CASCADE)
+
+    foto = StdImageField('Imagem', upload_to=get_file_path,
+                          variations={'thumb': {'width': 480, 'height': 480, 'crop': True}}, blank=True, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)

@@ -17,13 +17,12 @@
                           alt="..."
                         />
                         <div class="card-body">
-                          <h2>{{culto.tema}}</h2>
-                          <h5 class="card-title">{{culto.pastor}}</h5>
+                          <h2><i class="fas fa-bible"></i> {{culto.tema}}</h2>
+                          <h5 class="card-title"><i class="fas fa-user"></i> {{culto.pastor}}</h5>
+                          <br>
+                          <p class="card-text"><i class="fas fa-pencil-alt"></i> {{culto.descricao}}</p>
                           <p class="card-text">
-                          {{culto.descricao}}
-                          </p>
-                          <p class="card-text">
-                            <small class="text-muted">{{culto.data}}</small>
+                            <small class="text-muted"><i class="fas fa-calendar-day"></i> Data: {{culto.data}} as {{culto.hora}}</small>
                           </p>
                         </div>  
                     </div>
