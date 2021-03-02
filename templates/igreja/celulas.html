@@ -15,9 +15,9 @@
                         {% for celula in celulas %}
                         <div class="family">
                             <a href="{% url 'celula' igreja.id celula.id %}">
-                                <h3 class="family-name">{{celula.nome}}</h3>
+                                <h3 class="family-name"><i class="fas fa-church"></i> {{celula.nome}}</h3>
                                 <img src="{{celula.foto.url}}" alt="" class="family-image" style="height: 200px;">
-                                <h3 class="family-name">Responsavel: {{celula.lider}}</h3>
+                                <h3 class="family-name"><i class="fas fa-user"></i> Responsavel: {{celula.lider}}</h3>
                             </a>
                         </div>
                         {% endfor %}

@@ -14,7 +14,7 @@
                         <div class="family">
                             <a href="{% url 'evento' evento.pk %}">
                             <img src="{{ evento.foto.url }}" alt="" class="family-image" style="height: 200px;">
-                            <h3 class="family-name">{{evento.nome}}</h3>
+                            <h3 class="family-name"><i class="fas fa-bible"></i> {{evento.nome}}</h3>
                             </a>
                         </div>
                         {% endfor %}
