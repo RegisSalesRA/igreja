@@ -10,6 +10,7 @@
                     <br>
                     <br>
                     <div class="row">
+                        {% if igrejas %}
                         {% for igreja in igrejas %}
                         <div class="family">
                             <a href="{% url 'igreja' igreja.id %}">
@@ -19,7 +20,13 @@
                             </a>
                         </div>
                         {% endfor %}
+                        {% else %}
+                        <div>
+                            <h1>Nenhuma igreja registrada</h1>
+                        </div>
+                        {% endif %}
                     </div>
+                    
                 </div>
             <!-- Sidebar -->
             {% include 'eventos.html' %}

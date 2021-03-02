@@ -8,23 +8,6 @@ from igreja.models import Igreja
 from django.shortcuts import render, get_object_or_404, redirect
 
 
-def mocidade(request):
-    igrejas = Igreja.objects.all()
-    ministerios = Ministerio.objects.all()
-    context = {
-        'ministerios': ministerios,
-        'igrejas': igrejas,
-    }
-
-    return render(request, 'membros/igrejamocidade.html', context)
-
-def mocidadelista(request,igreja_id):
-    searchjoven = Jovens.objects.filter()
-    ministerioss = Ministerio.objects.all()
-    igreja = Igreja.objects.get(pk=igreja_id)
-    context = {'igrejas':igreja, 'ministerioss':ministerioss, 'searchjoven':searchjoven}
-    return render(request, 'membros/mocidadelista.html', context)
-
 
 def jovens(request):
     jovens = Jovens.objects.all().order_by('nome')
@@ -65,33 +48,19 @@ def jovemDelete(request, jovem_id):
     return render(request, 'membros/jovem_form_deletar.html', {'jovem': jovem})
 
 
-def novatos(request):
-    novatos = Novatos.objects.all().order_by('nome')
-    return render(request, 'membros/novato.html', {'novatos': novatos})
+def mocidade(request):
+    igrejas = Igreja.objects.all()
+    ministerios = Ministerio.objects.all()
+    context = {
+        'ministerios': ministerios,
+        'igrejas': igrejas,
+    }
 
+    return render(request, 'membros/igrejamocidade.html', context)
 
-def novatosForm(request):
-    form = NovatoForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return redirect('novatos')
-    return render(request, 'membros/novato_form.html', {'form': form})
-
-
-def novatoUpdate(request, novato_id):
-    novato = Novatos.objects.get(pk=novato_id)
-
-    form = NovatoForm(request.POST or None, instance=novato)
-    if form.is_valid():
-        form.save()
-        return redirect('novatos')
-    return render(request, 'membros/novato_form.html', {'form': form, 'novato': novato})
-
-
-def novatoDelete(request, novato_id):
-    novato = Novatos.objects.get(pk=novato_id)
-
-    if request.method == 'POST':
-        novato.delete()
-        return redirect('novatos')
-    return render(request, 'membros/novato_form_deletar.html', {'novato': novato})
+def mocidadelista(request,igreja_id):
+    searchjoven = Jovens.objects.filter()
+    ministerioss = Ministerio.objects.all()
+    igreja = Igreja.objects.get(pk=igreja_id)
+    context = {'igrejas':igreja, 'ministerioss':ministerioss, 'searchjoven':searchjoven}
+    return render(request, 'membros/mocidadelista.html', context)

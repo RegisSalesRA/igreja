@@ -1,6 +1,5 @@
 from django.core.paginator import Paginator
 from django.urls import reverse_lazy
-from rest_framework import viewsets
 from eventos.models import Eventos
 from igreja.models import Igreja
 from django.shortcuts import render, get_object_or_404, redirect

@@ -25,10 +25,9 @@
                     </div>
                   </form>
                   </div>  
-    
                     <div class="row">
-                        {% if jovens %}
-                        {% for jovem in jovens %}
+                        {% if jovem_search %}
+                        {% for jovem in jovem_search %}
                         <div class="family">
                             <h2>{{jovem.igreja}}</h2>
                             <img src="{% static 'img/news-thumb-2.jpg' %}" alt="" class="family-image">
@@ -38,7 +37,7 @@
                         {% endfor %}
                         {% else %}
                         <div>
-                            <h1>Nenhum jovem registrado</h1>
+                            <h1>Nenhum jovem com esse nome</h1>
                         </div>
                         {% endif %}
                     </div>

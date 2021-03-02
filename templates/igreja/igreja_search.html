@@ -9,7 +9,7 @@
                     <h2 class="section-title">Lista de igrejas</h2>
                     
                     <div class="row">
-                       
+                        {% if igreja_search %}
                         {% for igreja in igreja_search %}
                         <div class="family">
                             <a href="{% url 'igreja' igreja.id %}">
@@ -19,7 +19,11 @@
                             </a>
                         </div>
                         {% endfor %}
-                        
+                        {% else %}
+                        <div>
+                            <h1>Nenhuma igreja com esse nome</h1>
+                        </div>
+                        {% endif %}
                     </div>
              
                 </div>
