@@ -13,6 +13,7 @@ def eventos(request):
 
     return render(request, 'eventos/events.html', context)
 
+
 def evento(request,evento_id):
     evento = Eventos.objects.get(pk=evento_id)
 
@@ -20,7 +21,6 @@ def evento(request,evento_id):
         'evento':evento,
     }
     return render(request, 'eventos/evento.html', context)
-
 
 
 def cultos(request):

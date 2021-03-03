@@ -1,7 +1,5 @@
 from eventos.models import Eventos
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
-from rest_framework import viewsets
 from membros.forms import JovemForm
 from membros.models import Jovens, Ministerio
 from igreja.models import Igreja
@@ -19,6 +17,15 @@ def jovens(request):
         'eventos':eventos,
     }
     return render(request, 'membros/jovens.html', context)
+
+def jovem(request, jovem_id):
+    jovem = get_object_or_404(Jovens, pk=jovem_id)
+
+    context = {
+        'jovem':jovem,
+    }
+
+    return render(request, 'membros/jovem.html', context)
 
 
 def jovensForm(request):

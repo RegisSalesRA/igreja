@@ -17,7 +17,7 @@
                 <div>  
                   <form class="form-inline ml-3" action="{% url 'jovem_search' %}", method="GET">
                     <div class="input-group">
-                        <input type="text" name="nome" class="form-control" placeholder="Procurar membro">
+                        <input type="text" name="name" class="form-control" placeholder="Procurar membro">
                         <div class="input-group-append">
                             <button type="submit" class="btn"><i class="fas fa-search"></i></button>
                         </div>
@@ -29,10 +29,12 @@
                         {% if jovem_search %}
                         {% for jovem in jovem_search %}
                         <div class="family">
-                            <h2>{{jovem.igreja}}</h2>
+                          <a href="{% url 'jovem' jovem.id %}">
+                            <h2><i class="fas fa-church"></i> {{jovem.igreja}}</h2>
                             <img src="{% static 'img/news-thumb-2.jpg' %}" alt="" class="family-image">
-                            <h3 class="family-name">{{jovem.nome}}</h3>
-                            <small>{{jovem.celula}}</small>
+                            <h3 class="family-name"><i class="fas fa-user"></i> {{jovem.nome}}</h3>
+                          </a>
+                            <small><i class="fas fa-users"></i> {{jovem.celula}}</small>
                         </div>
                         {% endfor %}
                         {% else %}
