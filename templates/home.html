@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block context %}
-
+<button onclick="teste()">TESTAR</button>
 <div class="hero">
     <div class="slides">
       <li data-bg-image="#/" class="flex-active-slide" style="background-image: url({% static 'environments/slide-1.jpg' %}); width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; transition: opacity 0.6s ease 0s; z-index: 2;">
@@ -114,4 +114,6 @@
       </div> <!-- .container -->
     </div> <!-- section -->
   </main> <!-- .main-content -->
+{% endblock %}
+{% block script %}
 {% endblock %}

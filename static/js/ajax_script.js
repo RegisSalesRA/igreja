@@ -49,3 +49,8 @@ $(document).ready(function(){
     $("#modal-product").on("submit", ".js-product-delete-form", saveForm);
    
   });
+
+
+  function teste(){
+    alert('funcionou!!!!!!1')
+  }
