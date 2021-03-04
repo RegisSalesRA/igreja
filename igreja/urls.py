@@ -1,6 +1,6 @@
 from django.urls import path
 from igreja.filter import igreja_search
-from igreja.views import (home, igreja, igrejas, celula, celulas,lideres,lider, 
+from igreja.views import (home, igreja, igrejas, celula, celulas,lideres,lider,deletar_celula, 
     FormCelula, deleteigreja, signup_view, signin_view, signout_view)
 
 urlpatterns = [
@@ -24,9 +24,9 @@ urlpatterns = [
 
     #path('celulas/', celulas, name='celulas'),
     path('search/', igreja_search, name='igreja_search'),
-
     # Deletar
     path('igreja/deletar/<int:igreja_id>', deleteigreja, name='deleteigreja'),
+    path('celula/deletar/', deletar_celula, name='deletar_celula'),
     # Deletar
     path('celula/form/<int:celula_id>/', FormCelula, name='formcelula'),
     # HTML END

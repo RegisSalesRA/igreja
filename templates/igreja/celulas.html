@@ -9,7 +9,7 @@
                 <div class="content col-md-8">
                     <h2 class="section-title">Lista de Celulas</h2>
                     <br>
-<br>
+                    <br>
                     <div class="row">
                         {% if celulas %}
                         {% for celula in celulas %}
@@ -19,20 +19,7 @@
                                 <img src="{{celula.foto.url}}" alt="" class="family-image" style="height: 200px;">
                                 <h3 class="family-name"><i class="fas fa-user"></i> Responsavel: {{celula.lider}}</h3>
                             </a>
-                            <!-- modal -->
-                            <button type="button"
-                            class="btn btn-warning btn-sm js-update-product"
-                            data-url="#/">
-                            <span class="glyphicon glyphicon-pencil"></span> Editar
-                            </button>
-                            <button type="button"
-                            class="btn btn-danger btn-sm js-delete-product"
-                            data-url="#/">
-                            <span class="glyphicon glyphicon-trash"></span> Deletar
-                            </button>
-                            <!-- endmodal -->
                         </div>
-
                         {% endfor %}
                         {% else %}
                         <div>
@@ -51,10 +38,8 @@
     </div>
 </main> <!-- .main-content -->
 
-</div>
 
 {% endblock %}
 {% block script %}
-        <script src="{% static 'js/jquery.js' %}"></script>
-        <script src="{% static 'js/funcoes.ajax.js' %}"></script>
+
 {% endblock %}
