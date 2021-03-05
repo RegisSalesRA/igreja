@@ -53,6 +53,33 @@ class Lideres(models.Model):
         return self.nome
 
 
+
+class Ministerio(models.Model):
+    MUSICA = 'Musica'
+    ORACAO = 'Oracao'
+    INTEGRACAO = 'Integracao'
+    ESTUDO_BIBLICO = 'Estudo_biblico'
+
+    ministerio_opcoes = [
+        (MUSICA, 'Musica'),
+        (ORACAO, 'Oracao'),
+        (INTEGRACAO, 'Integracao'),
+        (ESTUDO_BIBLICO, 'Estudo_biblico')
+    ]
+
+    ministerio = models.CharField(max_length=100, choices=ministerio_opcoes)
+
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'Ministerio'
+        verbose_name_plural = 'Ministerios'
+
+    def __str__(self):
+        return self.ministerio
+
+
 class Celula(models.Model):
     nome = models.CharField(max_length=200, null=False, blank=False)
     endereco = models.CharField(max_length=200, null=False, blank=False)
@@ -62,7 +89,9 @@ class Celula(models.Model):
                                on_delete=models.CASCADE)
     lider = models.ForeignKey(Lideres, null=True, blank=True,
                               on_delete=models.CASCADE)
-
+    ministerio = models.ForeignKey(Ministerio, null=True, blank=True,
+                              on_delete=models.CASCADE)
+    
     foto = StdImageField('Imagem', upload_to=get_file_path,
                           variations={'thumb': {'width': 480, 'height': 480, 'crop': True}}, blank=True, null=True)
 

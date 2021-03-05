@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.core.paginator import Paginator
 from igreja.forms import CelulaUpdate
-from igreja.models import Igreja, Celula, Lideres
+from igreja.models import Igreja, Celula, Lideres,Ministerio
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User, Group
 from .forms import SiginUpForm
@@ -57,12 +57,10 @@ def deleteigreja(request, igreja_id):
 def celulas(request, igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
     celulas = igreja.celula_set.all()
-    eventos = Eventos.objects.all().order_by('data')[:4]
-
+    
     context = {
         'igreja': igreja,
         'celulas': celulas,
-        'eventos':eventos,
     }
     return render(request, 'igreja/celulas.html', context)
 
@@ -113,6 +111,14 @@ def lider(request,igreja_id, lider_id):
     }
     return render(request, 'igreja/lider.html', context)
 
+## Ministerio ##
+
+
+
+
+
+
+
 ## Logins ##
 
 def signup_view(request):
@@ -149,3 +155,4 @@ def signin_view(request):
 def signout_view(request):
     logout(request)
     return redirect('signin')
+

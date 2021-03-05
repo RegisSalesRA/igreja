@@ -1,7 +1,5 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
-from rest_framework import viewsets
-from membros.forms import JovemForm
 from membros.models import Jovens, Ministerio
 from igreja.models import Igreja
 from django.shortcuts import render, get_object_or_404, redirect

@@ -1,34 +1,6 @@
 from django.db import models
-from rest_framework import settings
-from django.db.models.signals import post_save
-from django.dispatch import receiver
-from igreja.models import Igreja, Celula
+from igreja.models import Igreja, Celula, Ministerio
 
-
-class Ministerio(models.Model):
-    MUSICA = 'Musica'
-    ORACAO = 'Oracao'
-    INTEGRACAO = 'Integracao'
-    ESTUDO_BIBLICO = 'Integracao'
-
-    ministerio_opcoes = [
-        (MUSICA, 'Musica'),
-        (ORACAO, 'Oracao'),
-        (INTEGRACAO, 'Integracao'),
-        (ESTUDO_BIBLICO, 'Integracao')
-    ]
-
-    ministerio = models.CharField(max_length=100, choices=ministerio_opcoes)
-
-    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
-
-    class Meta:
-        verbose_name = 'Ministerio'
-        verbose_name_plural = 'Ministerios'
-
-    def __str__(self):
-        return self.ministerio
 
 class Jovens(models.Model):
 
