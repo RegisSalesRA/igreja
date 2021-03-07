@@ -80,6 +80,7 @@ def FormCelula(request, celula_id):
         return redirect('igrejas')
     return render(request, 'igreja/celula-form.html', {'form': form, 'celula': celula})
 
+
 def deletar_celula(request):
     if request.method == 'POST' and request.is_ajax():
         celula_id = request.POST.get('celula')
@@ -158,4 +159,3 @@ def signin_view(request):
 def signout_view(request):
     logout(request)
     return redirect('signin')
-

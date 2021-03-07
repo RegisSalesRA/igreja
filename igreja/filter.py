@@ -1,6 +1,7 @@
 from django.core.paginator import Paginator
 from django.urls import reverse_lazy
 from eventos.models import Eventos
+from membros.models import Jovens
 from igreja.models import Igreja, Celula,Ministerio,Lideres
 from django.shortcuts import render, get_object_or_404, redirect
 
@@ -25,17 +26,7 @@ def celula_musica(request,igreja_id):
         'igreja': igreja,
         'celula_musica': celula_musica,
     }
-    return render(request, 'igreja/ministerio_musica.html' ,context)
-
-def celula_musica_test(request,igreja_id):
-    igreja = get_object_or_404(Igreja, pk=igreja_id) 
-    celulas = igreja.celula_set.all()
-    celula_musica = Celula.objects.filter(ministerio='1')
-    context = {
-        'igreja': igreja,
-        'celula_musica': celula_musica,
-    }
-    return render(request, 'igreja/ministerio_musica.html' ,context)
+    return render(request, 'ministerio/ministerio_musica.html' ,context)
 
 
 def celula_oracao(request,igreja_id):
@@ -46,7 +37,7 @@ def celula_oracao(request,igreja_id):
         'igreja': igreja,        
         'celula_oracao': celula_oracao,
     }
-    return render(request, 'igreja/ministerio_oracao.html' ,context)
+    return render(request, 'ministerio/ministerio_oracao.html' ,context)
 
 def celula_integracao(request,igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
@@ -56,7 +47,7 @@ def celula_integracao(request,igreja_id):
         'igreja': igreja,        
         'celula_integracao': celula_integracao,
     }
-    return render(request, 'igreja/ministerio_integracao.html' ,context)
+    return render(request, 'ministerio/ministerio_integracao.html' ,context)
 
 def celula_estudo(request,igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
@@ -66,4 +57,32 @@ def celula_estudo(request,igreja_id):
         'igreja': igreja,
         'celula_estudo': celula_estudo,
     }
-    return render(request, 'igreja/ministerio_estudo.html' ,context)
+    return render(request, 'ministerio/ministerio_estudo.html' ,context)
+
+
+def celula_ministerio_detail(request,igreja_id,celula_id):
+    igreja = get_object_or_404(Igreja, pk=igreja_id) 
+    celulas = igreja.celula_set.all()
+    celula_musica = get_object_or_404(Celula, pk=celula_id)
+
+    context = {
+        'igreja': igreja,
+        'celulas':celulas,
+        'celula_musica': celula_musica,
+    }
+    return render(request, 'ministerio/ministerio_musica_detail.html' ,context)
+
+def celula_ministerio_jovens(request,igreja_id,celula_id):
+    igreja = get_object_or_404(Igreja, pk=igreja_id) 
+    celulas = igreja.celula_set.all()
+    celula_musica = get_object_or_404(Celula, pk=celula_id)
+    jovens = celula_musica.jovens_set.all()
+
+
+    context = {
+        'igreja': igreja,
+        'jovens': jovens,
+        'celulas':celulas,
+        'celula_musica': celula_musica,
+    }
+    return render(request, 'ministerio/ministerio_musica_detail.html' ,context)

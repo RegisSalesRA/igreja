@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block context %}
+{{jovens}}
 <main class="main-content">
     <div class="fullwidth-block">
         <div class="container">
@@ -9,23 +10,28 @@
               <div class="content col-md-8">
                     <div class="card mb-3">
                         <img
-                          src="{{celula.foto.url}}"
+                          src="{{celula_musica.foto.url}}"
                           style="height: 500px;"
                           class="card-img-top"
                           alt="..."
                         />
                         <div class="card-body">
-                          <h2><i class="fas fa-user"></i> Lider: {{celula.lider}}</h2>
-                          <h5 class="card-title"><i class="fas fa-church"></i> Nome do grupo: {{celula.nome}}</h5>
+                          <h2><i class="fas fa-user"></i> Lider: {{celula_musica.lider}}</h2>
+                          <h5 class="card-title"><i class="fas fa-church"></i> Nome do grupo: {{celula_musica.nome}}</h5>
                           <br>
-                          <p class="card-text"><i class="fas fa-pencil-alt"></i> Descricao: {{celula.descricao}}
+                          <p class="card-text"><i class="fas fa-pencil-alt"></i> Descricao: {{celula_musica.descricao}}
                           </p>
                           <p class="card-text">
-                            <small class="text-muted"><i class="fas fa-phone-alt"></i> Contato: {{celula.contato}}</small>
+                            <small class="text-muted"><i class="fas fa-phone-alt"></i> Contato: {{celula_musica.contato}}</small>
                           </p>
                         </div>  
                     </div>
                 </div>
+
+                <div class="text-center">
+                  <a href="{% url 'celula_ministerio_jovens' igreja.id celula_musica.id %}" class="button">Confira os jovens dessa celula</a>
+                </div>
+
         </div>
         </div>
     </div>

@@ -7,14 +7,14 @@
         <div class="container">
             <div class="row">
                 <div class="content col-md-8">
-                    <h2 class="section-title">Ministerio de Oracao</h2>
+                    <h2 class="section-title">Ministerio de estudo</h2>
                     <br>
                     <br>
                     <div class="row">
-                        {% if celula_oracao %}
-                        {% for celula in celula_oracao %}
+                        {% if celula_estudo %}
+                        {% for celula in celula_estudo %}
                         <div class="family">
-                            <a href="#/">
+                            <a href="{% url 'celula_ministerio_detail' igreja.id celula.id %}">
                                 <h3 class="family-name"><i class="fas fa-church"></i> {{celula.nome}}</h3>
                                 <img src="{{celula.foto.url}}" alt="" class="family-image" style="height: 200px;">
                                 <h3 class="family-name"><i class="fas fa-user"></i> Responsavel: {{celula.lider}}</h3>

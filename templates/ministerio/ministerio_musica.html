@@ -1,20 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block context %}
-
 <main class="main-content">
     <div class="fullwidth-block">
         <div class="container">
             <div class="row">
                 <div class="content col-md-8">
-                    <h2 class="section-title">Ministerio de Integracao</h2>
+                    <h2 class="section-title">Ministerio de Musica</h2>
                     <br>
                     <br>
                     <div class="row">
-                        {% if celula_integracao %}
-                        {% for celula in celula_integracao %}
+                        {% if celula_musica %}
+                        {% for celula in celula_musica %}
                         <div class="family">
-                            <a href="#/">
+                            <a href="{% url 'celula_ministerio_detail' igreja.id celula.id %}">
                                 <h3 class="family-name"><i class="fas fa-church"></i> {{celula.nome}}</h3>
                                 <img src="{{celula.foto.url}}" alt="" class="family-image" style="height: 200px;">
                                 <h3 class="family-name"><i class="fas fa-user"></i> Responsavel: {{celula.lider}}</h3>
@@ -23,7 +22,6 @@
                         </div>
                         {% endfor %}
                         {% else %}
-
                         {% endif %}
                     </div>
              
