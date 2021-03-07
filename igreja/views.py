@@ -57,14 +57,13 @@ def deleteigreja(request, igreja_id):
 def celulas(request, igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
     celulas = igreja.celula_set.all()
-    
+        
     context = {
         'igreja': igreja,
         'celulas': celulas,
     }
     return render(request, 'igreja/celulas.html', context)
-
-
+    
 
 def celula(request, celula_id, igreja_id):
     igreja = Igreja.objects.get(pk=igreja_id)
@@ -114,9 +113,13 @@ def lider(request,igreja_id, lider_id):
 ## Ministerio ##
 
 
+def ministerios(request):
+    ministerios = Ministerio.objects.all()
+    context = {
+        'ministerios': ministerios,
+    }
 
-
-
+    return render(request, context)
 
 
 ## Logins ##

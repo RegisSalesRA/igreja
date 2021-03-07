@@ -7,14 +7,14 @@
         <div class="container">
             <div class="row">
                 <div class="content col-md-8">
-                    <h2 class="section-title">Lista de Celulas</h2>
+                    <h2 class="section-title">Ministerio de Integracao</h2>
                     <br>
                     <br>
                     <div class="row">
-                        {% if celulas %}
-                        {% for celula in celulas %}
+                        {% if celula_integracao %}
+                        {% for celula in celula_integracao %}
                         <div class="family">
-                            <a href="{% url 'celula' igreja.id celula.id %}">
+                            <a href="#/">
                                 <h3 class="family-name"><i class="fas fa-church"></i> {{celula.nome}}</h3>
                                 <img src="{{celula.foto.url}}" alt="" class="family-image" style="height: 200px;">
                                 <h3 class="family-name"><i class="fas fa-user"></i> Responsavel: {{celula.lider}}</h3>
@@ -37,10 +37,10 @@
                     
             <ul class="arrow">
             
-            <a href="{% url 'celula_oracao' igreja.id %}"><li>Oracao</li></a>
-            <a href="{% url 'celula_musica' igreja.id %}"><li>Musica</li></a>
-            <a href="{% url 'celula_integracao' igreja.id %}"><li>Integracao</li></a>
-            <a href="{% url 'celula_estudo' igreja.id %}"><li>Estudo biblico</li></a>
+                <a href="{% url 'celula_oracao' igreja.id %}"><li>Oracao</li></a>
+                <a href="{% url 'celula_musica' igreja.id %}"><li>Musica</li></a>
+                <a href="{% url 'celula_integracao' igreja.id %}"><li>Integracao</li></a>
+                <a href="{% url 'celula_estudo' igreja.id %}"><li>Estudo biblico</li></a>
 
             </ul>
                     <br>
