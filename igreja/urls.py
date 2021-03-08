@@ -7,18 +7,12 @@ from igreja.filter import (igreja_search,celula_musica,celula_estudo,celula_inte
 
 from igreja.views import (home, igreja, igrejas, celula, celulas,lideres,
                           lider,deletar_celula,FormCelula, deleteigreja,
-                           signup_view, signin_view, signout_view)
+                           )
 
 urlpatterns = [
     # Home
     path('', home, name='home'),
     path('search/', igreja_search, name='igreja_search'),
-
-    #Login
-    path('account/criar/', signup_view, name='signup'),
-    path('account/logar/', signin_view, name='signin'),
-    path('account/deslogar/', signout_view, name='signout'),
-    # HTML
 
     # List View
     path('igrejas/', igrejas, name='igrejas'),

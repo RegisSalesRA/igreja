@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'igreja',
     'membros',
     'eventos',
+    'users',
     # Api
     'rest_framework',
 ]
