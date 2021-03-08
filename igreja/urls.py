@@ -4,7 +4,6 @@ from igreja.filter import (igreja_search,celula_musica,celula_estudo,celula_inte
                            celula_ministerio_oracao_detail,celula_ministerio_integracao_detail,
                            celula_ministerio_estudo_detail,
                            )
-
 from igreja.views import (home, igreja, igrejas, celula, celulas,lideres,
                           lider,deletar_celula,FormCelula, deleteigreja,
                            )
@@ -24,10 +23,10 @@ urlpatterns = [
 
     # List View Ministerios
     path('igreja/<int:igreja_id>/celulas/ministerio/<int:celula_id>/', celula_ministerio_detail, name='celula_ministerio_detail'),
-    path('igreja/<int:igreja_id>/celulas/ministerio_musica/<int:celula_id>/jovens', celula_ministerio_musica_detail, name='celula_ministerio_musica_detail'),
-    path('igreja/<int:igreja_id>/celulas/ministerio_integracao/<int:celula_id>/jovens', celula_ministerio_integracao_detail, name='celula_ministerio_integracao_detail'),
-    path('igreja/<int:igreja_id>/celulas/ministerio_oracao/<int:celula_id>/jovens', celula_ministerio_oracao_detail, name='celula_ministerio_oracao_detail'),
-    path('igreja/<int:igreja_id>/celulas/ministerio_estudo/<int:celula_id>/jovens', celula_ministerio_estudo_detail, name='celula_ministerio_estudo_detail'),
+    path('igreja/<int:igreja_id>/celulas/ministerio_musica/<int:celula_id>/detalhes', celula_ministerio_musica_detail, name='celula_ministerio_musica_detail'),
+    path('igreja/<int:igreja_id>/celulas/ministerio_integracao/<int:celula_id>/detalhes', celula_ministerio_integracao_detail, name='celula_ministerio_integracao_detail'),
+    path('igreja/<int:igreja_id>/celulas/ministerio_oracao/<int:celula_id>/detalhes', celula_ministerio_oracao_detail, name='celula_ministerio_oracao_detail'),
+    path('igreja/<int:igreja_id>/celulas/ministerio_estudo/<int:celula_id>/detalhes', celula_ministerio_estudo_detail, name='celula_ministerio_estudo_detail'),
     
     #filtro
     path('igreja/<int:igreja_id>/celulas/ministerio_musica/', celula_musica, name='celula_musica'),
