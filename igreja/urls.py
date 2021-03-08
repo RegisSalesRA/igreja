@@ -1,8 +1,13 @@
 from django.urls import path
-from igreja.filter import igreja_search,celula_musica,celula_estudo,celula_integracao,celula_oracao,celula_ministerio_detail,celula_ministerio_jovens
+from igreja.filter import (igreja_search,celula_musica,celula_estudo,celula_integracao,
+                           celula_oracao,celula_ministerio_detail,celula_ministerio_musica_jovens,
+                           celula_ministerio_oracao_jovens,celula_ministerio_integracao_jovens,
+                           celula_ministerio_estudo_jovens,
+                           )
 
-from igreja.views import (home, igreja, igrejas, celula, celulas,lideres,lider,deletar_celula, 
-    FormCelula, deleteigreja, signup_view, signin_view, signout_view)
+from igreja.views import (home, igreja, igrejas, celula, celulas,lideres,
+                          lider,deletar_celula,FormCelula, deleteigreja,
+                           signup_view, signin_view, signout_view)
 
 urlpatterns = [
     # Home
@@ -21,11 +26,12 @@ urlpatterns = [
     path('igreja/<int:igreja_id>/celula/<int:celula_id>/', celula, name='celula'),
     path('igreja/<int:igreja_id>/lideres/', lideres , name='lideres'),
     path('igreja/<int:igreja_id>/lider/<int:lider_id>/', lider, name='lider'),
-    path('igreja/<int:igreja_id>/celulas/ministerio_musica/<int:celula_id>/', celula_ministerio_detail, name='celula_ministerio_detail'),
-    path('igreja/<int:igreja_id>/celulas/ministerio_musica/<int:celula_id>/jovens', celula_ministerio_jovens, name='celula_ministerio_jovens'),
-   # path('igreja/<int:igreja_id>/celulas/ministerio_musica/<int:celula_id>/', celula_ministerio_detail, name='celula_ministerio_detail'),
-   # path('igreja/<int:igreja_id>/celulas/ministerio_musica/<int:celula_id>/', celula_ministerio_detail, name='celula_ministerio_detail'),
-   # path('igreja/<int:igreja_id>/celulas/ministerio_musica/<int:celula_id>/', celula_ministerio_detail, name='celula_ministerio_detail'),
+
+    path('igreja/<int:igreja_id>/celulas/ministerio/<int:celula_id>/', celula_ministerio_detail, name='celula_ministerio_detail'),
+    path('igreja/<int:igreja_id>/celulas/ministerio_musica/<int:celula_id>/jovens', celula_ministerio_musica_jovens, name='celula_ministerio_musica_jovens'),
+    path('igreja/<int:igreja_id>/celulas/ministerio_integracao/<int:celula_id>/jovens', celula_ministerio_integracao_jovens, name='celula_ministerio_integracao_jovens'),
+    path('igreja/<int:igreja_id>/celulas/ministerio_oracao/<int:celula_id>/jovens', celula_ministerio_oracao_jovens, name='celula_ministerio_oracao_jovens'),
+    path('igreja/<int:igreja_id>/celulas/ministerio_estudo/<int:celula_id>/jovens', celula_ministerio_estudo_jovens, name='celula_ministerio_estudo_jovens'),
     
 
     #filtro

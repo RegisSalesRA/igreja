@@ -9,9 +9,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 def igreja_search(request):
     igreja_search = Igreja.objects.filter(nome__contains=request.GET['name'])
     eventos = Eventos.objects.all().order_by('data')[:4]
-    # paginator = Paginator(igreja_search, 2)
-    # page_number = request.GET.get('page')
-    # igreja_search = paginator.get_page(page_number)
+    
     context = {
         'igreja_search': igreja_search,
         'eventos':eventos,
@@ -22,6 +20,7 @@ def celula_musica(request,igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
     celulas = igreja.celula_set.all()
     celula_musica = Celula.objects.filter(ministerio='1')
+
     context = {
         'igreja': igreja,
         'celula_musica': celula_musica,
@@ -33,16 +32,20 @@ def celula_oracao(request,igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
     celulas = igreja.celula_set.all()
     celula_oracao = Celula.objects.filter(ministerio='2')
+    
     context = {
-        'igreja': igreja,        
+        'igreja': igreja,
+        'celulas':celulas,
         'celula_oracao': celula_oracao,
     }
     return render(request, 'ministerio/ministerio_oracao.html' ,context)
+
 
 def celula_integracao(request,igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
     celulas = igreja.celula_set.all()
     celula_integracao = Celula.objects.filter(ministerio='3')
+
     context = {
         'igreja': igreja,        
         'celula_integracao': celula_integracao,
@@ -53,6 +56,7 @@ def celula_estudo(request,igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
     celulas = igreja.celula_set.all()
     celula_estudo = Celula.objects.filter(ministerio='4')
+
     context = {
         'igreja': igreja,
         'celula_estudo': celula_estudo,
@@ -72,12 +76,12 @@ def celula_ministerio_detail(request,igreja_id,celula_id):
     }
     return render(request, 'ministerio/ministerio_musica_detail.html' ,context)
 
-def celula_ministerio_jovens(request,igreja_id,celula_id):
+
+def celula_ministerio_musica_jovens(request,igreja_id,celula_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
     celulas = igreja.celula_set.all()
     celula_musica = get_object_or_404(Celula, pk=celula_id)
     jovens = celula_musica.jovens_set.all()
-
 
     context = {
         'igreja': igreja,
@@ -86,3 +90,47 @@ def celula_ministerio_jovens(request,igreja_id,celula_id):
         'celula_musica': celula_musica,
     }
     return render(request, 'ministerio/ministerio_musica_detail.html' ,context)
+
+
+def celula_ministerio_oracao_jovens(request,igreja_id,celula_id):
+    igreja = get_object_or_404(Igreja, pk=igreja_id) 
+    celulas = igreja.celula_set.all()
+    celula_oracao = get_object_or_404(Celula, pk=celula_id)
+    jovens = celula_oracao.jovens_set.all()
+
+    context = {
+        'igreja': igreja,
+        'jovens': jovens,
+        'celulas':celulas,
+        'celula_oracao': celula_oracao,
+    }
+    return render(request, 'ministerio/ministerio_oracao_detail.html' ,context)
+
+
+def celula_ministerio_integracao_jovens(request,igreja_id,celula_id):
+    igreja = get_object_or_404(Igreja, pk=igreja_id) 
+    celulas = igreja.celula_set.all()
+    celula_integracao = get_object_or_404(Celula, pk=celula_id)
+    jovens = celula_integracao.jovens_set.all()
+
+    context = {
+        'igreja': igreja,
+        'jovens': jovens,
+        'celulas':celulas,
+        'celula_integracao': celula_integracao,
+    }
+    return render(request, 'ministerio/ministerio_integracao_detail.html' ,context)
+
+def celula_ministerio_estudo_jovens(request,igreja_id,celula_id):
+    igreja = get_object_or_404(Igreja, pk=igreja_id) 
+    celulas = igreja.celula_set.all()
+    celula_estudo = get_object_or_404(Celula, pk=celula_id)
+    jovens = celula_estudo.jovens_set.all()
+
+    context = {
+        'igreja': igreja,
+        'jovens': jovens,
+        'celulas':celulas,
+        'celula_estudo': celula_estudo,
+    }
+    return render(request, 'ministerio/ministerio_estudo_detail.html' ,context)

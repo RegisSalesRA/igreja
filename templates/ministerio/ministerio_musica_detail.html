@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block context %}
-{{jovens}}
+
 <main class="main-content">
     <div class="fullwidth-block">
         <div class="container">
@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="text-center">
-                  <a href="{% url 'celula_ministerio_jovens' igreja.id celula_musica.id %}" class="button">Confira os jovens dessa celula</a>
+                  <a href="{% url 'celulas' igreja.id %}" class="button">Confira os jovens dessa celula</a>
                 </div>
 
         </div>
