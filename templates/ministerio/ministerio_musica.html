@@ -13,7 +13,7 @@
                         {% if celula_musica %}
                         {% for celula in celula_musica %}
                         <div class="family">
-                            <a href="{% url 'celula_ministerio_musica_jovens' igreja.id celula.id %}">
+                            <a href="{% url 'celula_ministerio_musica_detail' igreja.id celula.id %}">
                                 <h3 class="family-name"><i class="fas fa-church"></i> {{celula.nome}}</h3>
                                 <img src="{{celula.foto.url}}" alt="" class="family-image" style="height: 200px;">
                                 <h3 class="family-name"><i class="fas fa-user"></i> Responsavel: {{celula.lider}}</h3>

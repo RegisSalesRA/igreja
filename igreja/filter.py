@@ -16,11 +16,11 @@ def igreja_search(request):
     }
     return render(request, 'igreja/igreja_search.html', context)
 
+
 def celula_musica(request,igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
-    celulas = igreja.celula_set.all()
-    celula_musica = Celula.objects.filter(ministerio='1')
-
+    celula_musica = igreja.celula_set.all().filter(ministerio='1')
+    
     context = {
         'igreja': igreja,
         'celula_musica': celula_musica,
@@ -30,12 +30,10 @@ def celula_musica(request,igreja_id):
 
 def celula_oracao(request,igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
-    celulas = igreja.celula_set.all()
-    celula_oracao = Celula.objects.filter(ministerio='2')
+    celula_oracao = igreja.celula_set.all().filter(ministerio='2')
     
     context = {
         'igreja': igreja,
-        'celulas':celulas,
         'celula_oracao': celula_oracao,
     }
     return render(request, 'ministerio/ministerio_oracao.html' ,context)
@@ -43,19 +41,18 @@ def celula_oracao(request,igreja_id):
 
 def celula_integracao(request,igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
-    celulas = igreja.celula_set.all()
-    celula_integracao = Celula.objects.filter(ministerio='3')
+    celula_integracao = igreja.celula_set.all().filter(ministerio='3')
 
     context = {
-        'igreja': igreja,        
+        'igreja': igreja,
         'celula_integracao': celula_integracao,
     }
     return render(request, 'ministerio/ministerio_integracao.html' ,context)
 
+
 def celula_estudo(request,igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
-    celulas = igreja.celula_set.all()
-    celula_estudo = Celula.objects.filter(ministerio='4')
+    celula_estudo = igreja.celula_set.all().filter(ministerio='4')
 
     context = {
         'igreja': igreja,
@@ -77,7 +74,7 @@ def celula_ministerio_detail(request,igreja_id,celula_id):
     return render(request, 'ministerio/ministerio_musica_detail.html' ,context)
 
 
-def celula_ministerio_musica_jovens(request,igreja_id,celula_id):
+def celula_ministerio_musica_detail(request,igreja_id,celula_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
     celulas = igreja.celula_set.all()
     celula_musica = get_object_or_404(Celula, pk=celula_id)
@@ -92,7 +89,7 @@ def celula_ministerio_musica_jovens(request,igreja_id,celula_id):
     return render(request, 'ministerio/ministerio_musica_detail.html' ,context)
 
 
-def celula_ministerio_oracao_jovens(request,igreja_id,celula_id):
+def celula_ministerio_oracao_detail(request,igreja_id,celula_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
     celulas = igreja.celula_set.all()
     celula_oracao = get_object_or_404(Celula, pk=celula_id)
@@ -107,7 +104,7 @@ def celula_ministerio_oracao_jovens(request,igreja_id,celula_id):
     return render(request, 'ministerio/ministerio_oracao_detail.html' ,context)
 
 
-def celula_ministerio_integracao_jovens(request,igreja_id,celula_id):
+def celula_ministerio_integracao_detail(request,igreja_id,celula_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
     celulas = igreja.celula_set.all()
     celula_integracao = get_object_or_404(Celula, pk=celula_id)
@@ -121,7 +118,8 @@ def celula_ministerio_integracao_jovens(request,igreja_id,celula_id):
     }
     return render(request, 'ministerio/ministerio_integracao_detail.html' ,context)
 
-def celula_ministerio_estudo_jovens(request,igreja_id,celula_id):
+
+def celula_ministerio_estudo_detail(request,igreja_id,celula_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
     celulas = igreja.celula_set.all()
     celula_estudo = get_object_or_404(Celula, pk=celula_id)
@@ -133,4 +131,4 @@ def celula_ministerio_estudo_jovens(request,igreja_id,celula_id):
         'celulas':celulas,
         'celula_estudo': celula_estudo,
     }
-    return render(request, 'ministerio/ministerio_estudo_detail.html' ,context)
+    return render(request, 'ministerio/ministerio_estudo_detail.html' ,context)    
