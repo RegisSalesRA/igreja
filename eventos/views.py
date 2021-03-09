@@ -1,11 +1,17 @@
 from django.shortcuts import render
 from eventos.models import Eventos,Cultos,Novidades
-# Create your views here.
+from django.core.paginator import Paginator
 
 
 def eventos(request):
     eventos = Eventos.objects.all()[:4]
+    
     eventos_lista = Eventos.objects.all()
+    paginator = Paginator(eventos_lista,9)
+
+    page = request.GET.get('p')
+    eventos_lista = paginator.get_page(page)
+
     context = {
         'eventos': eventos,
         'eventos_lista':eventos_lista
