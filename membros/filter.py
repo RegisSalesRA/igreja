@@ -1,7 +1,7 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from membros.models import Jovens, Ministerio
-from igreja.models import Igreja
+from igreja.models import Celula, Igreja
 from django.shortcuts import render, get_object_or_404, redirect
 
 
@@ -43,3 +43,62 @@ def categoriafiltro(request, categoria_id):
         # 'filtro': filtro,
     }
     return render(request, 'ministerio/ministerio.html', context)
+
+
+def jovens_ministerio_musica(request,igreja_id,celula_id):
+    igreja = get_object_or_404(Igreja, pk=igreja_id) 
+    celulas = igreja.celula_set.all()
+    celula_musica = get_object_or_404(Celula, pk=celula_id)
+    jovens = celula_musica.jovens_set.all()
+
+    context = {
+        'igreja': igreja,
+        'jovens': jovens,
+        'celulas':celulas,
+        'celula_musica': celula_musica,
+    }
+    return render(request, 'membros/jovens_ministerio_musica.html' ,context)
+
+
+def jovens_ministerio_integracao(request,igreja_id,celula_id):
+    igreja = get_object_or_404(Igreja, pk=igreja_id) 
+    celulas = igreja.celula_set.all()
+    celula_integracao = get_object_or_404(Celula, pk=celula_id)
+    jovens = celula_integracao.jovens_set.all()
+
+    context = {
+        'igreja': igreja,
+        'jovens': jovens,
+        'celulas':celulas,
+        'celula_integracao': celula_integracao,
+    }
+    return render(request, 'membros/jovens_ministerio_integracao.html' ,context)
+
+
+def jovens_ministerio_oracao(request,igreja_id,celula_id):
+    igreja = get_object_or_404(Igreja, pk=igreja_id) 
+    celulas = igreja.celula_set.all()
+    celula_oracao = get_object_or_404(Celula, pk=celula_id)
+    jovens = celula_oracao.jovens_set.all()
+
+    context = {
+        'igreja': igreja,
+        'jovens': jovens,
+        'celulas':celulas,
+        'celula_oracao': celula_oracao,
+    }
+    return render(request, 'membros/jovens_ministerio_oracao.html' ,context)
+
+def jovens_ministerio_estudo(request,igreja_id,celula_id):
+    igreja = get_object_or_404(Igreja, pk=igreja_id) 
+    celulas = igreja.celula_set.all()
+    celula_estudo = get_object_or_404(Celula, pk=celula_id)
+    jovens = celula_estudo.jovens_set.all()
+
+    context = {
+        'igreja': igreja,
+        'jovens': jovens,
+        'celulas':celulas,
+        'celula_estudo': celula_estudo,
+    }
+    return render(request, 'membros/jovens_ministerio_estudo.html' ,context)        

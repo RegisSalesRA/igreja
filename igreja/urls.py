@@ -6,6 +6,7 @@ from igreja.filter import (igreja_search,celula_musica,celula_estudo,celula_inte
                            )
 from igreja.views import (home, igreja, igrejas, celula, celulas,lideres,
                           lider,deletar_celula,FormCelula, deleteigreja,
+                          jovens_celula,
                            )
 
 urlpatterns = [
@@ -18,6 +19,7 @@ urlpatterns = [
     path('igreja/<int:igreja_id>/', igreja, name='igreja'),
     path('igreja/<int:igreja_id>/celulas/', celulas, name='celulas'),
     path('igreja/<int:igreja_id>/celula/<int:celula_id>/', celula, name='celula'),
+    path('igreja/<int:igreja_id>/celula/<int:celula_id>/jovens/', jovens_celula, name='jovens_celula'),
     path('igreja/<int:igreja_id>/lideres/', lideres , name='lideres'),
     path('igreja/<int:igreja_id>/lider/<int:lider_id>/', lider, name='lider'),
 

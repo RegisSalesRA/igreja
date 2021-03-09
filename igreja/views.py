@@ -68,7 +68,27 @@ def celulas(request, igreja_id):
 def celula(request, celula_id, igreja_id):
     igreja = Igreja.objects.get(pk=igreja_id)
     celula = igreja.celula_set.get(pk=celula_id)
-    return render(request, 'igreja/celula.html', {'celula': celula})
+
+    context = {
+        'celula':celula,
+        'igreja':igreja
+    }
+
+    return render(request, 'igreja/celula.html', context)
+
+
+def jovens_celula(request, celula_id, igreja_id):
+    igreja = Igreja.objects.get(pk=igreja_id)
+    celula = igreja.celula_set.get(pk=celula_id)
+    jovens = celula.jovens_set.all()
+
+    context = {
+        'celula':celula,
+        'igreja':igreja,
+        'jovens':jovens,
+    }
+
+    return render(request, 'igreja/celula_jovens.html', context)
 
 
 def FormCelula(request, celula_id):

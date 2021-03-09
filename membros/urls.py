@@ -1,7 +1,6 @@
 from django.urls import path
-from rest_framework.routers import SimpleRouter
 from membros.views import jovem, jovens, jovensForm, jovenUpdate, jovemDelete, mocidade, mocidadelista
-from membros.filter import filtrocategoria, categoriafiltro,jovem_search
+from membros.filter import filtrocategoria, categoriafiltro,jovem_search,jovens_ministerio_musica,jovens_ministerio_integracao,jovens_ministerio_estudo,jovens_ministerio_oracao
 
 
 urlpatterns = [
@@ -17,5 +16,10 @@ urlpatterns = [
     path('mocidade/<int:igreja_id>', mocidadelista, name='mocidadelista'),
     path('categoria_search/', filtrocategoria, name='filtrocategoria'),
     path('categoria/<int:categoria_id>', categoriafiltro, name='categoriafiltro'),
-    
+
+    path('igreja/<int:igreja_id>/celulas/ministerio_musica/<int:celula_id>/detalhes/jovens', jovens_ministerio_musica, name='jovens_ministerio_musica'),
+    path('igreja/<int:igreja_id>/celulas/ministerio_oracao/<int:celula_id>/detalhes/jovens', jovens_ministerio_oracao, name='jovens_ministerio_oracao'),
+    path('igreja/<int:igreja_id>/celulas/ministerio_integracao/<int:celula_id>/detalhes/jovens', jovens_ministerio_integracao, name='jovens_ministerio_integracao'),
+    path('igreja/<int:igreja_id>/celulas/ministerio_estudo/<int:celula_id>/detalhes/jovens', jovens_ministerio_estudo, name='jovens_ministerio_estudo'),
+
 ]
