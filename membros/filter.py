@@ -22,6 +22,13 @@ def jovem_search(request):
     }
     return render(request, 'membros/jovens_search.html', context)
 
+def jovem_search_musica(request):
+    jovem_search = Jovens.objects.filter(nome__contains=request.GET['name'])
+    context = {
+        'jovem_search': jovem_search,
+    }
+    return render(request, 'membros/jovens_search.html', context)
+
 
 def filtroIgrejaMocidade(request):
     jovens = Igreja.objects.filter(nome__contains=request.GET['name'])
