@@ -15,7 +15,7 @@ class Igreja(models.Model):
     pastor = models.CharField(max_length=150, null=False, blank=False)
     descricao_pastor = models.TextField(help_text='Um pouco da historia do pastor')
     endereco = models.CharField(max_length=200, null=False, blank=False)
-    
+    contato = models.CharField(max_length=100, null=True,blank=True)
     foto = StdImageField('Imagem', upload_to=get_file_path,
                           variations={'thumb': {'width': 480, 'height': 480, 'crop': True}}, blank=True, null=True)
 
