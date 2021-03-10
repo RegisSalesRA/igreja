@@ -1,10 +1,10 @@
 from django.urls import path
-from igreja.filter import (igreja_search,celula_musica,celula_estudo,celula_integracao,
+from igreja.views.filter import (igreja_search,celula_musica,celula_estudo,celula_integracao,
                            celula_oracao,celula_ministerio_detail,celula_ministerio_musica_detail,
                            celula_ministerio_oracao_detail,celula_ministerio_integracao_detail,
                            celula_ministerio_estudo_detail,
                            )
-from igreja.views import (home, igreja, igrejas, celula, celulas,lideres,
+from igreja.views.views import (home, igreja, igrejas, celula, celulas,lideres,
                           lider,deletar_celula,FormCelula, deleteigreja,
                           jovens_celula,
                            )

@@ -1,6 +1,6 @@
 from django.urls import path
-from membros.views import jovem, jovens, jovensForm, jovenUpdate, jovemDelete, mocidade, mocidadelista
-from membros.filter import filtrocategoria, categoriafiltro,jovem_search,jovens_ministerio_musica,jovens_ministerio_integracao,jovens_ministerio_estudo,jovens_ministerio_oracao
+from membros.views.views import jovem, jovens, jovensForm, jovenUpdate, jovemDelete, mocidade, mocidadelista
+from membros.views.filter import filtrocategoria, categoriafiltro,jovem_search,jovens_ministerio_musica,jovens_ministerio_integracao,jovens_ministerio_estudo,jovens_ministerio_oracao
 
 
 urlpatterns = [

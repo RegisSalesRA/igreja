@@ -1,5 +1,5 @@
 from django.urls import path
-from eventos.views import eventos, evento, cultos, culto, novidades, novidade 
+from eventos.views.views import eventos, evento, cultos, culto, novidades, novidade 
 
 urlpatterns = [
     path('eventos', eventos, name='eventos'),

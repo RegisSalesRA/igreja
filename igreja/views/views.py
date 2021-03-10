@@ -6,10 +6,9 @@ from igreja.forms import CelulaUpdate
 from igreja.models import Igreja, Celula, Lideres,Ministerio
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User, Group
-from .forms import SiginUpForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
-from eventos.views import eventos
+from eventos.views.views import eventos
 from eventos.models import Eventos,Cultos,Novidades
 
 
