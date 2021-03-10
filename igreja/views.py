@@ -32,7 +32,7 @@ def home(request):
 
 def igrejas(request):
     igrejas = Igreja.objects.all().order_by('nome')
-    eventos = Eventos.objects.all().order_by('data')[:4]
+    eventos = Eventos.objects.all().order_by('data')[:5]
 
     context = {
          'igrejas': igrejas,
@@ -114,7 +114,7 @@ def deletar_celula(request):
 def lideres(request,igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
     lideres = igreja.lideres_set.all()
-    eventos = Eventos.objects.all().order_by('data')[:4]
+    eventos = Eventos.objects.all().order_by('data')[:5]
 
     context = {
         'igreja': igreja,

@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 
 
 def eventos(request):
-    eventos = Eventos.objects.all()[:4]
+    eventos = Eventos.objects.all()[:5]
     
     eventos_lista = Eventos.objects.all()
     paginator = Paginator(eventos_lista,9)
@@ -31,6 +31,12 @@ def evento(request,evento_id):
 
 def cultos(request):
     cultos = Cultos.objects.all()
+
+    paginator = Paginator(cultos,9)
+
+    page = request.GET.get('p')
+    cultos = paginator.get_page(page)
+
     context = {
         'cultos':cultos
     }
@@ -49,6 +55,12 @@ def culto(request, culto_id):
 
 def novidades(request):
     novidades = Novidades.objects.all()
+    
+    paginator = Paginator(novidades,9)
+
+    page = request.GET.get('p')
+    novidades = paginator.get_page(page)
+
     context = {
         'novidades':novidades
     }    
