@@ -34,6 +34,11 @@ def igrejas(request):
     igrejas = Igreja.objects.all().order_by('nome')
     eventos = Eventos.objects.all().order_by('data')[:5]
 
+    paginator = Paginator(igrejas,9)
+
+    page = request.GET.get('p')
+    igrejas = paginator.get_page(page)      
+
     context = {
          'igrejas': igrejas,
          'eventos':eventos,
@@ -57,7 +62,11 @@ def deleteigreja(request, igreja_id):
 def celulas(request, igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
     celulas = igreja.celula_set.all()
-        
+    
+    paginator = Paginator(celulas,9)
+
+    page = request.GET.get('p')
+    celulas = paginator.get_page(page)        
     context = {
         'igreja': igreja,
         'celulas': celulas,
@@ -81,6 +90,11 @@ def jovens_celula(request, celula_id, igreja_id):
     igreja = Igreja.objects.get(pk=igreja_id)
     celula = igreja.celula_set.get(pk=celula_id)
     jovens = celula.jovens_set.all()
+
+    paginator = Paginator(jovens,9)
+
+    page = request.GET.get('p')
+    jovens = paginator.get_page(page)      
 
     context = {
         'celula':celula,
@@ -115,6 +129,11 @@ def lideres(request,igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
     lideres = igreja.lideres_set.all()
     eventos = Eventos.objects.all().order_by('data')[:5]
+
+    paginator = Paginator(lideres,9)
+
+    page = request.GET.get('p')
+    lideres = paginator.get_page(page)      
 
     context = {
         'igreja': igreja,

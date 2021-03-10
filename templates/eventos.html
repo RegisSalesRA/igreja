@@ -15,16 +15,17 @@
 {% else %}
 <center><h2>Nenhum evento no momento</h2></center>
 {% endif %}
-
 </ul>
         <br>
         <br>
-
+    {% if eventos %}
     <center>
         <div class="widget">
             <h3 class="widget-title">Confira mais eventos</h3>
             <a href="{% url 'eventos' %}" class="button">Lista de Eventos</a>
         </div>
     </center>
-    </div>
+    {% endif %}
+
+</div>
 </div>
