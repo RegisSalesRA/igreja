@@ -1,4 +1,5 @@
 from django.urls import reverse_lazy
+from django.core.paginator import Paginator
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from membros.models import Jovens, Ministerio
 from igreja.models import Celula, Igreja
@@ -15,8 +16,14 @@ def filtrocategoria(request):
     return render(request, 'membros/jovensfilter.html', context)
 
 
-def jovem_search(request):
+def jovem_search(request,**kwargs):
     jovem_search = Jovens.objects.filter(nome__contains=request.GET['name'])
+    
+    paginator = Paginator(jovem_search,1)
+
+    page = request.GET.get('p')
+    jovem_search = paginator.get_page(page)
+
     context = {
         'jovem_search': jovem_search,
     }
@@ -51,6 +58,7 @@ def categoriafiltro(request, categoria_id):
     }
     return render(request, 'ministerio/ministerio.html', context)
 
+# MINISTERIOS
 
 def jovens_ministerio_musica(request,igreja_id,celula_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
@@ -58,6 +66,10 @@ def jovens_ministerio_musica(request,igreja_id,celula_id):
     celula_musica = get_object_or_404(Celula, pk=celula_id)
     jovens = celula_musica.jovens_set.all()
 
+    paginator = Paginator(jovens,9)
+
+    page = request.GET.get('p')
+    jovens = paginator.get_page(page)
     context = {
         'igreja': igreja,
         'jovens': jovens,
@@ -73,6 +85,10 @@ def jovens_ministerio_integracao(request,igreja_id,celula_id):
     celula_integracao = get_object_or_404(Celula, pk=celula_id)
     jovens = celula_integracao.jovens_set.all()
 
+    paginator = Paginator(jovens,9)
+
+    page = request.GET.get('p')
+    jovens = paginator.get_page(page)
     context = {
         'igreja': igreja,
         'jovens': jovens,
@@ -88,6 +104,11 @@ def jovens_ministerio_oracao(request,igreja_id,celula_id):
     celula_oracao = get_object_or_404(Celula, pk=celula_id)
     jovens = celula_oracao.jovens_set.all()
 
+    paginator = Paginator(jovens,9)
+
+    page = request.GET.get('p')
+    jovens = paginator.get_page(page)
+
     context = {
         'igreja': igreja,
         'jovens': jovens,
@@ -101,6 +122,11 @@ def jovens_ministerio_estudo(request,igreja_id,celula_id):
     celulas = igreja.celula_set.all()
     celula_estudo = get_object_or_404(Celula, pk=celula_id)
     jovens = celula_estudo.jovens_set.all()
+
+    paginator = Paginator(jovens,9)
+
+    page = request.GET.get('p')
+    jovens = paginator.get_page(page)
 
     context = {
         'igreja': igreja,

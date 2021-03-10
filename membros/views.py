@@ -1,5 +1,6 @@
 from eventos.models import Eventos
 from django.urls import reverse_lazy
+from django.core.paginator import Paginator
 from membros.forms import JovemForm
 from membros.models import Jovens, Ministerio
 from igreja.models import Igreja
@@ -11,6 +12,12 @@ def jovens(request):
     jovens = Jovens.objects.all().order_by('nome')
     ministerios = Ministerio.objects.all()
     eventos = Eventos.objects.all().order_by('data')[:4]
+
+    paginator = Paginator(jovens,9)
+
+    page = request.GET.get('p')
+    jovens = paginator.get_page(page)
+
     context = {
         'ministerios': ministerios,
         'jovens': jovens,

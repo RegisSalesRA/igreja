@@ -21,6 +21,11 @@ def celula_musica(request,igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
     celula_musica = igreja.celula_set.all().filter(ministerio='1')
     
+    paginator = Paginator(celula_musica,9)
+
+    page = request.GET.get('p')
+    celula_musica = paginator.get_page(page)
+
     context = {
         'igreja': igreja,
         'celula_musica': celula_musica,
@@ -32,6 +37,11 @@ def celula_oracao(request,igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
     celula_oracao = igreja.celula_set.all().filter(ministerio='2')
     
+    paginator = Paginator(celula_oracao,9)
+
+    page = request.GET.get('p')
+    celula_oracao = paginator.get_page(page)
+
     context = {
         'igreja': igreja,
         'celula_oracao': celula_oracao,
@@ -43,6 +53,11 @@ def celula_integracao(request,igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
     celula_integracao = igreja.celula_set.all().filter(ministerio='3')
 
+    paginator = Paginator(celula_integracao,9)
+
+    page = request.GET.get('p')
+    celula_integracao = paginator.get_page(page)
+
     context = {
         'igreja': igreja,
         'celula_integracao': celula_integracao,
@@ -53,6 +68,11 @@ def celula_integracao(request,igreja_id):
 def celula_estudo(request,igreja_id):
     igreja = get_object_or_404(Igreja, pk=igreja_id) 
     celula_estudo = igreja.celula_set.all().filter(ministerio='4')
+
+    paginator = Paginator(celula_estudo,9)
+
+    page = request.GET.get('p')
+    celula_estudo = paginator.get_page(page)
 
     context = {
         'igreja': igreja,
