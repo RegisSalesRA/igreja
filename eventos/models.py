@@ -3,7 +3,7 @@ from django.db import models
 
 class Eventos(models.Model):
 
-    foto = models.ImageField(null=True, blank=True)
+    foto = models.ImageField(upload_to='eventos',null=True, blank=True)
     nome = models.CharField(max_length=150)
     data = models.DateField(null=False, blank=False)
     hora = models.TimeField(null=True, blank=True)
@@ -23,7 +23,7 @@ class Eventos(models.Model):
 
 class Cultos(models.Model):
 
-    foto = models.ImageField(null=True, blank=True)
+    foto = models.ImageField(upload_to='cultos',null=True, blank=True)
     tema = models.CharField(max_length=150)
     descricao = models.TextField()
     pastor = models.CharField(max_length=150)
@@ -42,7 +42,7 @@ class Cultos(models.Model):
 
 class Novidades(models.Model):
 
-    foto = models.ImageField(null=True, blank=True)
+    foto = models.ImageField(upload_to='novidades',null=True, blank=True)
     nome = models.CharField(max_length=150)
     texto = models.TextField()
     

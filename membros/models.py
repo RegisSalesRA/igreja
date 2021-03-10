@@ -4,7 +4,7 @@ from igreja.models import Igreja, Celula, Ministerio
 
 class Jovens(models.Model):
 
-    foto = models.ImageField(null=True, blank=True)
+    foto = models.ImageField(upload_to='membros',null=True, blank=True)
     nome = models.CharField(max_length=150, null=False, blank=False)
     igreja = models.ForeignKey(Igreja, null=False, blank=False, on_delete=models.CASCADE)
     celula = models.ForeignKey(Celula, null=True, blank=True, on_delete=models.CASCADE)
