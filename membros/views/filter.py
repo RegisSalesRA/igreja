@@ -16,16 +16,17 @@ def filtrocategoria(request):
     return render(request, 'membros/jovensfilter.html', context)
 
 
-def jovem_search(request,**kwargs):
-    jovem_search = Jovens.objects.filter(nome__contains=request.GET['name'])
-    
-    paginator = Paginator(jovem_search,1)
+def jovem_search(request):
 
+    name = request.GET.get('name')
+    jovens = Jovens.objects.filter(nome__icontains=name)
+
+    paginator = Paginator(jovens,9)    
     page = request.GET.get('p')
-    jovem_search = paginator.get_page(page)
+    jovens = paginator.get_page(page)
 
     context = {
-        'jovem_search': jovem_search,
+        'jovens': jovens,
     }
     return render(request, 'membros/jovens_search.html', context)
 

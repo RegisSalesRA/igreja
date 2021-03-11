@@ -7,11 +7,18 @@ from django.shortcuts import render, get_object_or_404, redirect
 
 
 def igreja_search(request):
-    igreja_search = Igreja.objects.filter(nome__contains=request.GET['name'])
-    eventos = Eventos.objects.all().order_by('data')[:4]
     
+    name = request.GET.get('name')
+    igrejas = Igreja.objects.filter(nome__icontains=name)
+    eventos = Eventos.objects.all().order_by('data')[:5]
+
+    paginator = Paginator(igrejas,9)
+
+    page = request.GET.get('p')
+    igrejas = paginator.get_page(page) 
+
     context = {
-        'igreja_search': igreja_search,
+        'igrejas': igrejas,
         'eventos':eventos,
     }
     return render(request, 'igreja/igreja_search.html', context)

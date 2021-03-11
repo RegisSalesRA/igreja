@@ -7,7 +7,7 @@ urlpatterns = [
 
     path('jovens/', jovens, name='jovens'),
     path('jovem/<int:jovem_id>', jovem, name='jovem'),
-    path('jovem_search/', jovem_search, name='jovem_search'),
+    path('jovens/', jovem_search, name='jovem_search'),
     path('jovemcreate/', jovensForm, name='jovemcreate'),
     path('jovemAtualizar/<int:jovem_id>', jovenUpdate, name='jovemAtualizar'),
     path('jovemDeletar/<int:jovem_id>', jovemDelete, name='jovemDeletar'), 

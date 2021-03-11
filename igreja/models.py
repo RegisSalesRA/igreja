@@ -1,16 +1,16 @@
 import uuid
+import os
 from django.db import models
-from stdimage import StdImageField
 
 
 def get_file_path(_instance, filename):
     ext = filename.split('.')[-1]
     filename = f'{uuid.uuid4()}.{ext}'
-    return filename
+    return filename 
 
 
 class Igreja(models.Model):
-    foto = StdImageField(upload_to='igreja', blank=True, null=True)
+    foto = models.ImageField(upload_to='igreja', blank=True, null=True)
     nome = models.CharField(max_length=200, null=False, blank=False)
     descricao = models.TextField(help_text='Sobre a igreja')
     pastor = models.CharField(max_length=150, null=False, blank=False)
@@ -30,7 +30,7 @@ class Igreja(models.Model):
 
 
 class Lideres(models.Model):
-    foto = StdImageField(upload_to='lideres', blank=True, null=True)
+    foto = models.ImageField(upload_to='lideres', blank=True, null=True)
     descricao = models.TextField()
     contato = models.CharField(max_length=18)
     nome = models.CharField(max_length=150, null=False, blank=False)
@@ -74,7 +74,7 @@ class Ministerio(models.Model):
 
 
 class Celula(models.Model):
-    foto = StdImageField(upload_to='celulas', blank=True, null=True)
+    foto = models.ImageField(upload_to='celulas', blank=True, null=True)
 
     nome = models.CharField(max_length=200, null=False, blank=False)
     endereco = models.CharField(max_length=200, null=False, blank=False)

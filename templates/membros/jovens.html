@@ -17,9 +17,14 @@
                 <div>  
                   <form class="form-inline ml-3" action="{% url 'jovem_search' %}", method="GET">
                     <div class="input-group">
-                        <input type="text" name="name" class="form-control" placeholder="Procurar membro">
+                        <input
+                              class="form-control"
+                              type="{{request.GET.nome }}"
+                              name="name" 
+                              placeholder="Procurar membro">
                         <div class="input-group-append">
-                            <button type="submit" class="btn"><i class="fas fa-search"></i></button>
+                            <button type="submit" class="btn">
+                              <i class="fas fa-search"></i></button>
                         </div>
                       </div>
                     </div>
@@ -32,7 +37,12 @@
                         <div class="family">
                           <a href="{% url 'jovem' jovem.id %}">
                             <h2><i class="fas fa-church"></i> {{jovem.igreja}}</h2>
-                            <img src="{% static 'img/news-thumb-2.jpg' %}" alt="" class="family-image">
+                            <img
+                            src="{{jovem.foto.url}}"
+                            style="height: 200px;"
+                            class="card-img-top"
+                            alt="..."
+                          />
                             <h3 class="family-name"><i class="fas fa-user"></i> {{jovem.nome}}</h3>
                           </a>
                             <small><i class="fas fa-users"></i> {{jovem.celula}}</small>

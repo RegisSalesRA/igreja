@@ -30,6 +30,7 @@ def home(request):
 # Igreja Lista
 
 def igrejas(request):
+    
     igrejas = Igreja.objects.all().order_by('nome')
     eventos = Eventos.objects.all().order_by('data')[:5]
 

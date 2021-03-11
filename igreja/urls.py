@@ -12,11 +12,11 @@ from igreja.views.views import (home, igreja, igrejas, celula, celulas,lideres,
 urlpatterns = [
     # Home
     path('', home, name='home'),
-    path('search/', igreja_search, name='igreja_search'),
 
     # List View
     path('igrejas/', igrejas, name='igrejas'),
     path('igreja/<int:igreja_id>/', igreja, name='igreja'),
+    path('igrejas/', igreja_search, name='igreja_search'),
     path('igreja/<int:igreja_id>/celulas/', celulas, name='celulas'),
     path('igreja/<int:igreja_id>/celula/<int:celula_id>/', celula, name='celula'),
     path('igreja/<int:igreja_id>/celula/<int:celula_id>/jovens/', jovens_celula, name='jovens_celula'),
