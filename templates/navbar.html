@@ -33,7 +33,10 @@
             {% endif %}
 
             {% if request.user.is_staff and request.user.is_superuser %}
-                <h1>Administração</h1>
+            <li class="nav-item">
+                <a class="nav-link text-light text-uppercase font-weight-bold px-3" href="{% url 'index_dashboard' %}">
+                    Administracao <i class="fas fa fa-cog"></i>
+                </a> 
             {% endif %} 
                
         </ul>

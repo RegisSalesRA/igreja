@@ -6,12 +6,13 @@ from igreja.views.filter import (igreja_search,celula_musica,celula_estudo,celul
                            )
 from igreja.views.views import (home, igreja, igrejas, celula, celulas,lideres,
                           lider,deletar_celula,FormCelula, deleteigreja,
-                          jovens_celula,
+                          jovens_celula,index_dashboard,
                            )
 
 urlpatterns = [
     # Home
     path('', home, name='home'),
+    path('dashboard/', index_dashboard, name='index_dashboard'),
 
     # List View
     path('igrejas/', igrejas, name='igrejas'),

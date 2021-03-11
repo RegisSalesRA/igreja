@@ -160,3 +160,7 @@ def ministerios(request):
     }
 
     return render(request, context)
+
+def index_dashboard(request):
+    
+    return render(request , 'dashboard/index.html')    
