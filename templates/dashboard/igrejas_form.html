@@ -1,0 +1,14 @@
+{% extends 'dashboard/dashboard.html' %}
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
+{% block context %}
+
+<div class="card-body" style="display: flex; justify-content: center;">
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <a type="button" class="btn btn-danger" href="{% url 'dashboard_igrejas' %}">Cancel</a>
+        <button type="submit" class="btn">Create</button>
+    </form>
+</div>
+{% endblock %}

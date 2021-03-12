@@ -34,7 +34,7 @@
 
             {% if request.user.is_staff and request.user.is_superuser %}
             <li class="nav-item">
-                <a class="nav-link text-light text-uppercase font-weight-bold px-3" href="{% url 'index_dashboard' %}">
+                <a class="nav-link text-light text-uppercase font-weight-bold px-3" href="{% url 'dashboard_index' %}">
                     Administracao <i class="fas fa fa-cog"></i>
                 </a> 
             {% endif %} 

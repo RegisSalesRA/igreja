@@ -6,13 +6,21 @@ from igreja.views.filter import (igreja_search,celula_musica,celula_estudo,celul
                            )
 from igreja.views.views import (home, igreja, igrejas, celula, celulas,lideres,
                           lider,deletar_celula,FormCelula, deleteigreja,
-                          jovens_celula,index_dashboard,
+                          jovens_celula,dashboard_index,
                            )
+
+from igreja.views.crud import (dashboard_igrejas,dashboard_igrejas_create,dashboard_igrejas_update,dashboard_igrejas_delete)
 
 urlpatterns = [
     # Home
     path('', home, name='home'),
-    path('dashboard/', index_dashboard, name='index_dashboard'),
+    
+    # Dashboard
+    path('dashboard/', dashboard_index, name='dashboard_index'),
+    path('dashboard_igrejas/', dashboard_igrejas, name='dashboard_igrejas'),
+    path('dashboard_igrejas_create/', dashboard_igrejas_create, name='dashboard_igrejas_create'),
+    path('dashboard_igrejas_create/<int:igreja_id>/', dashboard_igrejas_update, name='dashboard_igrejas_update'),
+    path('dashboard_igrejas_delete/<int:igreja_id>/', dashboard_igrejas_delete, name='dashboard_igrejas_delete'),
 
     # List View
     path('igrejas/', igrejas, name='igrejas'),

@@ -1,7 +1,13 @@
 from django import forms
-from .models import Celula
+from .models import Celula,Igreja,Lideres,Ministerio
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+
+
+class IgrejaCreateForm(forms.ModelForm):
+    class Meta:
+        model = Igreja
+        fields = '__all__'
 
 
 class SiginUpForm(UserCreationForm):
