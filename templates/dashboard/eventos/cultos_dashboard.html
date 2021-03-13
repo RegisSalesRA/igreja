@@ -1,0 +1,28 @@
+{% extends 'dashboard/dashboard.html' %}
+
+{% block context %}
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Cultos</th>
+        <th scope="col">Acoes</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for culto in cultos %}
+      <tr>
+        <th scope="row">{{culto.tema}}</th>
+        <td>
+          <a href="{% url 'dashboard_cultos_create' %}" class="btn btn-success">Adicionar</a>
+          <a href="{% url 'dashboard_cultos_update' culto.id %}" class="btn btn-warning">Editar</a>
+          <a href="{% url 'dashboard_cultos_delete' culto.id %}" class="btn btn-danger">Deletar</a> 
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+    </tbody>
+  </table>
+{% endblock %}

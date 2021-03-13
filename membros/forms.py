@@ -1,7 +1,7 @@
 from django import forms
-from .models import Jovens
+from membros.models import Jovens
 
-class JovemForm(forms.ModelForm):
+class JovemCreateForm(forms.ModelForm):
     class Meta:
         model = Jovens
-        fields = ['nome','ministerio','igreja','celula']
+        fields = '__all__'

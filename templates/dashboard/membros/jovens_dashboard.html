@@ -1,0 +1,28 @@
+{% extends 'dashboard/dashboard.html' %}
+
+{% block context %}
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Jovens</th>
+        <th scope="col">Acoes</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for jovem in jovens %}
+      <tr>
+        <th scope="row">{{jovem.nome}}</th>
+        <td>
+          <a href="{% url 'dashboard_jovens_create' %}" class="btn btn-success">Adicionar</a>
+          <a href="{% url 'dashboard_jovens_update' jovem.id %}" class="btn btn-warning">Editar</a>
+          <a href="{% url 'dashboard_jovens_delete' jovem.id %}" class="btn btn-danger">Deletar</a> 
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+    </tbody>
+  </table>
+{% endblock %}
