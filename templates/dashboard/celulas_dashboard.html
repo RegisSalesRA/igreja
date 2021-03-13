@@ -1,0 +1,32 @@
+{% extends 'dashboard/dashboard.html' %}
+
+{% block context %}
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Celula</th>
+        <th scope="col">Igreja</th>
+        <th scope="col">Ministerio</th>
+        <th scope="col">Acoes</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for celula in celulas %}
+      <tr>
+        <th scope="row">{{celula.nome}}</th>
+        <td>{{celula.igreja}}</td>
+        <td>{{celula.ministerio}}</td>
+        <td>
+          <a href="{% url 'dashboard_celulas_create' %}" class="btn btn-success">Adicionar</a>
+          <a href="{% url 'dashboard_celulas_update' celula.id %}" class="btn btn-warning">Editar</a>
+          <a href="{% url 'dashboard_celulas_delete' celula.id %}" class="btn btn-danger">Deletar</a> 
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+    </tbody>
+  </table>
+{% endblock %}

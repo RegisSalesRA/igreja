@@ -9,6 +9,32 @@ class IgrejaCreateForm(forms.ModelForm):
         model = Igreja
         fields = '__all__'
 
+class CelulaCreateForm(forms.ModelForm):
+    class Meta:
+        model = Celula
+        fields = '__all__'
+
+class LideresCreateForm(forms.ModelForm):
+    class Meta:
+        model = Lideres
+        fields = '__all__'
+
+class MinisterioCreateForm(forms.ModelForm):
+    class Meta:
+        model = Lideres
+        fields = '__all__'
+
+
+class MinisterioCreateForm(forms.ModelForm):
+    class Meta:
+        model = Ministerio
+        fields = '__all__'
+
+class CelulaUpdate(forms.ModelForm):
+    class Meta:
+        model = Celula
+        fields = ['nome', 'endereco', 'igreja']
+
 
 class SiginUpForm(UserCreationForm):
     first_name = forms.CharField(max_length=100, required=True)
@@ -18,9 +44,3 @@ class SiginUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'username', 'password1', 'password2']
-
-
-class CelulaUpdate(forms.ModelForm):
-    class Meta:
-        model = Celula
-        fields = ['nome', 'endereco', 'igreja']

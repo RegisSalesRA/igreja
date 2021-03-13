@@ -1,0 +1,28 @@
+{% extends 'dashboard/dashboard.html' %}
+
+{% block context %}
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Ministerio</th>
+        <th scope="col">Acoes</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for ministerio in ministerios %}
+      <tr>
+        <th scope="row">{{ministerio.ministerio}}</th>
+        <td>
+          <a href="{% url 'dashboard_ministerios_create' %}" class="btn btn-success">Adicionar</a>
+          <a href="{% url 'dashboard_ministerios_update' ministerio.id %}" class="btn btn-warning">Editar</a>
+          <a href="{% url 'dashboard_ministerios_delete' ministerio.id %}" class="btn btn-danger">Deletar</a> 
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+    </tbody>
+  </table>
+{% endblock %}

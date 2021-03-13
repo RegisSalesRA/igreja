@@ -9,7 +9,12 @@ from igreja.views.views import (home, igreja, igrejas, celula, celulas,lideres,
                           jovens_celula,dashboard_index,
                            )
 
-from igreja.views.crud import (dashboard_igrejas,dashboard_igrejas_create,dashboard_igrejas_update,dashboard_igrejas_delete)
+from igreja.views.crud import (dashboard_igrejas,dashboard_igrejas_create,
+dashboard_igrejas_update,dashboard_igrejas_delete,dashboard_celulas,
+dashboard_celulas_create,dashboard_celulas_delete,dashboard_celulas_update,
+dashboard_lideres_create,dashboard_lideres_delete,dashboard_lideres_update,dashboard_lideres,
+dashboard_ministerios,dashboard_ministerios_update,dashboard_ministerios_delete,dashboard_ministerios_create)
+
 
 urlpatterns = [
     # Home
@@ -17,11 +22,27 @@ urlpatterns = [
     
     # Dashboard
     path('dashboard/', dashboard_index, name='dashboard_index'),
+    # Igreja
     path('dashboard_igrejas/', dashboard_igrejas, name='dashboard_igrejas'),
     path('dashboard_igrejas_create/', dashboard_igrejas_create, name='dashboard_igrejas_create'),
     path('dashboard_igrejas_create/<int:igreja_id>/', dashboard_igrejas_update, name='dashboard_igrejas_update'),
     path('dashboard_igrejas_delete/<int:igreja_id>/', dashboard_igrejas_delete, name='dashboard_igrejas_delete'),
-
+    # Celula
+    path('dashboard_celulas/', dashboard_celulas, name='dashboard_celulas'),
+    path('dashboard_celulas_create/', dashboard_celulas_create, name='dashboard_celulas_create'),
+    path('dashboard_celulas_create/<int:celula_id>/', dashboard_celulas_update, name='dashboard_celulas_update'),
+    path('dashboard_celulas_delete/<int:celula_id>/', dashboard_celulas_delete, name='dashboard_celulas_delete'),
+    # Lideres
+    path('dashboard_lideres/', dashboard_lideres, name='dashboard_lideres'),
+    path('dashboard_lideres_create/', dashboard_lideres_create, name='dashboard_lideres_create'),
+    path('dashboard_lideres_create/<int:lider_id>/', dashboard_lideres_update, name='dashboard_lideres_update'),
+    path('dashboard_lideres_delete/<int:lider_id>/', dashboard_lideres_delete, name='dashboard_lideres_delete'),
+    # Ministerio
+    path('dashboard_ministerios/', dashboard_ministerios, name='dashboard_ministerios'),
+    path('dashboard_ministerios_create/', dashboard_ministerios_create, name='dashboard_ministerios_create'),
+    path('dashboard_ministerios_create/<int:ministerio_id>/', dashboard_ministerios_update, name='dashboard_ministerios_update'),
+    path('dashboard_ministerios_delete/<int:ministerio_id>/', dashboard_ministerios_delete, name='dashboard_ministerios_delete'),
+    
     # List View
     path('igrejas/', igrejas, name='igrejas'),
     path('igreja/<int:igreja_id>/', igreja, name='igreja'),
