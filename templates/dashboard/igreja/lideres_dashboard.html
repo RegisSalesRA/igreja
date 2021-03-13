@@ -1,12 +1,17 @@
 {% extends 'dashboard/dashboard.html' %}
 
 {% block context %}
+<center>
+  <div>
+    Clique aqui para adicionar: <a href="{% url 'dashboard_lideres_create' %}" class="btn btn-success">Adicionar</a>
+  </div>
+  </center>
+  <br><br><br>
 <table class="table">
     <thead class="thead-dark">
       <tr>
         <th scope="col">Igreja</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Pastor</th>
+        <th scope="col">Lider</th>
         <th scope="col">Acoes</th>
       </tr>
     </thead>
@@ -16,9 +21,7 @@
       <tr>
         <th scope="row">{{lider.igreja}}</th>
         <td>{{lider.nome}}</td>
-        <td>{{lider.contato}}</td>
         <td>
-          <a href="{% url 'dashboard_lideres_create' %}" class="btn btn-success">Adicionar</a>
           <a href="{% url 'dashboard_lideres_update' lider.id %}" class="btn btn-warning">Editar</a>
           <a href="{% url 'dashboard_lideres_delete' lider.id %}" class="btn btn-danger">Deletar</a> 
         </td>

@@ -1,6 +1,12 @@
 {% extends 'dashboard/dashboard.html' %}
-
 {% block context %}
+
+<center>
+  <div>
+    Clique aqui para adicionar: <a href="{% url 'dashboard_novidades_create' %}" class="btn btn-success">Adicionar</a>
+  </div>
+  </center>
+  <br><br><br>
 <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -14,7 +20,6 @@
       <tr>
         <th scope="row">{{novidade.nome}}</th>
         <td>
-          <a href="{% url 'dashboard_novidades_create' %}" class="btn btn-success">Adicionar</a>
           <a href="{% url 'dashboard_novidades_update' novidade.id %}" class="btn btn-warning">Editar</a>
           <a href="{% url 'dashboard_novidades_delete' novidade.id %}" class="btn btn-danger">Deletar</a> 
         </td>

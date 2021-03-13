@@ -1,6 +1,12 @@
 {% extends 'dashboard/dashboard.html' %}
 
 {% block context %}
+<center>
+  <div>
+    Clique aqui para adicionar: <a href="{% url 'dashboard_igrejas_create' %}" class="btn btn-success">Adicionar</a>
+  </div>
+  </center>
+  <br><br><br>
 <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -18,7 +24,6 @@
         <td>{{igreja.pastor}}</td>
         <td>{{igreja.contato}}</td>
         <td>
-          <a href="{% url 'dashboard_igrejas_create' %}" class="btn btn-success">Adicionar</a>
           <a href="{% url 'dashboard_igrejas_update' igreja.id %}" class="btn btn-warning">Editar</a>
           <a href="{% url 'dashboard_igrejas_delete' igreja.id %}" class="btn btn-danger">Deletar</a> 
         </td>
