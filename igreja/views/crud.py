@@ -12,7 +12,7 @@ def dashboard_igrejas(request):
     context = {
         'igrejas':igrejas
     }
-    return render(request, 'dashboard/igrejas_dashboard.html',context)
+    return render(request, 'dashboard/igreja/igrejas_dashboard.html',context)
 
  
 def dashboard_igrejas_create(request):  
@@ -27,7 +27,7 @@ def dashboard_igrejas_create(request):
                 pass  
     else:  
         form = IgrejaCreateForm()  
-    return render(request,'dashboard/igrejas_form.html',{'form':form})    
+    return render(request,'dashboard/igreja/igrejas_form.html',{'form':form})    
 
 
 def dashboard_igrejas_update(request, igreja_id):  
@@ -42,7 +42,7 @@ def dashboard_igrejas_update(request, igreja_id):
                 return redirect('dashboard_igrejas')  
             except Exception as e: 
                 pass    
-    return render(request,'dashboard/igrejas_form.html',{'form':form})  
+    return render(request,'dashboard/igreja/igrejas_form.html',{'form':form})  
 
 
 def dashboard_igrejas_delete(request, igreja_id):
@@ -59,7 +59,7 @@ def dashboard_celulas(request):
     context = {
         'celulas':celulas
     }
-    return render(request, 'dashboard/celulas_dashboard.html',context)
+    return render(request, 'dashboard/igreja/celulas_dashboard.html',context)
 
  
 def dashboard_celulas_create(request):  
@@ -74,7 +74,7 @@ def dashboard_celulas_create(request):
                 pass  
     else:  
         form = CelulaCreateForm()  
-    return render(request,'dashboard/celulas_form.html',{'form':form})    
+    return render(request,'dashboard/igreja/celulas_form.html',{'form':form})    
 
 
 def dashboard_celulas_update(request, celula_id):  
@@ -89,7 +89,7 @@ def dashboard_celulas_update(request, celula_id):
                 return redirect('dashboard_celulas')  
             except Exception as e: 
                 pass    
-    return render(request,'dashboard/celulas_form.html',{'form':form})  
+    return render(request,'dashboard/igreja/celulas_form.html',{'form':form})  
 
 
 def dashboard_celulas_delete(request, celula_id):
@@ -107,7 +107,7 @@ def dashboard_lideres(request):
     context = {
         'lideres':lideres
     }
-    return render(request, 'dashboard/lideres_dashboard.html',context)
+    return render(request, 'dashboard/igreja/lideres_dashboard.html',context)
 
 
 def dashboard_lideres_create(request):  
@@ -122,7 +122,7 @@ def dashboard_lideres_create(request):
                 pass  
     else:  
         form = LideresCreateForm()  
-    return render(request,'dashboard/lideres_form.html',{'form':form})    
+    return render(request,'dashboard/igreja/lideres_form.html',{'form':form})    
 
 
 def dashboard_lideres_update(request, lider_id):  
@@ -137,7 +137,7 @@ def dashboard_lideres_update(request, lider_id):
                 return redirect('dashboard_lideres')  
             except Exception as e: 
                 pass    
-    return render(request,'dashboard/lideres_form.html',{'form':form})  
+    return render(request,'dashboard/igreja/lideres_form.html',{'form':form})  
 
 
 def dashboard_lideres_delete(request, lider_id):
@@ -154,7 +154,7 @@ def dashboard_ministerios(request):
     context = {
         'ministerios':ministerios
     }
-    return render(request, 'dashboard/ministerio_dashboard.html',context)
+    return render(request, 'dashboard/igreja/ministerio_dashboard.html',context)
 
 
 def dashboard_ministerios_create(request):  
@@ -169,7 +169,7 @@ def dashboard_ministerios_create(request):
                 pass  
     else:  
         form = MinisterioCreateForm()  
-    return render(request,'dashboard/ministerios_form.html',{'form':form})    
+    return render(request,'dashboard/igreja/ministerios_form.html',{'form':form})    
 
 
 def dashboard_ministerios_update(request, ministerio_id):  
@@ -184,7 +184,7 @@ def dashboard_ministerios_update(request, ministerio_id):
                 return redirect('dashboard_ministerios')  
             except Exception as e: 
                 pass    
-    return render(request,'dashboard/ministerios_form.html',{'form':form})  
+    return render(request,'dashboard/igreja/ministerios_form.html',{'form':form})  
 
 
 def dashboard_ministerios_delete(request, ministerio_id):
