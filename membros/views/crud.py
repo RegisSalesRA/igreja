@@ -18,7 +18,7 @@ def dashboard_jovens(request):
 
 def dashboard_jovens_create(request):  
     if request.method == "POST":  
-        form = JovemCreateForm(request.POST)  
+        form = JovemCreateForm(request.POST, request.FILES)  
         if form.is_valid():  
             try:  
                 form.save() 
@@ -32,10 +32,10 @@ def dashboard_jovens_create(request):
 
 
 def dashboard_jovens_update(request, jovem_id):  
-    book = Jovens.objects.get(id=jovem_id)
+    jovem = Jovens.objects.get(id=jovem_id)
     form = JovemCreateForm()
     if request.method == "POST":  
-        form = JovemCreateForm(request.POST, instance=book)  
+        form = JovemCreateForm(request.POST,request.FILES, instance=jovem)  
         if form.is_valid():  
             try:  
                 form.save() 

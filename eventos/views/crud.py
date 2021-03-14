@@ -18,7 +18,7 @@ def dashboard_eventos(request):
 
 def dashboard_eventos_create(request):  
     if request.method == "POST":  
-        form = EventosCreateForm(request.POST)  
+        form = EventosCreateForm(request.POST, request.FILES)  
         if form.is_valid():  
             try:  
                 form.save() 
@@ -32,10 +32,10 @@ def dashboard_eventos_create(request):
 
 
 def dashboard_eventos_update(request, evento_id):  
-    book = Eventos.objects.get(id=evento_id)
+    eventos = Eventos.objects.get(id=evento_id)
     form = EventosCreateForm()
     if request.method == "POST":  
-        form = EventosCreateForm(request.POST, instance=book)  
+        form = EventosCreateForm(request.POST, request.FILES, instance=eventos)  
         if form.is_valid():  
             try:  
                 form.save() 
@@ -67,7 +67,7 @@ def dashboard_cultos(request):
 
 def dashboard_cultos_create(request):  
     if request.method == "POST":  
-        form = CultosCreateForm(request.POST)  
+        form = CultosCreateForm(request.POST, request.FILES)  
         if form.is_valid():  
             try:  
                 form.save() 
@@ -81,10 +81,10 @@ def dashboard_cultos_create(request):
 
 
 def dashboard_cultos_update(request, culto_id):  
-    book = Cultos.objects.get(id=culto_id)
+    culto = Cultos.objects.get(id=culto_id)
     form = CultosCreateForm()
     if request.method == "POST":  
-        form = CultosCreateForm(request.POST, instance=book)  
+        form = CultosCreateForm(request.POST,  request.FILES,instance=culto)  
         if form.is_valid():  
             try:  
                 form.save() 
@@ -115,7 +115,7 @@ def dashboard_novidades(request):
 
 def dashboard_novidades_create(request):  
     if request.method == "POST":  
-        form = NovidadesCreateForm(request.POST)  
+        form = NovidadesCreateForm(request.POST, request.FILES)  
         if form.is_valid():  
             try:  
                 form.save() 
@@ -129,10 +129,10 @@ def dashboard_novidades_create(request):
 
 
 def dashboard_novidades_update(request, novidade_id):  
-    book = Novidades.objects.get(id=novidade_id)
+    novidade = Novidades.objects.get(id=novidade_id)
     form = NovidadesCreateForm()
     if request.method == "POST":  
-        form = NovidadesCreateForm(request.POST, instance=book)  
+        form = NovidadesCreateForm(request.POST, request.FILES, instance=novidade)  
         if form.is_valid():  
             try:  
                 form.save() 

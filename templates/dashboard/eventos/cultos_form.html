@@ -3,12 +3,16 @@
 {% load bootstrap4 %}
 {% block context %}
 
-<div class="card-body" style="display: flex; justify-content: center;">
-    <form method="post">
+<div class="container">
+    <form method="POST" enctype="multipart/form-data">
+        <table class="table">
         {% csrf_token %}
         {% bootstrap_form form %}
-        <a type="button" class="btn btn-danger" href="{% url 'dashboard_celulas' %}">Cancel</a>
+            <td>
+        <a type="button" class="btn btn-danger" href="{% url 'dashboard_cultos' %}">Cancel</a>
         <button type="submit" class="btn">Confirmar</button>
+    </td>
+    </table>
     </form>
 </div>
 {% endblock %}

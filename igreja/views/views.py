@@ -10,7 +10,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from eventos.views.views import eventos
 from eventos.models import Eventos,Cultos,Novidades
-
+from django.contrib.auth.decorators import login_required
 
 # Home
 def home(request):
@@ -161,6 +161,7 @@ def ministerios(request):
 
     return render(request, context)
 
+@login_required(redirect_field_name='home')
 def dashboard_index(request):
     
     return render(request , 'dashboard/dashboard.html')    

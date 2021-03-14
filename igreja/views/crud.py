@@ -17,7 +17,7 @@ def dashboard_igrejas(request):
  
 def dashboard_igrejas_create(request):  
     if request.method == "POST":  
-        form = IgrejaCreateForm(request.POST)  
+        form = IgrejaCreateForm(request.POST, request.FILES)  
         if form.is_valid():  
             try:  
                 form.save() 
@@ -31,10 +31,10 @@ def dashboard_igrejas_create(request):
 
 
 def dashboard_igrejas_update(request, igreja_id):  
-    book = Igreja.objects.get(id=igreja_id)
+    igreja = Igreja.objects.get(id=igreja_id)
     form = IgrejaCreateForm()
     if request.method == "POST":  
-        form = IgrejaCreateForm(request.POST, instance=book)  
+        form = IgrejaCreateForm(request.POST, request.FILES ,instance=igreja)  
         if form.is_valid():  
             try:  
                 form.save() 
@@ -64,7 +64,7 @@ def dashboard_celulas(request):
  
 def dashboard_celulas_create(request):  
     if request.method == "POST":  
-        form = CelulaCreateForm(request.POST)  
+        form = CelulaCreateForm(request.POST, request.FILES)  
         if form.is_valid():  
             try:  
                 form.save() 
@@ -78,10 +78,10 @@ def dashboard_celulas_create(request):
 
 
 def dashboard_celulas_update(request, celula_id):  
-    book = Celula.objects.get(id=celula_id)
+    celula = Celula.objects.get(id=celula_id)
     form = CelulaCreateForm()
     if request.method == "POST":  
-        form = CelulaCreateForm(request.POST, instance=book)  
+        form = CelulaCreateForm(request.POST, request.FILES, instance=celula)  
         if form.is_valid():  
             try:  
                 form.save() 
@@ -112,7 +112,7 @@ def dashboard_lideres(request):
 
 def dashboard_lideres_create(request):  
     if request.method == "POST":  
-        form = LideresCreateForm(request.POST)  
+        form = LideresCreateForm(request.POST, request.FILES)  
         if form.is_valid():  
             try:  
                 form.save() 
@@ -126,10 +126,10 @@ def dashboard_lideres_create(request):
 
 
 def dashboard_lideres_update(request, lider_id):  
-    book = Lideres.objects.get(id=lider_id)
+    lideres = Lideres.objects.get(id=lider_id)
     form = LideresCreateForm()
     if request.method == "POST":  
-        form = LideresCreateForm(request.POST, instance=book)  
+        form = LideresCreateForm(request.POST, request.FILES, instance=lideres)  
         if form.is_valid():  
             try:  
                 form.save() 
@@ -159,7 +159,7 @@ def dashboard_ministerios(request):
 
 def dashboard_ministerios_create(request):  
     if request.method == "POST":  
-        form = MinisterioCreateForm(request.POST)  
+        form = MinisterioCreateForm(request.POST, request.FILES)  
         if form.is_valid():  
             try:  
                 form.save() 
@@ -173,10 +173,10 @@ def dashboard_ministerios_create(request):
 
 
 def dashboard_ministerios_update(request, ministerio_id):  
-    book = Ministerio.objects.get(id=ministerio_id)
+    ministerios = Ministerio.objects.get(id=ministerio_id)
     form = MinisterioCreateForm()
     if request.method == "POST":  
-        form = MinisterioCreateForm(request.POST, instance=book)  
+        form = MinisterioCreateForm(request.POST, request.FILES, instance=ministerios)  
         if form.is_valid():  
             try:  
                 form.save() 
