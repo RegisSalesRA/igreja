@@ -16,7 +16,7 @@
                             <a href="{% url 'igreja' igreja.id %}">
                                 <h2 class="family-name"><i class="fas fa-church"></i> {{igreja.nome}}</h2>
                                 <img src="{{ igreja.foto.url }}" alt="" class="family-image" style="height: 200px;">
-                                <h3 class="family-name"><i class="fas fa-user"></i> {{igreja.pastor}}</h3>
+                                <h3 class="family-name"><i class="fas fa-user"></i>Pastor: {{igreja.pastor}}</h3>
                             </a>
                         </div>
                         {% endfor %}
