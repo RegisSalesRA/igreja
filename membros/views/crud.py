@@ -10,6 +10,10 @@ from django.core.paginator import Paginator
 
 def dashboard_jovens(request):
     jovens = Jovens.objects.all()
+    paginator = Paginator(jovens,9)
+
+    page = request.GET.get('p')
+    jovens = paginator.get_page(page)     
     context = {
         'jovens':jovens
     }

@@ -2,8 +2,14 @@
 {% load static %}
 {% block context %}
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
+<div class="card-footer" style="background-color: white;"> 
+  <div class="text-center" style="display:flex;justify-content: end; background-color: white;">
+    <a href="{% url 'igrejas' %}" class="button">Voltar</a>
+  </div>
+</div>
+<br>
 
+<div class="row row-cols-1 row-cols-md-3 g-4">
     <!-- Igreja -->
     <div class="col">
       <div class="card h-100">

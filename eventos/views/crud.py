@@ -10,6 +10,13 @@ from django.core.paginator import Paginator
 
 def dashboard_eventos(request):
     eventos = Eventos.objects.all()
+
+    paginator = Paginator(eventos,9)
+
+    page = request.GET.get('p')
+    eventos = paginator.get_page(page) 
+
+
     context = {
         'eventos':eventos
     }
@@ -59,6 +66,12 @@ def dashboard_eventos_delete(request, evento_id):
 
 def dashboard_cultos(request):
     cultos = Cultos.objects.all()
+
+    paginator = Paginator(cultos,9)
+
+    page = request.GET.get('p')
+    cultos = paginator.get_page(page) 
+
     context = {
         'cultos':cultos
     }
@@ -107,6 +120,10 @@ def dashboard_cultos_delete(request, culto_id):
 
 def dashboard_novidades(request):
     novidades = Novidades.objects.all()
+    paginator = Paginator(novidades,9)
+
+    page = request.GET.get('p')
+    novidades = paginator.get_page(page) 
     context = {
         'novidades':novidades
     }

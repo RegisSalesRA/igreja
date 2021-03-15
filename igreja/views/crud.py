@@ -9,6 +9,10 @@ from igreja.forms import IgrejaCreateForm,CelulaCreateForm
 
 def dashboard_igrejas(request):
     igrejas = Igreja.objects.all()
+    paginator = Paginator(igrejas,9)
+
+    page = request.GET.get('p')
+    igrejas = paginator.get_page(page) 
     context = {
         'igrejas':igrejas
     }
@@ -56,6 +60,10 @@ def dashboard_igrejas_delete(request, igreja_id):
 
 def dashboard_celulas(request):
     celulas = Celula.objects.all()
+    paginator = Paginator(celulas,9)
+
+    page = request.GET.get('p')
+    celulas = paginator.get_page(page)     
     context = {
         'celulas':celulas
     }
@@ -104,6 +112,10 @@ def dashboard_celulas_delete(request, celula_id):
 
 def dashboard_lideres(request):
     lideres = Lideres.objects.all()
+    paginator = Paginator(lideres,9)
+
+    page = request.GET.get('p')
+    lideres = paginator.get_page(page) 
     context = {
         'lideres':lideres
     }
@@ -151,6 +163,10 @@ def dashboard_lideres_delete(request, lider_id):
 
 def dashboard_ministerios(request):
     ministerios = Ministerio.objects.all()
+    paginator = Paginator(ministerios,9)
+
+    page = request.GET.get('p')
+    ministerios = paginator.get_page(page) 
     context = {
         'ministerios':ministerios
     }

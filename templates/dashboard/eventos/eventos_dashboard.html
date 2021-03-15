@@ -30,4 +30,36 @@
   
     </tbody>
   </table>
+        <!-- paage simple -->
+        <div class="pagination" style="display: flex; justify-content: center; align-items: baseline;">
+          <div >
+          {% if eventos.has_previous %}
+              <a href="?p={{ eventos.previous_page_number }}">previous</a>
+          {% endif %}
+         </div>
+         &nbsp
+         &nbsp
+          <nav aria-label="Page navigation exemple">
+              <ul class="pagination">
+                  {% for pagina in eventos.paginator.page_range %}
+                  {% if eventos.number == pagina %}
+                  <li class="page-item active"><a class="page-link" href="?p={{ pagina }}">
+                      {{pagina}}</a>
+                  </li>
+                  {% else %}
+                  <li class="page-item"><a class="page-link" href="?p={{ pagina }}">
+                      {{pagina}}</a></li>
+                  {% endif %}
+                 {% endfor %}
+              </ul>
+          </nav>
+          &nbsp
+          &nbsp
+      <div>
+          {% if eventos.has_next %}
+              <a href="?p={{ eventos.next_page_number }}">next</a>
+          {% endif %}
+      </span>
+  </div>
+  <!-- endpage -->
 {% endblock %}
