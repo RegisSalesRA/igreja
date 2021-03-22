@@ -77,3 +77,16 @@ def mocidadelista(request,igreja_id):
     igreja = Igreja.objects.get(pk=igreja_id)
     context = {'igrejas':igreja, 'ministerioss':ministerioss, 'searchjoven':searchjoven}
     return render(request, 'membros/mocidadelista.html', context)
+
+
+
+from rest_framework import viewsets
+from rest_framework import status
+from rest_framework.response import Response
+from membros.api.serializers import JovensSerializer
+from membros.models import Jovens
+# Create your views here.
+
+class JovensView(viewsets.ModelViewSet):
+    queryset = Jovens.objects.all()
+    serializer_class = JovensSerializer
