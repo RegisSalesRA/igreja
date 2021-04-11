@@ -28,6 +28,8 @@ class Igreja(models.Model):
     def __str__(self):
         return self.nome
 
+    def __repr__(self):
+        return self.nome
 
 class Lideres(models.Model):
     foto = models.ImageField(upload_to='lideres', blank=True, null=True)
