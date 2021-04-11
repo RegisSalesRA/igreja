@@ -1,17 +1,14 @@
 <nav class="navbar navbar-expand-md navbar-light bg-dark">
     <a href="/" class="navbar-brand" style="margin-left: 10px;"><i class="fas fa-bible text-light fa-2x"></i></a>
-
     <button type="button" class="navbar-toggler bg-light" data-toggle="collapse"
             data-target="#nav" name="button"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse justify-content-between" id="nav">
-       
-        <!-- UserAuthenticated -->
-        <ul class="navbar-nav">
-            
-            {% if request.user.is_authenticated and request.user.first_name %}
-                <li class="nav-item dropdown">
-            <a class="nav-link text-light text-uppercase font-weight-bold px-3" data-toggle="dropdown">
-                Welcome {{ request.user.first_name }} <i class="fas fa-user circle"></i>
+  <!-- UserAuthenticated -->
+    <ul class="navbar-nav">
+    {% if request.user.is_authenticated and request.user.first_name %}
+       <li class="nav-item dropdown">
+    <a class="nav-link text-light text-uppercase font-weight-bold px-3" data-toggle="dropdown">
+      Welcome {{ request.user.first_name }} <i class="fas fa-user circle"></i>
             </a>
                 </li>
                 <li class="nav-item">
@@ -31,16 +28,13 @@
                     </a>
                 </li>
             {% endif %}
-
-            {% if request.user.is_staff and request.user.is_superuser %}
+          {% if request.user.is_staff and request.user.is_superuser %}
             <li class="nav-item">
                 <a class="nav-link text-light text-uppercase font-weight-bold px-3" href="{% url 'dashboard_index' %}">
                     Administracao <i class="fas fa fa-cog"></i>
                 </a> 
             {% endif %} 
-               
         </ul>
-
         <form class="form-inline ml-3" action="{% url 'igreja_search' %}", method="GET">
             <div class="input-group">
                 <input 
