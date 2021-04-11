@@ -1,15 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block context %}
-<!-- test -->
-
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     </ol>
-
     <div class="carousel-inner">
         <div class="carousel-item active">
             <img class="d-block w-100" src="{% static 'environments/igrejaslide1.webp' %}" style="height: 550px;" alt="First slide">
@@ -32,15 +29,10 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-
-
-<!-- ttttt -->
-
   <main class="main-content">
     <div class="fullwidth-block">
       <div class="container">
         <h2 class="section-title">Novidades Rescentes</h2>
-
         <div class="row">
           {% if novidades %}
           {% for novidade in novidades %} 
@@ -67,7 +59,6 @@
         </div> <!-- .row -->
       </div> <!-- .container -->
     </div> <!-- section -->
-
     <div class="fullwidth-block">
       <div class="container">
         <div class="row">
@@ -84,25 +75,20 @@
                     <span><i class="fa fa-clock"></i>{{evento.hora}}</span>
                   </span>
                 </a>
-            
               </li>    
             {% endfor %}
-            
-            {% else %}
+               {% else %}
              <div style="display: flex; justify-content: center;">
               <h1 style="margin-top: 30px;">Nenhum evento no momento</h1>
              </div>             
             {% endif %}
-            
-          </ul>
-
-            {% if eventos %}
+            </ul>
+          {% if eventos %}
             <div class="text-center">
               <a href="{% url 'eventos' %}" class="button">Veja todos os eventos</a>
             </div>
             {% endif %}
-
-            <br><br>
+        <br><br>
             </div>
             <div class="col-md-6">
             <h2 class="section-title">Ultimos cultos</h2>
@@ -122,21 +108,18 @@
               </a>
               </li>
               {% endfor %}
-
-              {% else %}
+           {% else %}
               <div style="display: flex; justify-content: center;">
                 <h1 style="margin-top: 30px;">Nenhum culto no momento</h1>
               </div>
               {% endif %}
             </ul>
-
-            {% if cultos %}
+         {% if cultos %}
             <div class="text-center">
               <a href="{% url 'cultos' %}" class="button">Veja todos os cultos</a>
             </div>
             {% endif %}
-
-          </div>
+        </div>
         </div> <!-- .row -->
       </div> <!-- .container -->
     </div> <!-- section -->
