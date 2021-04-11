@@ -5,15 +5,11 @@
         <center>
            <h3 class="widget-title">Proximos eventos</h3>
         </center>
-        
-        <ul class="arrow">
-
+         <ul class="arrow">
 {% if eventos %}
-
 {% for evento in eventos %}
     <a href="{% url 'evento' evento.pk %}"><li>{{evento.nome}}</li></a>
 {% endfor %}
-
 {% else %}
 <center><h2>Nenhum evento no momento</h2></center>
 {% endif %}
@@ -28,6 +24,5 @@
         </div>
     </center>
     {% endif %}
-
 </div>
 </div>
