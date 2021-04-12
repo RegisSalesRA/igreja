@@ -1,28 +1,28 @@
 <div class="sidebar col-md-3 col-md-offset-1">
-    <div class="widget">
-        <br>
-        <br>
-        <center>
-           <h3 class="widget-title">Proximos eventos</h3>
-        </center>
-         <ul class="arrow">
+<div class="widget">
+<br>
+<br>
+<center>
+<h3 class="widget-title">Proximos eventos</h3>
+</center>
+<ul class="arrow">
 {% if eventos %}
 {% for evento in eventos %}
-    <a href="{% url 'evento' evento.pk %}"><li>{{evento.nome}}</li></a>
+<a href="{% url 'evento' evento.pk %}"><li>{{evento.nome}}</li></a>
 {% endfor %}
 {% else %}
 <center><h2>Nenhum evento no momento</h2></center>
 {% endif %}
 </ul>
-        <br>
-        <br>
-    {% if eventos %}
-    <center>
-        <div class="widget">
-            <h3 class="widget-title">Confira mais eventos</h3>
-            <a href="{% url 'eventos' %}" class="button">Lista de Eventos</a>
-        </div>
-    </center>
-    {% endif %}
+<br>
+<br>
+{% if eventos %}
+<center>
+<div class="widget">
+<h3 class="widget-title">Confira mais eventos</h3>
+<a href="{% url 'eventos' %}" class="button">Lista de Eventos</a>
+</div>
+</center>
+{% endif %}
 </div>
 </div>

@@ -1,47 +1,41 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block context %}
-
 <div class="card-footer" style="background-color: white;"> 
-  <div class="text-center" style="display:flex;justify-content: end; background-color: white;">
-    <a href="{% url 'novidades' %}" class="button">Voltar</a>
-  </div>
+<div class="text-center" style="display:flex;justify-content: end; background-color: white;">
+<a href="{% url 'novidades' %}" class="button">Voltar</a>
+</div>
 </div>
 <br>
-
 <main class="main-content">
-    <div class="fullwidth-block">
-        <div class="container">
-            <div class="row" style="justify-content: center;">
-
-                
-                <div class="content col-md-8">
-                    <div class="card mb-3">
-                        <img
-                          src="{{ novidade.foto.url }}"
-                          style="height: 500px;"
-                          class="card-img-top"
-                          alt="..."
-                        />
-                        <div class="card-body">
-                          <h5 class="card-title"><i class="fas fa-newspaper"></i> Novidade: {{novidade.nome}}</h5>
-                          <br>
-                          <p class="card-text"><i class="fas fa-pencil-alt"></i> Descricao: {{novidade.texto}} </p>
-                          <p class="card-text">
-                            <small class="text-muted"><i class="fas fa-phone-alt"></i> Contato: {{novidade.contato}}</small>
-                          </p>
-                        </div>  
-                    </div>
-                </div>
-        </div>
-        </div>
-    </div>
-</main> <!-- .main-content -->
-
+<div class="fullwidth-block">
+<div class="container">
+<div class="row" style="justify-content: center;">
+<div class="content col-md-8">
+<div class="card mb-3">
+<img
+src="{{ novidade.foto.url }}"
+style="height: 500px;"
+class="card-img-top"
+alt="..."
+/>
+<div class="card-body">
+<h5 class="card-title"><i class="fas fa-newspaper"></i> Novidade: {{novidade.nome}}</h5>
+<br>
+<p class="card-text"><i class="fas fa-pencil-alt"></i> Descricao: {{novidade.texto}} </p>
+<p class="card-text">
+<small class="text-muted"><i class="fas fa-phone-alt"></i> Contato: {{novidade.contato}}</small>
+</p>
 </div>
-
+</div>
+</div>
+</div>
+</div>
+</div>
+</main> <!-- .main-content -->
+</div>
 {% endblock %}
 {% block script %}
-        <script src="{% static 'js/jquery.js' %}"></script>
-        <script src="{% static 'js/funcoes.ajax.js' %}"></script>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/funcoes.ajax.js' %}"></script>
 {% endblock %}

@@ -1,48 +1,42 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block context %}
-
 <div class="card-footer" style="background-color: white;"> 
-  <div class="text-center" style="display:flex;justify-content: end; background-color: white;">
-    <a href="{% url 'cultos' %}" class="button">Voltar</a>
-  </div>
+<div class="text-center" style="display:flex;justify-content: end; background-color: white;">
+<a href="{% url 'cultos' %}" class="button">Voltar</a>
+</div>
 </div>
 <br>
-
 <main class="main-content">
-    <div class="fullwidth-block">
-        <div class="container">
-            <div class="row" style="justify-content: center;">
-
-                
-                <div class="content col-md-8">
-                    <div class="card mb-3">
-                        <img
-                          src="{{ culto.foto.url }}"
-                          style="height: 500px;"
-                          class="card-img-top"
-                          alt="..."
-                        />
-                        <div class="card-body">
-                          <h2><i class="fas fa-bible"></i> Tema: {{culto.tema}}</h2>
-                          <h5 class="card-title"><i class="fas fa-user"></i> Pastor: {{culto.pastor}}</h5>
-                          <br>
-                          <p class="card-text"><i class="fas fa-pencil-alt"></i> Descricao: {{culto.descricao}}</p>
-                          <p class="card-text">
-                            <small class="text-muted"><i class="fas fa-calendar-day"></i> Data: {{culto.data}} as {{culto.hora}}</small>
-                          </p>
-                        </div>  
-                    </div>
-                </div>
-        </div>
-        </div>
-    </div>
-</main> <!-- .main-content -->
-
+<div class="fullwidth-block">
+<div class="container">
+<div class="row" style="justify-content: center;">
+<div class="content col-md-8">
+<div class="card mb-3">
+<img
+src="{{ culto.foto.url }}"
+style="height: 500px;"
+class="card-img-top"
+alt="..."
+/>
+<div class="card-body">
+<h2><i class="fas fa-bible"></i> Tema: {{culto.tema}}</h2>
+<h5 class="card-title"><i class="fas fa-user"></i> Pastor: {{culto.pastor}}</h5>
+<br>
+<p class="card-text"><i class="fas fa-pencil-alt"></i> Descricao: {{culto.descricao}}</p>
+<p class="card-text">
+<small class="text-muted"><i class="fas fa-calendar-day"></i> Data: {{culto.data}} as {{culto.hora}}</small>
+</p>
 </div>
-
+</div>
+</div>
+</div>
+</div>
+</div>
+</main> <!-- .main-content -->
+</div>
 {% endblock %}
 {% block script %}
-        <script src="{% static 'js/jquery.js' %}"></script>
-        <script src="{% static 'js/funcoes.ajax.js' %}"></script>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/funcoes.ajax.js' %}"></script>
 {% endblock %}

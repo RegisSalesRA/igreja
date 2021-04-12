@@ -2,70 +2,63 @@
 {% load static %}
 {% block context %}
 <main class="main-content">
-    <div class="fullwidth-block">
-        <div class="container">
-            <div class="row" style="justify-content: center;" >
-                <div class="content col-md-8">
-                    <h2 class="section-title">Lista de eventos</h2>
-                    <br>
-                    <br>
-                    <div class="row">     
-                        {% for evento in eventos_lista %}
-                        <div class="family">
-                            <a href="{% url 'evento' evento.pk %}">
-                            <img src="{{ evento.foto.url }}" alt="" class="family-image" style="height: 200px;">
-                            <h3 class="family-name"><i class="fas fa-bible"></i> {{evento.nome}}</h3>
-                            </a>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-        </div>
-
-
-        
-        <!-- paage simple -->
-        <div class="pagination" style="display: flex; justify-content: center; align-items: baseline;">
-                <div >
-                {% if eventos_lista.has_previous %}
-                    <a href="?p={{ eventos_lista.previous_page_number }}">previous</a>
-                {% endif %}
-               </div>
-               &nbsp
-               &nbsp
-                <nav aria-label="Page navigation exemple">
-                    <ul class="pagination">
-                        {% for pagina in eventos_lista.paginator.page_range %}
-                        {% if eventos_lista.number == pagina %}
-                        <li class="page-item active"><a class="page-link" href="?p={{ pagina }}">
-                            {{pagina}}</a>
-                        </li>
-                        {% else %}
-                        <li class="page-item"><a class="page-link" href="?p={{ pagina }}">
-                            {{pagina}}</a></li>
-                        {% endif %}
-                       {% endfor %}
-                    </ul>
-                </nav>
-                &nbsp
-                &nbsp
-            <div>
-                {% if eventos_lista.has_next %}
-                    <a href="?p={{ eventos_lista.next_page_number }}">next</a>
-                {% endif %}
-            </span>
-        </div>
-        <!-- endpage -->
-
-        
-        </div>
-    </div>
-</main> <!-- .main-content -->
-
+<div class="fullwidth-block">
+<div class="container">
+<div class="row" style="justify-content: center;" >
+<div class="content col-md-8">
+<h2 class="section-title">Lista de eventos</h2>
+<br>
+<br>
+<div class="row"> 
+{% for evento in eventos_lista %}
+<div class="family">
+<a href="{% url 'evento' evento.pk %}">
+<img src="{{ evento.foto.url }}" alt="" class="family-image" style="height: 200px;">
+<h3 class="family-name"><i class="fas fa-bible"></i> {{evento.nome}}</h3>
+</a>
 </div>
-
+{% endfor %}
+</div>
+</div>
+</div>
+<!-- paage simple -->
+<div class="pagination" style="display: flex; justify-content: center; align-items: baseline;">
+<div >
+{% if eventos_lista.has_previous %}
+<a href="?p={{ eventos_lista.previous_page_number }}">previous</a>
+{% endif %}
+</div>
+&nbsp
+&nbsp
+<nav aria-label="Page navigation exemple">
+<ul class="pagination">
+{% for pagina in eventos_lista.paginator.page_range %}
+{% if eventos_lista.number == pagina %}
+<li class="page-item active"><a class="page-link" href="?p={{ pagina }}">
+{{pagina}}</a>
+</li>
+{% else %}
+<li class="page-item"><a class="page-link" href="?p={{ pagina }}">
+{{pagina}}</a></li>
+{% endif %}
+{% endfor %}
+</ul>
+</nav>
+&nbsp
+&nbsp
+<div>
+{% if eventos_lista.has_next %}
+<a href="?p={{ eventos_lista.next_page_number }}">next</a>
+{% endif %}
+</span>
+</div>
+<!-- endpage -->
+</div>
+</div>
+</main> <!-- .main-content -->
+</div>
 {% endblock %}
 {% block script %}
-        <script src="{% static 'js/jquery.js' %}"></script>
-        <script src="{% static 'js/funcoes.ajax.js' %}"></script>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/funcoes.ajax.js' %}"></script>
 {% endblock %}

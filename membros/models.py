@@ -17,5 +17,8 @@ class Jovens(models.Model):
         verbose_name = 'Jovem'
         verbose_name_plural = 'Jovens'
 
+    def __repr__(self):
+        return f'Jovem: {self.nome}'
+
     def __str__(self):
-        return self.nome
+        return f'Jovem: {self.nome}'

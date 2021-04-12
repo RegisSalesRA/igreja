@@ -1,71 +1,64 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block context %}
-
-
 <main class="main-content">
-    <div class="fullwidth-block">
-        <div class="container">
-            <div class="row" style="justify-content: center;" >
-                <div class="content col-md-8">
-                    <h2 class="section-title">Lista de novidades</h2>
-                    <br>
-                    <br>
-                    <div class="row">
-                       
-                        {% for novidade in novidades %}
-                        <div class="family">
-                            <a href="{% url 'novidade' novidade.pk %}">
-                            <img src="{{ novidade.foto.url }}" alt="" class="family-image" style="height: 200px;">
-                            <h3 class="family-name"><i class="fas fa-newspaper"></i> {{novidade.nome}}</h3>
-                            </a>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-        </div>
-            
-            <!-- paage simple -->
-                <div class="pagination" style="display: flex; justify-content: center; align-items: baseline;">
-                    <div >
-                    {% if novidades.has_previous %}
-                        <a href="?p={{ novidades.previous_page_number }}">previous</a>
-                    {% endif %}
-                   </div>
-                   &nbsp
-                   &nbsp
-                    <nav aria-label="Page navigation exemple">
-                        <ul class="pagination">
-                            {% for pagina in novidades.paginator.page_range %}
-                            {% if novidades.number == pagina %}
-                            <li class="page-item active"><a class="page-link" href="?p={{ pagina }}">
-                                {{pagina}}</a>
-                            </li>
-                            {% else %}
-                            <li class="page-item"><a class="page-link" href="?p={{ pagina }}">
-                                {{pagina}}</a></li>
-                            {% endif %}
-                           {% endfor %}
-                        </ul>
-                    </nav>
-                    &nbsp
-                    &nbsp
-                <div>
-                    {% if novidades.has_next %}
-                        <a href="?p={{ novidades.next_page_number }}">next</a>
-                    {% endif %}
-                </span>
-            </div>
-            <!-- endpage -->
-
-        </div>
-    </div>
-</main> <!-- .main-content -->
-
+<div class="fullwidth-block">
+<div class="container">
+<div class="row" style="justify-content: center;" >
+<div class="content col-md-8">
+<h2 class="section-title">Lista de novidades</h2>
+<br>
+<br>
+<div class="row">   
+{% for novidade in novidades %}
+<div class="family">
+<a href="{% url 'novidade' novidade.pk %}">
+<img src="{{ novidade.foto.url }}" alt="" class="family-image" style="height: 200px;">
+<h3 class="family-name"><i class="fas fa-newspaper"></i> {{novidade.nome}}</h3>
+</a>
 </div>
-
+{% endfor %}
+</div>
+</div>
+</div>
+<!-- paage simple -->
+<div class="pagination" style="display: flex; justify-content: center; align-items: baseline;">
+<div >
+{% if novidades.has_previous %}
+<a href="?p={{ novidades.previous_page_number }}">previous</a>
+{% endif %}
+</div>
+&nbsp
+&nbsp
+<nav aria-label="Page navigation exemple">
+<ul class="pagination">
+{% for pagina in novidades.paginator.page_range %}
+{% if novidades.number == pagina %}
+<li class="page-item active"><a class="page-link" href="?p={{ pagina }}">
+{{pagina}}</a>
+</li>
+{% else %}
+<li class="page-item"><a class="page-link" href="?p={{ pagina }}">
+{{pagina}}</a></li>
+{% endif %}
+   {% endfor %}
+</ul>
+</nav>
+&nbsp
+&nbsp
+<div>
+{% if novidades.has_next %}
+<a href="?p={{ novidades.next_page_number }}">next</a>
+{% endif %}
+</span>
+</div>
+<!-- endpage -->
+</div>
+</div>
+</main> <!-- .main-content -->
+</div>
 {% endblock %}
 {% block script %}
-        <script src="{% static 'js/jquery.js' %}"></script>
-        <script src="{% static 'js/funcoes.ajax.js' %}"></script>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/funcoes.ajax.js' %}"></script>
 {% endblock %}

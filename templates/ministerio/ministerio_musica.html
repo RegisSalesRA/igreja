@@ -2,96 +2,87 @@
 {% load static %}
 {% block context %}
 <main class="main-content">
-    <div class="fullwidth-block">
-        <div class="container">
-            <div class="row">
-                <div class="content col-md-8">
-                    <h2 class="section-title">Ministerio de Musica</h2>
-                    <br>
-                    <br>
-                    <div class="row">
-                        {% if celula_musica %}
-                        {% for celula in celula_musica %}
-                        <div class="family">
-                            <a href="{% url 'celula_ministerio_musica_detail' igreja.id celula.id %}">
-                                <h3 class="family-name"><i class="fas fa-church"></i> {{celula.nome}}</h3>
-                                <img src="{{celula.foto.url}}" alt="" class="family-image" style="height: 200px;">
-                                <h3 class="family-name"><i class="fas fa-user"></i> Responsavel: {{celula.lider}}</h3>
-                                <small>Ministerio: {{celula.ministerio}}</small>
-                            </a>
-                        </div>
-                        {% endfor %}
-                        {% else %}
-                        <div>
-                            <h1>Nenhuma celula de musica registrada</h1>
-                        </div>
-                        {% endif %}
-                    </div>
-             
-                </div>
-
-            <!-- Sidebar -->
-            <div class="sidebar col-md-3 col-md-offset-1" style="display: inline-block;">
-            
-            
-                <div style="display: flex; justify-content: center;">
-                <h3>Categorias</h3>
-                </div>
-    
-                <div style="align-items: center;">        
-                <ul class="arrow">
-                <a href="{% url 'celula_oracao' igreja.id %}"><li>Oracao</li></a>
-                <a href="{% url 'celula_musica' igreja.id %}"><li>Musica</li></a>
-                <a href="{% url 'celula_integracao' igreja.id %}"><li>Integracao</li></a>
-                <a href="{% url 'celula_estudo' igreja.id %}"><li>Estudo biblico</li></a>
-                </ul>
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 40px;">
-                <a href="{% url 'celulas' igreja.id %}" class="button">Ver todas as celulas</a>
-                </div>
-            </div>
-                </div>
-            <!-- Sidebar -->    
-                              <!-- paage simple -->
-                              <div class="pagination" style="display: flex; justify-content: center; align-items: baseline;">
-                                <div >
-                                {% if celula_musica.has_previous %}
-                                    <a href="?p={{ celula_musica.previous_page_number }}">previous</a>
-                                {% endif %}
-                               </div>
-                               &nbsp
-                               &nbsp
-                                <nav aria-label="Page navigation exemple">
-                                    <ul class="pagination">
-                                        {% for pagina in celula_musica.paginator.page_range %}
-                                        {% if celula_musica.number == pagina %}
-                                        <li class="page-item active"><a class="page-link" href="?p={{ pagina }}">
-                                            {{pagina}}</a>
-                                        </li>
-                                        {% else %}
-                                        <li class="page-item"><a class="page-link" href="?p={{ pagina }}">
-                                            {{pagina}}</a></li>
-                                        {% endif %}
-                                       {% endfor %}
-                                    </ul>
-                                </nav>
-                                &nbsp
-                                &nbsp
-                            <div>
-                                {% if celula_musica.has_next %}
-                                    <a href="?p={{ celula_musica.next_page_number }}">next</a>
-                                {% endif %}
-                            </span>
-                        </div>
-                        <!-- endpage -->       
-        </div>
-        </div>
-    </div>
-    
+<div class="fullwidth-block">
+<div class="container">
+<div class="row">
+<div class="content col-md-8">
+<h2 class="section-title">Ministerio de Musica</h2>
+<br>
+<br>
+<div class="row">
+{% if celula_musica %}
+{% for celula in celula_musica %}
+<div class="family">
+<a href="{% url 'celula_ministerio_musica_detail' igreja.id celula.id %}">
+<h3 class="family-name"><i class="fas fa-church"></i> {{celula.nome}}</h3>
+<img src="{{celula.foto.url}}" alt="" class="family-image" style="height: 200px;">
+<h3 class="family-name"><i class="fas fa-user"></i> Responsavel: {{celula.lider}}</h3>
+<small>Ministerio: {{celula.ministerio}}</small>
+</a>
+</div>
+{% endfor %}
+{% else %}
+<div>
+<h1>Nenhuma celula de musica registrada</h1>
+</div>
+{% endif %}
+</div>
+</div>
+<!-- Sidebar -->
+<div class="sidebar col-md-3 col-md-offset-1" style="display: inline-block;">
+<div style="display: flex; justify-content: center;">
+<h3>Categorias</h3>
+</div>
+<div style="align-items: center;">
+<ul class="arrow">
+<a href="{% url 'celula_oracao' igreja.id %}"><li>Oracao</li></a>
+<a href="{% url 'celula_musica' igreja.id %}"><li>Musica</li></a>
+<a href="{% url 'celula_integracao' igreja.id %}"><li>Integracao</li></a>
+<a href="{% url 'celula_estudo' igreja.id %}"><li>Estudo biblico</li></a>
+</ul>
+</div>
+<div style="display: flex; justify-content: center; margin-top: 40px;">
+<a href="{% url 'celulas' igreja.id %}" class="button">Ver todas as celulas</a>
+</div>
+</div>
+</div>
+<!-- Sidebar -->
+  <!-- paage simple -->
+  <div class="pagination" style="display: flex; justify-content: center; align-items: baseline;">
+<div >
+{% if celula_musica.has_previous %}
+<a href="?p={{ celula_musica.previous_page_number }}">previous</a>
+{% endif %}
+</div>
+&nbsp
+&nbsp
+<nav aria-label="Page navigation exemple">
+<ul class="pagination">
+{% for pagina in celula_musica.paginator.page_range %}
+{% if celula_musica.number == pagina %}
+<li class="page-item active"><a class="page-link" href="?p={{ pagina }}">
+{{pagina}}</a>
+</li>
+{% else %}
+<li class="page-item"><a class="page-link" href="?p={{ pagina }}">
+{{pagina}}</a></li>
+{% endif %}
+{% endfor %}
+</ul>
+</nav>
+&nbsp
+&nbsp
+<div>
+{% if celula_musica.has_next %}
+<a href="?p={{ celula_musica.next_page_number }}">next</a>
+{% endif %}
+</span>
+</div>
+<!-- endpage -->
+</div>
+</div>
+</div>
 </main> <!-- .main-content -->
-
-
 {% endblock %}
 {% block script %}
-
 {% endblock %}

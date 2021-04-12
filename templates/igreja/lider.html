@@ -2,38 +2,35 @@
 {% load static %}
 {% block context %}
 <main class="main-content">
-    <div class="fullwidth-block">
-        <div class="container">
-            <div class="row" style="justify-content: center;">
-
-                <div class="content col-md-8">
-                    <div class="card mb-3">
-                        <img
-                          src="{{lider.foto.url}}"
-                          style="height: 500px;"
-                          class="card-img-top"
-                          alt="..."
-                        />
-                        <div class="card-body">
-                          <h1><i class="fas fa-church"></i> Igreja: {{lider.igreja}}</h1>
-                          <h5 class="card-title"><i class="fas fa-user"></i> Lider: {{lider.nome}}</h5>
-                          <br>
-                          <p class="card-text"><i class="fas fa-pencil-alt"></i> Descricao: {{lider.descricao}}</p>
-                          <p class="card-text">
-                            <small class="text-muted"><i class="fas fa-phone-alt"></i> Contato: {{lider.contato}}</small>
-                          </p>
-                        </div>  
-                    </div>
-                </div>
-        </div>
-        </div>
-    </div>
-</main> <!-- .main-content -->
-
+<div class="fullwidth-block">
+<div class="container">
+<div class="row" style="justify-content: center;">
+<div class="content col-md-8">
+<div class="card mb-3">
+<img
+src="{{lider.foto.url}}"
+style="height: 500px;"
+class="card-img-top"
+alt="..."
+/>
+<div class="card-body">
+<h1><i class="fas fa-church"></i> Igreja: {{lider.igreja}}</h1>
+<h5 class="card-title"><i class="fas fa-user"></i> Lider: {{lider.nome}}</h5>
+<br>
+<p class="card-text"><i class="fas fa-pencil-alt"></i> Descricao: {{lider.descricao}}</p>
+<p class="card-text">
+<small class="text-muted"><i class="fas fa-phone-alt"></i> Contato: {{lider.contato}}</small>
+</p>
 </div>
-
+</div>
+</div>
+</div>
+</div>
+</div>
+</main> <!-- .main-content -->
+</div>
 {% endblock %}
 {% block script %}
-        <script src="{% static 'js/jquery.js' %}"></script>
-        <script src="{% static 'js/funcoes.ajax.js' %}"></script>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/funcoes.ajax.js' %}"></script>
 {% endblock %}

@@ -1,67 +1,66 @@
 {% extends 'dashboard/dashboard.html' %}
-
 {% block context %}
 <center>
-  <div>
-    Clique aqui para adicionar: <a href="{% url 'dashboard_lideres_create' %}" class="btn btn-success">Adicionar</a>
-  </div>
-  </center>
-  <br><br><br>
+<div>
+Clique aqui para adicionar: <a href="{% url 'dashboard_lideres_create' %}" class="btn btn-success">Adicionar</a>
+</div>
+</center>
+<br><br><br>
 <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Igreja</th>
-        <th scope="col">Lider</th>
-        <th scope="col">Acoes</th>
-      </tr>
-    </thead>
+<thead class="thead-dark">
+<tr>
+<th scope="col">Igreja</th>
+<th scope="col">Lider</th>
+<th scope="col">Acoes</th>
+</tr>
+</thead>
 
-    <tbody>
-      {% for lider in lideres %}
-      <tr>
-        <th scope="row">{{lider.igreja}}</th>
-        <td>{{lider.nome}}</td>
-        <td>
-          <a href="{% url 'dashboard_lideres_update' lider.id %}" class="btn btn-warning">Editar</a>
-          <a href="{% url 'dashboard_lideres_delete' lider.id %}" class="btn btn-danger">Deletar</a> 
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-  
-    </tbody>
-  </table>
-        <!-- paage simple -->
-        <div class="pagination" style="display: flex; justify-content: center; align-items: baseline;">
-          <div >
-          {% if lideres.has_previous %}
-              <a href="?p={{ lideres.previous_page_number }}">previous</a>
-          {% endif %}
-         </div>
-         &nbsp
-         &nbsp
-          <nav aria-label="Page navigation exemple">
-              <ul class="pagination">
-                  {% for pagina in lideres.paginator.page_range %}
-                  {% if lideres.number == pagina %}
-                  <li class="page-item active"><a class="page-link" href="?p={{ pagina }}">
-                      {{pagina}}</a>
-                  </li>
-                  {% else %}
-                  <li class="page-item"><a class="page-link" href="?p={{ pagina }}">
-                      {{pagina}}</a></li>
-                  {% endif %}
-                 {% endfor %}
-              </ul>
-          </nav>
-          &nbsp
-          &nbsp
-      <div>
-          {% if lideres.has_next %}
-              <a href="?p={{ lideres.next_page_number }}">next</a>
-          {% endif %}
-      </span>
-  </div>
-  <!-- endpage -->
+<tbody>
+{% for lider in lideres %}
+<tr>
+<th scope="row">{{lider.igreja}}</th>
+<td>{{lider.nome}}</td>
+<td>
+<a href="{% url 'dashboard_lideres_update' lider.id %}" class="btn btn-warning">Editar</a>
+<a href="{% url 'dashboard_lideres_delete' lider.id %}" class="btn btn-danger">Deletar</a> 
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+</tbody>
+</table>
+<!-- paage simple -->
+<div class="pagination" style="display: flex; justify-content: center; align-items: baseline;">
+<div >
+{% if lideres.has_previous %}
+<a href="?p={{ lideres.previous_page_number }}">previous</a>
+{% endif %}
+ </div>
+ &nbsp
+ &nbsp
+<nav aria-label="Page navigation exemple">
+<ul class="pagination">
+{% for pagina in lideres.paginator.page_range %}
+{% if lideres.number == pagina %}
+<li class="page-item active"><a class="page-link" href="?p={{ pagina }}">
+{{pagina}}</a>
+</li>
+{% else %}
+<li class="page-item"><a class="page-link" href="?p={{ pagina }}">
+{{pagina}}</a></li>
+{% endif %}
+ {% endfor %}
+</ul>
+</nav>
+&nbsp
+&nbsp
+<div>
+{% if lideres.has_next %}
+<a href="?p={{ lideres.next_page_number }}">next</a>
+{% endif %}
+</span>
+</div>
+<!-- endpage -->
 {% endblock %}

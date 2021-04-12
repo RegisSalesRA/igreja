@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Eventos(models.Model):
 
     foto = models.ImageField(upload_to='eventos',null=True, blank=True)
@@ -18,7 +17,10 @@ class Eventos(models.Model):
         verbose_name_plural = 'Eventos'
     
     def __str__(self):
-        return self.nome
+        return f'Eventos: {self.nome}'
+
+    def __repr__(self):
+        return f'Eventos: {self.nome}'
 
 
 class Cultos(models.Model):
@@ -38,7 +40,11 @@ class Cultos(models.Model):
         verbose_name_plural = 'Cultos'
 
     def __str__(self):
-        return self.tema
+        return f'Culto: {self.nome}'
+
+
+    def __repr__(self):
+        return f'Culto: {self.nome}'
 
 class Novidades(models.Model):
 
@@ -56,4 +62,9 @@ class Novidades(models.Model):
         verbose_name_plural = 'Novidades'
     
     def __str__(self):
-        return self.nome    
+        return f'Novidade: {self.nome}'
+
+
+    def __repr__(self):
+        return f'Novidade: {self.nome}'
+   

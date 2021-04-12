@@ -2,40 +2,39 @@
 {% load static %}
 {% block context %}
 <main class="main-content">
-    <div class="fullwidth-block">
-        <div class="container">
-            <div class="row" style="justify-content: center;">
-
-              <div class="content col-md-8">
-                    <div class="card mb-3">
-                        <img
-                          src="{{celula_estudo.foto.url}}"
-                          style="height: 500px;"
-                          class="card-img-top"
-                          alt="..."
-                        />
-                        <div class="card-body">
-                          <h2><i class="fas fa-user"></i> Lider: {{celula_estudo.lider}}</h2>
-                          <h5 class="card-title"><i class="fas fa-church"></i> Nome do grupo: {{celula_estudo.nome}}</h5>
-                          <br>
-                          <p class="card-text"><i class="fas fa-pencil-alt"></i> Descricao: {{celula_estudo.descricao}}
-                          </p>
-                          <p class="card-text">
-                            <small class="text-muted"><i class="fas fa-phone-alt"></i> Contato: {{celula_estudo.contato}}</small>
-                          </p>
-                        </div>  
-                    </div>
-                </div>
-                <div class="text-center">
-                  <a href="{% url 'jovens_ministerio_estudo' igreja.id celula_estudo.id %}" class="button">Confira os jovens dessa celula</a>
-                </div>
-        </div>
-        </div>
-    </div>
+  <div class="fullwidth-block">
+  <div class="container">
+    <div class="row" style="justify-content: center;">
+<div class="content col-md-8">
+ <div class="card mb-3">
+   <img
+   src="{{celula_estudo.foto.url}}"
+     style="height: 500px;"
+   class="card-img-top"
+  alt="..."
+  />
+ <div class="card-body">
+  <h2><i class="fas fa-user"></i> Lider: {{celula_estudo.lider}}</h2>
+ <h5 class="card-title"><i class="fas fa-church"></i> Nome do grupo: {{celula_estudo.nome}}</h5>
+ <br>
+  <p class="card-text"><i class="fas fa-pencil-alt"></i> Descricao: {{celula_estudo.descricao}}
+  </p>
+  <p class="card-text">
+  <small class="text-muted"><i class="fas fa-phone-alt"></i> Contato: {{celula_estudo.contato}}</small>
+  </p>
+  </div>  
+ </div>
+  </div>
+  <div class="text-center">
+ <a href="{% url 'jovens_ministerio_estudo' igreja.id celula_estudo.id %}" class="button">Confira os jovens dessa celula</a>
+  </div>
+ </div>
+  </div>
+ </div>
 </main> <!-- .main-content -->
 </div>
 {% endblock %}
 {% block script %}
-        <script src="{% static 'js/jquery.js' %}"></script>
-        <script src="{% static 'js/funcoes.ajax.js' %}"></script>
+<script src="{% static 'js/jquery.js' %}"></script>
+ <script src="{% static 'js/funcoes.ajax.js' %}"></script>
 {% endblock %}

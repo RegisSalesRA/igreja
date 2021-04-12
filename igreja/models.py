@@ -26,10 +26,10 @@ class Igreja(models.Model):
         verbose_name_plural = 'Igrejas'
     
     def __str__(self):
-        return self.nome
+        return f'Igreja: {self.nome}'
 
     def __repr__(self):
-        return self.nome
+        return f'Igreja: {self.nome}'
 
 class Lideres(models.Model):
     foto = models.ImageField(upload_to='lideres', blank=True, null=True)
@@ -47,7 +47,10 @@ class Lideres(models.Model):
         verbose_name_plural = 'Lideres'
 
     def __str__(self):
-        return self.nome
+        return f'Lider: {self.nome}'
+
+    def __repr__(self):
+        return f'Lider: {self.nome}'
 
 class Ministerio(models.Model):
     MUSICA = 'Musica'
@@ -71,9 +74,11 @@ class Ministerio(models.Model):
         verbose_name = 'Ministerio'
         verbose_name_plural = 'Ministerios'
 
-    def __str__(self):
-        return self.ministerio
+    def __repr__(self):
+        return f'Ministerio: {self.ministerio}'
 
+    def __str__(self):
+        return f'Ministerio: {self.ministerio}'
 
 class Celula(models.Model):
     foto = models.ImageField(upload_to='celulas', blank=True, null=True)
@@ -98,4 +103,8 @@ class Celula(models.Model):
         verbose_name_plural = 'Celulas'
 
     def __str__(self):
-        return self.nome
+        return f'Celula: {self.nome}'
+
+
+    def __repr__(self):
+        return f'Celula: {self.nome}'
