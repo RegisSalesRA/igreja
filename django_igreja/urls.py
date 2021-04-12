@@ -17,16 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from membros.urls import Membros
 
 urlpatterns = [
-    path('v1/', include(Membros.urls)),    
+    path('api_jovens/', include('membros.urls')),
     path('admin/', admin.site.urls),
     path('', include('igreja.urls')),
     path('mocidade/', include('membros.urls')),
     path('eventos/', include('eventos.urls')),
     path('users/', include('users.urls')),
-    
+
 ]
 
 if settings.DEBUG:

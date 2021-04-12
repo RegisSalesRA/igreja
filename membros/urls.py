@@ -1,27 +1,17 @@
-from django.urls import path
+from django.urls import path,include,re_path
 from membros.views.views import jovem, jovens, jovensForm, jovenUpdate, jovemDelete, mocidade, mocidadelista
 from membros.views.filter import filtrocategoria, categoriafiltro,jovem_search,jovens_ministerio_musica,jovens_ministerio_integracao,jovens_ministerio_estudo,jovens_ministerio_oracao
 from membros.views.crud import (dashboard_jovens,dashboard_jovens_create,dashboard_jovens_delete,dashboard_jovens_update)
-from membros.views.views import JovensView
+#from membros.views.views import JovensView
 
 from rest_framework.routers import SimpleRouter
 
-
-Membros = SimpleRouter()
-Membros.register('jovens', JovensView)
-
-
-
-
-
-
-
-
-
-
-
+#Membros = SimpleRouter()
+#Membros.register('jovens', JovensView)
 
 urlpatterns = [
+
+    path('v1/', include('membros.api.v1.urls.jovens_urls')),
 
     path('jovens/', jovens, name='jovens'),
     path('jovem/<int:jovem_id>', jovem, name='jovem'),

@@ -83,10 +83,10 @@ def mocidadelista(request,igreja_id):
 from rest_framework import viewsets
 from rest_framework import status
 from rest_framework.response import Response
-from membros.api.serializers import JovensSerializer
+# from membros.api.serializers import JovensSerializer
 from membros.models import Jovens
 # Create your views here.
+#class JovensView(viewsets.ModelViewSet):
+ #   queryset = Jovens.objects.all()
+  #  serializer_class = JovensSerializer
 
-class JovensView(viewsets.ModelViewSet):
-    queryset = Jovens.objects.all()
-    serializer_class = JovensSerializer
